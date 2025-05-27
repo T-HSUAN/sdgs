@@ -1,0 +1,41 @@
+@use "../helpers/variable" as *;
+
+/* font size */
+.text-l {
+  font-size: $p1;
+}
+
+.text-m {
+  font-size: $p2;
+}
+
+.text-s {
+  font-size: $p3;
+}
+
+.text-xs {
+  font-size: $p4;
+}
+
+/* text alignment */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-flex-row {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-flex-column {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

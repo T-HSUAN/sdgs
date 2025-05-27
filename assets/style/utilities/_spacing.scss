@@ -1,0 +1,94 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+@use "sass:map";
+
+/* Margin and Padding and gap */
+@each $breakpoint in map.keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-up($breakpoint) {
+    /* Margin and Padding */
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $percent in $spacing-values {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $percent;
+        }
+
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $percent;
+        }
+
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $percent;
+        }
+
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $percent;
+        }
+
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $percent;
+        }
+      }
+
+      @for $n from 1 through 15 {
+        .#{$abbrev}#{$infix}-sp#{$n} {
+          #{$prop}: #{8px * $n};
+        }
+
+        .#{$abbrev}t#{$infix}-sp#{$n},
+        .#{$abbrev}y#{$infix}-sp#{$n} {
+          #{$prop}-top: #{8px * $n};
+        }
+
+        .#{$abbrev}r#{$infix}-sp#{$n},
+        .#{$abbrev}x#{$infix}-sp#{$n} {
+          #{$prop}-right: #{8px * $n};
+        }
+
+        .#{$abbrev}b#{$infix}-sp#{$n},
+        .#{$abbrev}y#{$infix}-sp#{$n} {
+          #{$prop}-bottom: #{8px * $n};
+        }
+
+        .#{$abbrev}l#{$infix}-sp#{$n},
+        .#{$abbrev}x#{$infix}-sp#{$n} {
+          #{$prop}-left: #{8px * $n};
+        }
+      }
+    }
+
+    /* gap */
+    @for $n from 1 through 15 {
+      .gap#{$infix}-#{$n} {
+        gap: #{8px * $n};
+      }
+    }
+
+    /* Some special margin utils */
+
+    /* .m#{$infix}-auto {
+      margin: auto;marginmargin
+    }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto;
+    }
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto;
+    }
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto;
+    }
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto;
+    } */
+  }
+}

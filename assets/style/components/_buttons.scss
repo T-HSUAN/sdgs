@@ -1,0 +1,92 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+
+.btn {
+  font-size: $p3;
+  cursor: pointer;
+}
+
+.btn-white {
+  color: $fc-primary;
+  border: 1px solid $bgc-secondary;
+
+  &:hover {
+    color: $fc-third;
+    background: $bgc-secondary;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.btn-more {
+  padding: $sp1 $sp5;
+  border-radius: 25px;
+}
+
+.btn-page {
+  &:hover {
+    transform: scale(1.5);
+    color: $fc-primary;
+  }
+}
+
+.btn-card {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.btn-close {
+  width: 100%;
+  max-width: 40px;
+  max-height: 40px;
+  aspect-ratio: 1;
+  color: $fc-primary;
+  border: 1px solid $bgc-secondary;
+  border-radius: 50%;
+}
+
+// phone menu switch
+.hamburger {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 998;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 25px;
+    height: 4px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &::before {
+    top: 5px;
+    box-shadow: 0 18px white;
+  }
+
+  &::after {
+    bottom: 14px;
+  }
+}
+
+.menu-active {
+  &::before {
+    top: 15.5px;
+    transform: rotate(225deg);
+    box-shadow: none;
+  }
+
+  &::after {
+    bottom: 12.5px;
+    transform: rotate(135deg);
+  }
+}

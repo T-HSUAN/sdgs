@@ -1,0 +1,29 @@
+@use "../helpers/variable" as *;
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.active {
+  color: $fc-primary !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.blur {
+  backdrop-filter: blur(5px);
+}

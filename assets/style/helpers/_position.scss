@@ -1,0 +1,54 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+@use "sass:map";
+
+/* position */
+@each $breakpoint in map.keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    // 定義 position 的工具類別
+    @each $pos in (static, relative, absolute, fixed, sticky) {
+      .pos#{$infix}-#{$pos} {
+        position: $pos;
+      }
+    }
+
+    // 定義 top/right/bottom/left 的工具類別
+    @each $direction in (top, right, bottom, left) {
+      @each $size, $value in $spacing-values {
+        .#{$direction}#{$infix}-#{$size} {
+          #{$direction}: $value;
+        }
+      }
+
+      // 定義 auto 的特別工具類別
+      .#{$direction}#{$infix}-auto {
+        #{$direction}: auto;
+      }
+    }
+
+    // 定義 置中
+    .mid#{$infix} {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mid-x#{$infix} {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mid-y#{$infix} {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@for $n from 1 through 15 {
+  .z-index-#{$n} {
+    z-index: $n;
+  }
+}

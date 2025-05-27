@@ -1,0 +1,14 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+
+/* background */
+
+/* image */
+.img-arr {
+  &--style1 {
+    @include media-min($tab-max) {
+      border-radius: 5px;
+      overflow: hidden;
+    }
+  }
+}

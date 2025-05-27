@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="https://fakeimg.pl/300x200/200">
+</body>
+
+</html>
+//第一版index
+<!-- <template lang="pug">
+  header
+    img#logo(src="https://fakeimg.pl/50x50", alt="logo")
+    //- img#logo(src="assets/images/logo.svg", alt="logo")
+    .menu-bar
+      nav.menu
+        a(href="#") SDGs十周年
+        a(href="#") 聯合國進程
+        a(href="#") 台灣蛋糕層
+        a(href="#") 文稿3篇
+        a(href="#") 永續好企業
+
+  section.hero
+    hgroup.title-group
+      h1.title 
+        span SDGs十周年
+        br
+        | 找回我們失去的進度
+      p.title-en Reclaiming Our Lost Progress
+      img(src="https://fakeimg.pl/1920x1080", alt="main visual")
+    //- img.symbol(src="assets/images/symbol.svg", alt="symbol")
+    .scroll-guidance
+      p.text scroll
+      span.line
+
+    //- HeroImg
+  //-   .menu-bar
+  //-     nav.menu(v-if="showMenu")
+  //-       a(href="#") SDGs十周年
+  //-       a(href="#") 聯合國進程
+  //-       a(href="#") 台灣蛋糕層
+  //-       a(href="#") 文稿3篇
+  //-       a(href="#") 永續好企業
+  //-     .scroll-guidance(v-else)
+  //-       p.text scroll
+  //-       span.line
+  //- Global
+</template>
+<script setup>
+const showMenu = ref(false);
+onMounted(() => {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 250) {
+      showMenu.value = true;
+      document.querySelector('.menu-bar').classList.add('active');
+    } else {
+      showMenu.value = false;
+      document.querySelector('.menu-bar').classList.remove('active');
+    }
+  });
+});
+</script>
+
+<style lang="scss" scoped>
+header {
+  position: relative;
+
+  #logo {
+    transform: translateY(130%);
+  }
+
+  .title-group {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    .title span {
+      font-size: $h1;
+      font-weight: 300;
+    }
+
+    .symbol {
+      width: clamp(30px, 3vw, 53px);
+      margin-top: $sp4;
+    }
+  }
+
+  // menu2
+  // .menu-bar {
+  //   height: 100px;
+  //   text-align: center;
+  // }
+
+  // .menu-bar.active {
+  //   animation: scale 0.8s ease;
+  // }
+
+  // .menu {
+  //   transform: translateY(-200%);
+  //   display: inline-block;
+  //   text-align: center;
+  //   border: 1px solid rgb(255 255 255 / 50%);
+  //   border-radius: 10px;
+
+  //   a {
+  //     display: inline-block;
+  //     margin: $sp1 $sp3;
+  //   }
+  // }
+
+  .scroll-guidance {
+    height: 100px;
+
+    .text {
+      font-size: $p1;
+      color: #e7e7e7;
+    }
+
+    .line {
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      margin-top: $sp1;
+      background: white;
+      text-shadow: 0 0 20px white;
+      animation: scrollLine 2s ease-in infinite;
+    }
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    height: 60px;
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+</style> -->

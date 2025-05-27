@@ -1,0 +1,108 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+
+/* section */
+.hero {
+  padding-inline: 4%;
+}
+
+.topic {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-block: 10%;
+  padding-inline: 4%;
+  gap: $sp2;
+
+  @include media-min($tab-min) {
+    padding-inline: 10.33%;
+    gap: $sp3;
+  }
+
+  @include media-min($tab-max) {
+    padding-inline: 16.66%;
+    gap: $sp4;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  margin: 0;
+  background: $bgc-primary;
+  z-index: 9999;
+
+  @include media-min($tab-max) {
+    padding-top: 105px;
+  }
+}
+
+/* container */
+.container {
+  width: 100%;
+}
+
+.gsap-scroll-hero {
+  height: 400vh;
+}
+
+[class^="hero-part"] {
+  width: 100%;
+  height: 100vh;
+}
+
+/* inline container */
+.gsap-scroll-cakes {
+  height: calc(100vh - 105px);
+}
+
+/* inline */
+.inline {
+  width: 100%;
+  height: 100%;
+
+  .inline-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: $sp2;
+
+    @include media-min($mob-max) {
+      gap: $sp3;
+    }
+
+    @include media-min($tab-max) {
+      gap: 28px;
+    }
+  }
+
+  .inline-image {
+    width: 100%;
+    pointer-events: none;
+  }
+}
+
+[class^="cake-text-part"] {
+  @include media-min($tab-max) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $sp3;
+    width: 100%;
+    height: calc(100vh - 105px);
+  }
+}
+
+/* 
+section
+  container
+    part
+      header
+        h1
+      inline
+        inline-text
+        inline-image
+*/

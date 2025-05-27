@@ -1,0 +1,88 @@
+@use "../helpers/variable" as *;
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap";
+
+html {
+  background: $bgc-primary;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  line-height: 1.6;
+  font-family: "Noto Sans TC", sans-serif;
+  color: $fc-primary;
+}
+
+header {
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+}
+
+main {
+  position: relative;
+  max-width: $desk-max;
+  margin: auto;
+  overflow: hidden;
+}
+
+section {
+  overflow: hidden;
+}
+
+hgroup {
+  text-align: center;
+}
+
+h1 {
+  font-size: $h1;
+  letter-spacing: 1rem;
+}
+
+h2 {
+  font-size: $h2;
+}
+
+h3 {
+  font-size: $h3;
+}
+
+h4 {
+  font-size: $h4;
+}
+
+h5 {
+  font-size: $h5;
+}
+
+h6 {
+  font-size: $h6;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: $fc-primary;
+}
+
+p,
+dd,
+li {
+  font-size: clamp(16px, 1.5vw, 18px);
+}
+
+dt,
+ul,
+ol {
+  font-size: clamp(20px, 2vw, 24px);
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  background: none;
+}

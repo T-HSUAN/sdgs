@@ -1,0 +1,63 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+@use "sass:map";
+@use "sass:list";
+
+@each $breakpoint in map.keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    // ➤ 顯示 flex 的工具 class
+    .d-flex#{$infix} {
+      display: flex;
+    }
+    .d-inline-flex#{$infix} {
+      display: inline-flex;
+    }
+  }
+}
+
+@each $utility-name, $fconfig in $flexs {
+  $responsive: map.get($fconfig, responsive);
+  $property: map.get($fconfig, property);
+  $values: map.get($fconfig, values);
+  $fclass: if(
+    map.has-key($fconfig, class),
+    map.get($fconfig, class),
+    $utility-name
+  );
+
+  @each $breakpoint in map.keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      @if type-of($values) == "map" {
+        @each $key, $val in $values {
+          .#{$fclass}-#{$key}#{$infix} {
+            #{$property}: #{$val};
+          }
+        }
+      } @else if type-of($values) == "list" {
+        @each $val in $values {
+          .#{$fclass}-#{$val}#{$infix} {
+            #{$property}: #{$val};
+          }
+        }
+      }
+    }
+  }
+}
+
+.d-flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

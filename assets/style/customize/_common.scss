@@ -1,0 +1,141 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+@use "sass:map";
+
+/* color */
+@for $i from 1 through 17 {
+  .fc-sdg-#{$i} {
+    color: nth($fc-sdgs, $i);
+  }
+  .bc-sdg-#{$i} {
+    border-color: nth($fc-sdgs, $i);
+  }
+}
+
+.fc-aspect-1 {
+  color: nth($fc-sdgs, 3);
+}
+
+.fc-aspect-2 {
+  color: nth($fc-sdgs, 7);
+}
+
+.fc-aspect-3 {
+  color: nth($fc-sdgs, 10);
+}
+
+.fc-aspect-4 {
+  color: nth($fc-sdgs, 16);
+}
+
+/* img */
+.bg-main-visual {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  aspect-ratio: 3/4;
+  margin: auto;
+  z-index: -1;
+
+  @include media-min($tab-max) {
+    top: $sp9;
+    aspect-ratio: 16/9;
+  }
+}
+
+.img-goals {
+  width: 1282px;
+  height: 804px;
+  margin-top: -360px;
+
+  @include media-min($mob-max) {
+    margin-top: -320px;
+  }
+
+  @include media-min($tab-min) {
+    margin-top: -250px;
+  }
+
+  @include media-min($tab-max) {
+    margin-top: 0;
+  }
+}
+
+.img-goal17 {
+  max-height: 45vh;
+  aspect-ratio: 1282 / 804;
+
+  @include media-min($tab-min) {
+    max-height: 65vh;
+  }
+
+  @include media-min($tab-max) {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    max-height: 90vh;
+  }
+}
+
+.img-cakes {
+  width: 100%;
+  aspect-ratio: 586 / 626;
+}
+
+.img-cake {
+  width: 100%;
+}
+
+.logo-brand {
+  position: relative;
+  bottom: 0;
+}
+
+.img-label {
+  width: 48px;
+  border-radius: 5px;
+}
+
+.icon-plus {
+  position: absolute;
+  right: $sp1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+/* txt */
+.ww-inline-text,
+.wwg-inline-text {
+  @include media-min($tab-max) {
+    max-width: 630px;
+  }
+}
+
+.wwg-inline-text {
+  height: 50% !important;
+}
+
+.virtual-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  z-index: 9999;
+}
+
+.scroll-zone {
+  height: 1700vh;
+}
+
+.scoll-squar {
+  width: 50%;
+  height: 100vh;
+}

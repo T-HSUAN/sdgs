@@ -1,0 +1,61 @@
+@use "../helpers/variable" as *;
+@use "sass:map";
+
+/* layout */
+@mixin width($w) {
+  width: 100%;
+
+  @if $w == 100% {
+    @content;
+  } @else {
+    max-width: $w;
+    margin: auto;
+    @content;
+  }
+}
+
+@mixin media-max($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin media-min($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin media-scope($size, $size2) {
+    @media (min-width: $size) and (max-width: $size2) {
+      @content;
+    }
+
+}
+
+/* breakpoint */
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map.get($breakpoints, $name);
+
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

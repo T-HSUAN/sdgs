@@ -1,0 +1,205 @@
+/* font */
+$h1: clamp(28px, 4vw, 48px);
+$h2: clamp(26px, 3vw, 30px);
+$h3: clamp(22px, 2.6vw, 28px);
+$h4: clamp(18px, 2.4vw, 26px);
+$h5: clamp(16px, 2.3vw, 24px);
+$h6: clamp(14px, 2vw, 22px);
+$p1: clamp(18px, 2vw, 24px);
+$p2: clamp(16px, 1.8vw, 22px);
+$p3: clamp(14px, 1.6vw, 20px);
+$p4: clamp(10px, 1.5vw, 12px);
+
+/* media size */
+$mob-min: 320px;
+$mob-max: 640px;
+$tab-min: 768px;
+$tab-max: 1024px;
+$desk-min: 1200px;
+$desk-max: 1920px;
+$grid-breakpoints: (
+  all: 0,
+  xs: 425px,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+);
+
+/* position */
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+);
+$transform-values: (
+  xy: translate(-50%, -50%),
+  x: translateX(-50%),
+  y: translateY(-50%),
+);
+
+/* spacer */
+$spacer: 8px;
+$sp1: 1 * $spacer;
+$sp2: 2 * $spacer;
+$sp3: 3 * $spacer;
+$sp4: 4 * $spacer;
+$sp5: 5 * $spacer;
+$sp6: 6 * $spacer;
+$sp7: 7 * $spacer;
+$sp8: 8 * $spacer;
+$sp9: 9 * $spacer;
+$sp10: 10 * $spacer;
+$sp11: 11 * $spacer;
+$sp12: 12 * $spacer;
+$sp13: 13 * $spacer;
+$sp14: 14 * $spacer;
+$sp15: 15 * $spacer;
+$spacing-values: (
+  0: 0%,
+  10: 10%,
+  20: 20%,
+  30: 30%,
+  40: 40%,
+  50: 50%,
+  60: 60%,
+  70: 70%,
+  80: 80%,
+  90: 90%,
+  auto: auto,
+);
+$header-heights: (56px 95px 105px);
+
+/* colors */
+$bgc-primary: black;
+$bgc-primary-60: rgb(16 16 16 / 60%);
+$bgc-secondary: white;
+$bgc-secondary-10: rgb(255 255 255 / 10%);
+$fc-primary: white;
+$fc-secondary: #5d5d5d;
+$fc-prompt: #e7e7e7;
+$fc-third: black;
+$fc-sdgs: (
+  #e5243b,
+  #dda63a,
+  #4c9f38,
+  #c5192d,
+  #ff3a21,
+  #26bde2,
+  #fcc30b,
+  #a21942,
+  #fd6925,
+  #dd1367,
+  #fd9d24,
+  #bf8b2e,
+  #3f7e44,
+  #0a97d9,
+  #56c02b,
+  #00689d,
+  #19486a
+);
+$bc-primary: #454545;
+$bc-secondary: #4f4f4f;
+$hvrc-primary: #e5243b;
+
+/* flex */
+$flexs: (
+  "flex": (
+    responsive: true,
+    property: flex,
+    values: (
+      fill: 1 1 auto,
+    ),
+  ),
+  "flex-direction": (
+    responsive: true,
+    property: flex-direction,
+    class: flex,
+    values: row column row-reverse column-reverse,
+  ),
+  "flex-grow": (
+    responsive: true,
+    property: flex-grow,
+    class: flex,
+    values: (
+      grow-0: 0,
+      grow-1: 1,
+    ),
+  ),
+  "flex-shrink": (
+    responsive: true,
+    property: flex-shrink,
+    class: flex,
+    values: (
+      shrink-0: 0,
+      shrink-1: 1,
+    ),
+  ),
+  "flex-wrap": (
+    responsive: true,
+    property: flex-wrap,
+    class: flex,
+    values: wrap nowrap wrap-reverse,
+  ),
+  "justify-content": (
+    responsive: true,
+    property: justify-content,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      between: space-between,
+      around: space-around,
+      evenly: space-evenly,
+    ),
+  ),
+  "align-items": (
+    responsive: true,
+    property: align-items,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    ),
+  ),
+  "align-content": (
+    responsive: true,
+    property: align-content,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      between: space-between,
+      around: space-around,
+      stretch: stretch,
+    ),
+  ),
+  "align-self": (
+    responsive: true,
+    property: align-self,
+    values: (
+      auto: auto,
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    ),
+  ),
+  "order": (
+    responsive: true,
+    property: order,
+    values: (
+      first: -1,
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      last: 6,
+    ),
+  ),
+);

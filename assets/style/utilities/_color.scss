@@ -1,0 +1,29 @@
+@use "../helpers/variable" as *;
+
+.bgc-primary {
+  background: $bgc-primary;
+}
+
+.fc-primary {
+  color: $fc-primary;
+
+  &--hover {
+    color: $hvrc-primary;
+  }
+}
+
+.fc-secondary {
+  color: $fc-secondary;
+}
+
+.fc-prompt {
+  color: $fc-prompt;
+}
+
+.bc-primary {
+  border-color: $bc-primary;
+}
+
+.bc-secondary {
+  border-color: $bc-secondary;
+}

@@ -1,0 +1,91 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  gap: $sp2;
+  border: 1px solid $bc-secondary;
+  border-radius: 5px;
+  overflow: hidden;
+
+  @include media-scope($mob-max, 1023.9px) {
+    gap: $sp3;
+  }
+
+  @include media-min($tab-max) {
+    gap: $sp4;
+  }
+
+  &--row {
+    @include media-min($tab-max) {
+      flex-direction: row;
+      border: none;
+    }
+  }
+
+  &--row-reverse {
+    @include media-min($tab-max) {
+      flex-direction: row-reverse;
+      border: none;
+    }
+  }
+
+  .logo-brand {
+    position: relative;
+    left: $sp1;
+    display: inline-block;
+    margin-top: -$sp10;
+    margin-bottom: -$sp5;
+  }
+}
+
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  overflow: hidden;
+  gap: $sp2;
+
+  @include media-min($tab-min) {
+    flex-direction: row;
+    gap: $sp3;
+  }
+
+  img {
+    width: clamp(90px, 23.5vw, 150px);
+    border-radius: 5px;
+  }
+
+  p {
+    margin-block: auto;
+    font-size: clamp(14px, 1.6vw, 18px);
+
+    @include media-max(767.9px) {
+      width: clamp(90px, 23.5vw, 150px);
+    }
+  }
+}
+
+.sdgs-label {
+  position: relative;
+  display: flex;
+  margin-block: $sp2;
+  padding: $sp1;
+  gap: $sp2;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+
+  img {
+    border-radius: 5px;
+  }
+
+  &:hover .icon-plus {
+    filter: brightness(2);
+  }
+}

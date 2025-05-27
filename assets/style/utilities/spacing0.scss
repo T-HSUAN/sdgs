@@ -1,0 +1,38 @@
+@use "../helpers/variable" as *;
+
+@mixin generate-spacing-classes($property, $short-name) {
+  @each $key, $value in $spacing-values {
+    .#{$short-name}t-#{$key} {
+      #{$property}-top: #{$value};
+    }
+    .#{$short-name}b-#{$key} {
+      #{$property}-bottom: #{$value};
+    }
+    .#{$short-name}l-#{$key} {
+      #{$property}-left: #{$value};
+    }
+    .#{$short-name}r-#{$key} {
+      #{$property}-right: #{$value};
+    }
+    .#{$short-name}x-#{$key} {
+      #{$property}-left: #{$value};
+      #{$property}-right: #{$value};
+    }
+    .#{$short-name}y-#{$key} {
+      #{$property}-top: #{$value};
+      #{$property}-bottom: #{$value};
+    }
+  }
+}
+
+// 使用 Mixin 生成 margin 和 padding 樣式
+@include generate-spacing-classes(margin, m);
+@include generate-spacing-classes(padding, p);
+
+.mxy-auto {
+  margin: auto;
+}
+
+.pxy-auto {
+  padding: auto;
+}

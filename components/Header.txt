@@ -1,0 +1,223 @@
+<template>
+  <header>
+    <a
+      class="Logo"
+      href="https://udn.com/news/index"
+      title="Logo名稱"
+      aria-label="Logo名稱"
+    >
+      <!-- <img src="" alt="[LOGO]Logo名稱" /> -->
+      Logo
+    </a>
+    <div class="burger-icon" @click="menuClick()">
+      <span :class="['icon', { iconClick: iconClick }]"></span>
+    </div>
+    <nav :class="['menu', 'sidebar', { sidebarSwitch: sidebarSwitch }]">
+      <NuxtLink to="/" @click="menuClick">HOME</NuxtLink>
+      <NuxtLink class="menu-link" to="/page1" @click="menuClick()"
+        >連結一</NuxtLink
+      >
+      <NuxtLink class="menu-link" to="/page2" @click="menuClick()"
+        >連結二</NuxtLink
+      >
+      <NuxtLink class="menu-link" to="/#sectionX" @click="jumpTo()"
+        >連結三</NuxtLink
+      >
+      <a class="menu-link" href="/" target="_blank" @click="menuClick()"
+        >連結四</a
+      >
+      <a class="menu-link" href="/" @click="winnerList()">中獎名單</a>
+    </nav>
+  </header>
+</template>
+<script setup>
+//phone menu
+const iconClick = ref(false);
+const sidebarSwitch = ref(false);
+const menuClick = () => {
+  if (window.innerWidth < 768) {
+    iconClick.value = !iconClick.value;
+    sidebarSwitch.value = !sidebarSwitch.value;
+  }
+  if (window.innerWidth > 767.9 && iconClick.value && sidebarSwitch.value) {
+    iconClick.value = false;
+    sidebarSwitch.value = false;
+  }
+};
+const menuClose = () => {
+  if (window.innerWidth > 767.9 && iconClick.value && sidebarSwitch.value) {
+    iconClick.value = false;
+    sidebarSwitch.value = false;
+  }
+};
+
+addEvent("resize", menuClose);
+const jumpTo = () => {
+  menuClick();
+  setTimeout(() => {
+    const target = document.getElementById("sectionX");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }, 300);
+};
+
+const winnerList = () => {
+  menuClick();
+  if (Date.now() < new Date("2024-05-01")) {
+    document.getElementsByClassName("menu-link")[0].href =
+      "https://www.google.com.tw";
+    document.getElementsByClassName("menu-link")[0].target = "_blank";
+  } else {
+    setTimeout(() => {
+      Swal.fire({
+        title: "將於?月?日公布",
+        text: "敬請期待",
+        confirmButtonText: "確定",
+      });
+    }, 300);
+  }
+};
+</script>
+<style lang="scss" scoped>
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: $bgc;
+  z-index: 99;
+
+  @media (max-width: $xs) {
+    width: 100%;
+    height: 55px;
+  }
+
+  .Logo {
+    display: inline-flex;
+    margin: 0 $sp1;
+
+    @media (min-width: $s) {
+      //與menu一樣
+      margin: 0 12px;
+    }
+
+    @media (min-width: $l) {
+      margin: 0 $sp2;
+    }
+
+    img {
+      width: clamp(95px, 14.1vw, 170px);
+    }
+  }
+
+  //phone menu switch
+  .burger-icon {
+    margin: 0 $sp1;
+    padding: 0;
+
+    @media (min-width: $s) {
+      display: none;
+    }
+
+    .icon {
+      position: relative;
+      display: inline-block;
+      width: 25px;
+      height: 20px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 25px;
+        height: 4px;
+        background: white;
+        border-radius: 2px;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &::before {
+        top: 1px;
+        box-shadow: 0 18px white;
+      }
+
+      &::after {
+        bottom: 6px;
+      }
+    }
+
+    .iconClick {
+      &::before {
+        top: 7.5px;
+        transform: rotate(225deg);
+        box-shadow: none;
+      }
+
+      &::after {
+        bottom: 8.5px;
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  .menu {
+    position: relative;
+    display: inline-block;
+    margin: $sp2 0;
+    font-size: clamp(14px, 1.6vw, 20px);
+    color: white;
+
+    .menu-link {
+      color: white;
+
+      @media (min-width: $s) {
+        //與Logo一樣
+        margin: $sp3 12px;
+
+        &:hover {
+          color: pink;
+        }
+
+        &:nth-child(1) {
+          margin-left: min(35px, 4vw);
+
+          @media (width >= 1440px) {
+            margin-left: $sp3;
+          }
+        }
+      }
+    }
+  }
+
+  //phone menu
+  .sidebar {
+    @media (max-width: $xs) {
+      position: fixed;
+      top: 55px;
+      right: -100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      margin: auto;
+      padding-top: $sp5;
+      background: $bgc_header;
+      transition: right 0.5s ease-in-out;
+      z-index: 100;
+
+      .menu-link {
+        margin: $sp1 0;
+      }
+    }
+  }
+
+  //phone menu switch
+  .sidebarSwitch {
+    right: 0;
+    transition: right 0.5s ease-in-out;
+  }
+}
+</style>

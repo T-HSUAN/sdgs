@@ -1,0 +1,50 @@
+{
+  "name": "sdgs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "set \"VITE_CJS_TRACE=true\" && nuxt dev --o",
+    "lint:fix": "stylelint **/*.scss --quiet-deprecation-warnings --fix",
+    "clean": "nuxt cleanup",
+    "build": "nuxt build",
+    "generate:test": "set \"VITE_CJS_TRACE=true\" && nuxt generate --dotenv=env/.env.test",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.44.0",
+    "gsap": "^3.13.0",
+    "nuxt": "^3.16.0",
+    "nuxt-aos": "^1.2.5",
+    "postcss-html": "^1.8.0",
+    "postcss-scss": "^4.0.9",
+    "swiper": "^11.2.8",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vue3-carousel-nuxt": "^1.1.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/stylelint-module": "^5.2.0",
+    "sass": "^1.85.0",
+    "stylelint": "^16.14.1",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-order": "^6.0.4",
+    "vite-plugin-pug": "^0.4.1"
+  },
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all",
+    "last 3 version",
+    "Chrome >= 51",
+    "Edge >= 15",
+    "Safari >= 10",
+    "Firefox >= 54",
+    "Opera >= 38",
+    "iOS >= 10",
+    "Android >= 5",
+    "not IE <= 11"
+  ]
+}
