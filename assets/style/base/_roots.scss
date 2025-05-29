@@ -3,6 +3,7 @@
 
 html {
   background: $bgc-primary;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -85,4 +86,16 @@ li {
 
 button {
   background: none;
+
+  &:disabled {
+    color: gray;
+    background: #efefef4d;
+    border: none;
+
+    &:hover {
+      color: gray;
+      background: #efefef4d;
+      cursor: default;
+    }
+  }
 }

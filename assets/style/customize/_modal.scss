@@ -1,0 +1,28 @@
+.modal {
+  top: 105px !important;
+  height: calc(100vh - 105px) !important;
+  background: #000;
+}
+
+.modal-backdrop {
+  top: 105px !important;
+  z-index: 998 !important;
+
+  &:hover {
+    background: white !important;
+  }
+}
+
+.modal-dialog {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.modal-header,
+.modal-footer {
+  display: none !important;
+}
+
+.modal-body {
+  padding: 0 !important;
+}

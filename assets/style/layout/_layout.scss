@@ -38,6 +38,11 @@
   }
 }
 
+.worldwide-goal {
+  margin: 0;
+  overflow: visible;
+}
+
 /* container */
 .container {
   width: 100%;
@@ -54,6 +59,18 @@
 
 /* inline container */
 .gsap-scroll-cakes {
+  height: calc(100vh - 105px);
+}
+
+.gsap-scroll-goal17 {
+  position: relative;
+  height: calc((100vh - 105px) * 17);
+}
+
+.wwg-parts {
+  position: sticky;
+  top: 0;
+  width: 100%;
   height: calc(100vh - 105px);
 }
 

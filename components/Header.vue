@@ -40,8 +40,7 @@
             </li>
             <li>
               <NuxtLink class="link topic-title" to="#manuscript">文稿篇</NuxtLink>
-              <!-- <div class="article-lists-container"> -->
-              <div class="article-list swiper">
+              <div class="article-list swiper-header">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide" v-for="(data, idx) in data_sdgs_atl" :key="idx">
                     <NuxtLink class="link article-item" :to="`#article-${data.id}`">
@@ -53,7 +52,6 @@
                   </div>
                 </div>
               </div>
-              <!-- </div> -->
             </li>
             <li>
               <NuxtLink class="link topic-title" to="#enterprise">永續好企業</NuxtLink>
@@ -82,25 +80,35 @@ const data_sdgs_ent = data_enterprises();
 
 const m_active = ref(false);
 const d_active = ref(false);
-const is_desktop = ref(false);
+const device_d = ref(false);
 const menuClick = () => {
   m_active.value = !m_active.value;
   d_active.value = !d_active.value;
 };
 
-const get_width = () => {
+const checkWidth = () => {
   if (window.innerWidth < 1024) {
-    is_desktop.value = false;
+    device_d.value = false;
   } else {
-    is_desktop.value = true;
+    device_d.value = true;
   }
 };
 
 onMounted(async () => {
-  get_width();
-  window.addEventListener('resize', get_width);
+  checkWidth();
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      if (m_active.value) {
+        m_active.value = false;
+      }
+      if (d_active.value) {
+        d_active.value = false;
+      }
+    });
+  });
   await nextTick(() => {
-    new Swiper('.article-list', {
+    new Swiper('.swiper-header', {
       slidesPerView: 2.2,
       spaceBetween: 5,
       watchSlidesProgress: true,
@@ -130,14 +138,6 @@ onMounted(async () => {
   });
 });
 onUnmounted(() => {
-  window.removeEventListener('resize', get_width);
+  window.removeEventListener('resize', checkWidth);
 });
-/*
-// onMounted(async () => {
-  get_al_width();
-  window.addEventListener('resize', get_al_width);
-});
-onUnmounted(() => {
-  window.removeEventListener('resize', get_al_width);
-});*/
 </script>

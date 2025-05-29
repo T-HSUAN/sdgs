@@ -2,6 +2,7 @@
 @use "../helpers/mixin" as *;
 @use "sass:map";
 @use "sass:list";
+@use "sass:meta";
 
 @each $breakpoint in map.keys($grid-breakpoints) {
   $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -31,13 +32,13 @@
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-      @if type-of($values) == "map" {
+      @if meta.type-of($values) == "map" {
         @each $key, $val in $values {
           .#{$fclass}-#{$key}#{$infix} {
             #{$property}: #{$val};
           }
         }
-      } @else if type-of($values) == "list" {
+      } @else if meta.type-of($values) == "list" {
         @each $val in $values {
           .#{$fclass}-#{$val}#{$infix} {
             #{$property}: #{$val};

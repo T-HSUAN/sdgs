@@ -19,32 +19,35 @@
       </div>
     </div>
   </section>
-  <WorldwideGoal17 v-show="show_goal17" />
+  <!-- <Taaa v-model:show="show_goal17" /> -->
+  <WorldwideGoal17 v-model:show="show_goal17" />
 </template>
 <script setup>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { DotLottie } from "@lottiefiles/dotlottie-web";
+gsap.registerPlugin(ScrollTrigger);
 
 const imgFolder = import.meta.env.VITE_FOLDER;
+const show_goal17 = useShowGoal17();
+
 onMounted(async () => {
   await nextTick();
   const lottie = new DotLottie({ canvas: document.querySelector(".img-goals") });
-  const target_section = document.getElementById("worldwide");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        lottie.load({
-          src: `${imgFolder}/images/worldwide/goals.json`,
-          autoplay: true,
-          loop: false,
-          speed: 3
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
 
-  observer.observe(target_section);
+  ScrollTrigger.create({
+    trigger: "#worldwide",
+    start: "top 50%",
+    once: true,
+    markers: true,
+    onEnter: () => {
+      lottie.load({
+        src: `${imgFolder}/images/worldwide/goals.json`,
+        autoplay: true,
+        loop: false,
+        speed: 3
+      });
+    }
+  })
 });
-
-const show_goal17 = useShowGoal17();
 </script>

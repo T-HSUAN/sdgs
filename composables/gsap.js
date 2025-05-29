@@ -109,82 +109,119 @@ export const gsap_split_heading = () => {
   });
 };
 
-export const gsap_change_global17 = (lottie, trigger, content_first, content) => {
-  lottie.addEventListener("load", () => {
-    lottie.setFrame(20);
-
-    // ScrollTrigger 控制幀數
-    const scroll = gsap.timeline({
-      scrollTrigger: {
-        trigger: trigger,
-        pin: true,
-        start: "top top",
-        end: "bottom bottom", // 動畫播放區間，可調整
-        scrub: true,
-        snap: 1 / 16,
-        markers: true,
-        onUpdate: self => {
-          const frame = 480 * self.progress + 15;
-          lottie.setFrame(frame);
-        },
-        onLeaveBack: () => {
-          console.log('🆙 已往回滾並觸頂，觸發動作！')
-          useGoalIdx().value = 0;
-          gsap.set(content_first, { autoAlpha: 0 });
-          gsap.to(content_first, { autoAlpha: 1, duration: 1 });
-          lottie.setFrame(20);
+export const gsap_change_global17 = (lottie, scroller, trigger, content, height) => {
+  gsap.timeline({
+    scrollTrigger: {
+      scroller: scroller,
+      trigger: trigger,
+      pin: true,
+      pinSpacing: false,
+      anticipatePin: 1,
+      start: "top top",
+      end: () => `+=${height * 16} bottom`,
+      scrub: true,
+      snap: 1 / 16,
+      markers: true,
+      onUpdate: self => {
+        const frame = 480 * self.progress + 15;
+        lottie.setFrame(frame);
+        const idx = Math.floor(self.progress * 16) + 1;
+        if (useGoalIdx().value !== idx) {
+          useGoalIdx().value = idx;
+          console.log('目前目標 idx:', idx);
         }
       },
-    });
-
-    gsap.set(content_first, { autoAlpha: 0 });
-    gsap.to(content_first, { autoAlpha: 1, duration: 1 });
-
-    for (let idx = 1; idx <= 16; idx++) {
-      scroll.fromTo(
-        content + (idx + 1),
-        { autoAlpha: 0 },
-        {
-          autoAlpha: 1, duration: 1,
-          onStart: () => {
-            const text_idx = useGoalIdx();
-            text_idx.value = idx;
-            console.log('idx', text_idx.value);
-            console.log('idx store:', useGoalIdx().value);
-          },
-        }
-      );
+      onLeaveBack: () => {
+        console.log('🆙 已往回滾並觸頂，觸發動作！')
+        useGoalIdx().value = 0;
+        lottie.setFrame(20);
+      }
     }
   });
+
+  // for (let idx = 1; idx <= 16; idx++) {
+  //   scroll.to(
+  //     content,
+  //     {
+  //       duration: 1,
+  //       onStart: () => {
+  //         const text_idx = useGoalIdx();
+  //         text_idx.value = idx;
+  //         console.log('idx', text_idx.value);
+  //       },
+  //     }
+  //   );
+  // }
 }
 //滾動文字內容使左圖蛋糕層變化
-export const gsap_change_cakes = (lottie, trigger, content, start, end) => {
+export const gsap_change_cakes = (trigger, content, start, end) => {
   let mm = gsap.matchMedia();
+  mm.add("(min-width: 1024px)", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: trigger,
+        start: `${start} top`,
+        end: () => `+=${end * 4} bottom`,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        snap: 1 / 4,
+        onUpdate: self => {
+          const zones = [
+            { idx: 0, min: 0.00, max: 0.22 },
+            { idx: 1, min: 0.23, max: 0.33 },
+            { idx: 2, min: 0.45, max: 0.55 },
+            { idx: 3, min: 0.70, max: 0.80 },
+            { idx: 4, min: 0.95, max: 1.00 },
+          ];
 
-  lottie.addEventListener("load", () => {
-    mm.add("(min-width: 1024px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: trigger,
-          start: `${start} top`,
-          end: () => `+=${end * 4} bottom`,
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-          snap: 1 / 4,
-          markers: true,
-          onUpdate: self => {
-            const frame = lottie.totalFrames * 19 / 40 * self.progress;
-            lottie.setFrame(frame);
+          const img_idx = useCakeImg();
+          const progress = self.progress;
+
+          for (const z of zones) {
+            if (progress >= z.min && progress <= z.max && img_idx.value !== z.idx) {
+              img_idx.value = z.idx;
+              break;
+            }
           }
         }
-      });
-      for (let i = 1; i <= 4; i++) {
-        tl.to(content, {
-          y: -end * i,
-          duration: 1
-        });
       }
     });
-  })
+    for (let i = 1; i <= 4; i++) {
+      tl.to(content, {
+        y: -end * i,
+        duration: 1,
+      });
+    }
+  });
+
 }
+// export const gsap_change_cakes = (lottie, trigger, content, start, end) => {
+//   let mm = gsap.matchMedia();
+
+//   lottie.addEventListener("load", () => {
+//     mm.add("(min-width: 1024px)", () => {
+//       const tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: trigger,
+//           start: `${start} top`,
+//           end: () => `+=${end * 4} bottom`,
+//           scrub: true,
+//           pin: true,
+//           anticipatePin: 1,
+//           snap: 1 / 4,
+//           onUpdate: self => {
+//             const frame = lottie.totalFrames * 19 / 40 * self.progress;
+//             lottie.setFrame(frame);
+//           }
+//         }
+//       });
+//       for (let i = 1; i <= 4; i++) {
+//         tl.to(content, {
+//           y: -end * i,
+//           duration: 1
+//         });
+//       }
+//     });
+//   })
+// }

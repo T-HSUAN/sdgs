@@ -1,0 +1,60 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+
+/* main swiper container */
+.swiper {
+  width: 100%;
+  margin-top: $sp5;
+}
+
+/* controller */
+.swiper-controls {
+  position: absolute;
+  top: $sp8;
+  right: 4%;
+  display: flex;
+  justify-content: center;
+  gap: $sp2;
+
+  @include media-min($tab-min) {
+    right: 10.33%;
+  }
+
+  @include media-min($tab-max) {
+    top: $sp10;
+    right: 16.66%;
+  }
+}
+
+.swiper-prev {
+  inset-inline-start: 0;
+}
+
+.swiper-next {
+  inset-inline-end: 0;
+}
+
+.swiper-next,
+.swiper-prev {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 30px;
+  color: $fc-primary;
+  background: $bgc-primary;
+  border: 1px solid $bgc-secondary;
+  border-radius: 50%;
+  inset-block-start: 50%;
+  cursor: pointer;
+
+  &:hover {
+    color: $fc-secondary;
+    background: $bgc-secondary;
+  }
+}
+
+.swiper-icon {
+  width: 100%;
+  height: 100%;
+  fill: currentcolor;
+}
