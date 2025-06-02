@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   css: [
     'assets/style/components/loader.scss',
     'assets/style/all.scss',
-    'bootstrap/scss/bootstrap.scss'
+    // 'bootstrap/scss/bootstrap.scss'
   ],
   vite: {
     envDir: "env",
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     // ['@tresjs/nuxt', { devtools: true }],
     "nuxt-aos",
     "vue3-carousel-nuxt",
-    "@bootstrap-vue-next/nuxt"
+    // "@bootstrap-vue-next/nuxt"
   ],
   // build:{
   // transpile: ['@tresjs/cientos'],

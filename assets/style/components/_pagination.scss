@@ -1,0 +1,28 @@
+@use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+
+.pagination {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-inline: 4%;
+
+  @include media-min($tab-min) {
+    padding-inline: 10.33%;
+  }
+
+  @include media-min($tab-max) {
+    padding-inline: 16.66%;
+  }
+
+  .page {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}

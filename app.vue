@@ -1,5 +1,5 @@
 <template>
-  <div id="loader"></div>
+  <!-- <div id="loader"></div> -->
   <Header />
   <main>
     <nuxtPage />
@@ -39,8 +39,7 @@ onMounted(() => {
   });
 
   window.addEventListener('resize', () => {
-    ScrollTrigger.refresh(); // 窗口大小改變時重新整理 ScrollTrigger
-    console.log("Window resized, ScrollTrigger refreshed");
+    ScrollTrigger.refresh();
   });
 });
 

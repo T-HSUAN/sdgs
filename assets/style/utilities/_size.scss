@@ -52,6 +52,10 @@
         .#{$abbrev}#{$infix}-#{$size} {
           #{$prop}: $percent !important;
         }
+
+        // .#{$abbrev}#{$infix}-#{$size}vh {
+        //   #{$prop}: $size + vh !important;
+        // }
       }
 
       @for $n from 1 through 15 {

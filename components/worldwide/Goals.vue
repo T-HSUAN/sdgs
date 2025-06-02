@@ -20,7 +20,7 @@
     </div>
   </section>
   <!-- <Taaa v-model:show="show_goal17" /> -->
-  <WorldwideGoal17 v-model:show="show_goal17" />
+  <WorldwideGoal17 />
 </template>
 <script setup>
 import { gsap } from "gsap";
@@ -39,7 +39,6 @@ onMounted(async () => {
     trigger: "#worldwide",
     start: "top 50%",
     once: true,
-    markers: true,
     onEnter: () => {
       lottie.load({
         src: `${imgFolder}/images/worldwide/goals.json`,

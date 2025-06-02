@@ -39,8 +39,15 @@
 }
 
 .worldwide-goal {
+  position: fixed;
+  top: 105px;
+  left: 0;
+  display: block;
+  height: calc(100vh - 105px);
   margin: 0;
-  overflow: visible;
+  background: $bgc-primary;
+  overflow-y: scroll;
+  z-index: 999;
 }
 
 /* container */
@@ -48,31 +55,14 @@
   width: 100%;
 }
 
-.gsap-scroll-hero {
-  height: 400vh;
-}
-
-[class^="hero-part"] {
-  width: 100%;
-  height: 100vh;
-}
-
-/* inline container */
-.gsap-scroll-cakes {
-  height: calc(100vh - 105px);
-}
-
-.gsap-scroll-goal17 {
-  position: relative;
-  height: calc((100vh - 105px) * 17);
-}
-
-.wwg-parts {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: calc(100vh - 105px);
-}
+// .wwg-parts {
+//   position: fixed;
+//   top: 0;
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   height: calc(100vh - 105px);
+// }
 
 /* inline */
 .inline {
@@ -99,17 +89,6 @@
   .inline-image {
     width: 100%;
     pointer-events: none;
-  }
-}
-
-[class^="cake-text-part"] {
-  @include media-min($tab-max) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: $sp3;
-    width: 100%;
-    height: calc(100vh - 105px);
   }
 }
 

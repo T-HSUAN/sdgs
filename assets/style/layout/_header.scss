@@ -17,7 +17,7 @@ $sdg-gradient: "";
   left: 0;
   background: $bgc-primary-60;
   border-bottom: 1px solid $bc-primary;
-  z-index: 999;
+  z-index: 9999;
 
   &::before {
     content: "";

@@ -80,18 +80,16 @@ const data_sdgs_ent = data_enterprises();
 
 const m_active = ref(false);
 const d_active = ref(false);
+const lightbox = useShowGoal17();
 const device_d = ref(false);
 const menuClick = () => {
   m_active.value = !m_active.value;
   d_active.value = !d_active.value;
+  lightbox.value && (lightbox.value = false);
 };
 
 const checkWidth = () => {
-  if (window.innerWidth < 1024) {
-    device_d.value = false;
-  } else {
-    device_d.value = true;
-  }
+  device_d.value = window.innerWidth >= 1024;
 };
 
 onMounted(async () => {
@@ -99,12 +97,8 @@ onMounted(async () => {
   const links = document.querySelectorAll('a[href^="#"]');
   links.forEach(link => {
     link.addEventListener('click', () => {
-      if (m_active.value) {
-        m_active.value = false;
-      }
-      if (d_active.value) {
-        d_active.value = false;
-      }
+      m_active.value && (m_active.value = false);
+      d_active.value && (d_active.value = false);
     });
   });
   await nextTick(() => {
