@@ -17,12 +17,4 @@
   @include media-min($tab-max) {
     padding-inline: 16.66%;
   }
-
-  .page {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
 }
