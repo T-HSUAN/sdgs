@@ -7,7 +7,7 @@
       </h2>
     </header>
     <div class="inline">
-      <div class="inline-text ww-inline-text pos-lg-absolute w-lg-50">
+      <div class="inline-text ww-inline-text">
         <p>全球推動聯合國永續發展目標SDGs即將邁入第10年，最新進度揭示一個不容忽視的現實，就是僅有17%的目標如期推進。當氣候變遷、貧富差距、資源枯竭等挑戰持續加劇，距離2030年只剩最後5年，我們是否還有翻盤的機會？
         </p>
         <p>從聯合國最新報告《The Sustainable Development Goals Report 2024》，揭示全球17項的永續目標進展中，單項最高達成率（On track or target
@@ -20,7 +20,7 @@
     </div>
   </section>
   <!-- <Taaa v-model:show="show_goal17" /> -->
-  <WorldwideGoal17 />
+  <WorldwideGoal17 v-show="show_goal17" />
 </template>
 <script setup>
 import { gsap } from "gsap";

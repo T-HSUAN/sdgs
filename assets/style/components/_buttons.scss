@@ -37,18 +37,6 @@
   border-radius: 25px;
 }
 
-.btn-page {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
-  &:hover {
-    transform: scale(1.5);
-  }
-}
-
 .btn-card {
   align-self: flex-end;
   margin-top: auto;
@@ -57,10 +45,9 @@
 .btn-close {
   width: 100%;
   max-width: 40px;
+  height: 100%;
   max-height: 40px;
   aspect-ratio: 1;
-  color: $fc-primary;
-  border: 1px solid $bgc-secondary;
   border-radius: 50%;
 }
 

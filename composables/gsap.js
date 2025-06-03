@@ -117,15 +117,15 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
       pinSpacing: false,
       anticipatePin: 1,
       start: "top top",
-      end: () => `${end * 16}`,
+      end: () => end * 16,
       scrub: true,
-      markers: true,
       snap: 1 / 16,
+      markers: true,
       onUpdate: (self) => {
         const progress = self.progress;
+        console.log("scroll", self.progress);
         const frame = 480 * progress + 15;
         const goalIdx = useGoalIdx();
-
         const zones = [
           { idx: 0, min: 0.0, max: 0.061 },
           { idx: 1, min: 0.061, max: 0.063 },
@@ -154,20 +154,24 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
             goalIdx.value = z.idx;
             lottie.setFrame(frame);
             document
-              .querySelector(".btn-page.active")
+              .querySelector(".wwg-page.active")
               .classList.remove("active");
             document
-              .querySelector(`.page-${goalIdx.value + 1}`)
+              .querySelector(`.wwg-page-${goalIdx.value + 1}`)
               .classList.add("active");
             break;
           }
         }
+
+        // console.log("progress", progress);
+        // console.log("goalIdx", goalIdx.value);
+        // console.log("frame", lottie.currentFrame);
       },
 
-      // onLeaveBack: () => {
-      //   useGoalIdx().value = 0;
-      //   lottie.setFrame(20);
-      // }
+      onLeaveBack: () => {
+        useGoalIdx().value = 0;
+        lottie.setFrame(20);
+      }
     },
   });
   const parts = document.querySelectorAll(".goal17-text-part");
@@ -184,6 +188,7 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
     { autoAlpha: 1, duration: 1 },
     "<"
   );
+  console.log("gsap_change_global17 initialized");
 };
 
 //滾動文字內容使左圖蛋糕層變化
