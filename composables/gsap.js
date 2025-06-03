@@ -171,7 +171,7 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
       onLeaveBack: () => {
         useGoalIdx().value = 0;
         lottie.setFrame(20);
-      }
+      },
     },
   });
   const parts = document.querySelectorAll(".goal17-text-part");
@@ -192,6 +192,53 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
 };
 
 //滾動文字內容使左圖蛋糕層變化
+export const gsap_change_cakes = (cakes) => {
+  let mm = gsap.matchMedia();
+  mm.add("(min-width: 1024px)", () => {
+    cakes.forEach((cake, i) => {
+      const container = cake.querySelector(".cake-inline-text");
+      const text = cake.querySelector(".cake-inline-text .tw-it-container");
+      const scroll_height = text.scrollHeight;
+      const client_height = container.clientHeight;
+      const scroll_distance = scroll_height - client_height;
+      console.log(text);
+
+      // 建立 timeline 控制這一段的淡入與文字滾動
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: cake,
+          start: "top top",
+          end: `+=${scroll_distance + window.innerHeight}`,
+          scrub: true,
+          pin: true, // 第一個蛋糕層固定
+          pinSpacing: true,
+          anticipatePin: 1,
+          markers: true,
+          // onEnter: () => cake.classList.add("is-active"),
+          // onLeave: () => cake.classList.remove("is-active"),
+          // onEnterBack: () => cake.classList.add("is-active"),
+          // onLeaveBack: () => cake.classList.remove("is-active"),
+        },
+      });
+
+      // 如果不是第一個，這一段要淡入
+      if (i > 0) {
+        tl.fromTo(cake, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 });
+      }
+
+      // 文字滾動
+      tl.to(text, {
+        y: () => -scroll_distance,
+        ease: "none",
+        duration: 1,
+      });
+
+      // // 淡出這個 cake
+      // tl.to(cake, { autoAlpha: 0, duration: 0.5 }, 0.99);
+    });
+  });
+};
+/*
 export const gsap_change_cakes = (trigger, content, start, end) => {
   let mm = gsap.matchMedia();
   mm.add("(min-width: 1024px)", () => {
@@ -237,32 +284,33 @@ export const gsap_change_cakes = (trigger, content, start, end) => {
     }
   });
 };
-// export const gsap_change_cakes = (lottie, trigger, content, start, end) => {
-//   let mm = gsap.matchMedia();
+export const gsap_change_cakes = (lottie, trigger, content, start, end) => {
+  let mm = gsap.matchMedia();
 
-//   lottie.addEventListener("load", () => {
-//     mm.add("(min-width: 1024px)", () => {
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: trigger,
-//           start: `${start} top`,
-//           end: () => `+=${end * 4} bottom`,
-//           scrub: true,
-//           pin: true,
-//           anticipatePin: 1,
-//           snap: 1 / 4,
-//           onUpdate: self => {
-//             const frame = lottie.totalFrames * 19 / 40 * self.progress;
-//             lottie.setFrame(frame);
-//           }
-//         }
-//       });
-//       for (let i = 1; i <= 4; i++) {
-//         tl.to(content, {
-//           y: -end * i,
-//           duration: 1
-//         });
-//       }
-//     });
-//   })
-// }
+  lottie.addEventListener("load", () => {
+    mm.add("(min-width: 1024px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: trigger,
+          start: `${start} top`,
+          end: () => `+=${end * 4} bottom`,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+          snap: 1 / 4,
+          onUpdate: self => {
+            const frame = lottie.totalFrames * 19 / 40 * self.progress;
+            lottie.setFrame(frame);
+          }
+        }
+      });
+      for (let i = 1; i <= 4; i++) {
+        tl.to(content, {
+          y: -end * i,
+          duration: 1
+        });
+      }
+    });
+  })
+}
+*/
