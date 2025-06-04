@@ -8,103 +8,103 @@ export const data_sdgs_worldwide = [
   {
     id: 1,
     title: "SDGs 1 消除貧窮",
-    title_img: "/images/worldwide/title01.svg",
+    title_img: "title01.svg",
     content: "即使Covid-19疫情遠去，極端貧窮的國家仍恢復緩慢，國際間貧國與富國之間的基礎公共服務有很大的落差。雖然各國從工作就業、穩定家庭來致力改善貧窮，但仍然有超過2億的勞動人口身處貧困，就連孩童也深受影響，10個孩童裡面有7個孩童沒有被社會保護涵蓋。",
   },
   {
     id: 2,
     title: "SDGs 2 終結飢餓",
-    title_img: "/images/worldwide/title02.svg",
+    title_img: "title02.svg",
     content: "2022年，國際間面臨衝突和戰爭，糧食供應與價格不穩定，世界仍有十分之一的人陷入飢餓，加速永續農業發展勢在必行。而在有數據基礎的國家之中，小規模糧食生產者與非小規模糧食生產者之間，仍有很大的生產收入差異，小規模生產者應被視為緩解飢餓問題的重要解方之一。",
   },
   {
     id: 3,
     title: "SDGs 3 健康與福祉",
-    title_img: "/images/worldwide/title03.svg",
+    title_img: "title03.svg",
     content: "自從2015年開始，雖然孕婦、非傳染疾病死亡率有趨緩，但全球還是有超過一半的人口，無法享有基礎的健康公共服務。加上人口持續老化，健康服務需求將提高，但健康勞動力持續下滑，這會加速健康問題的惡性循環。尤其在弱勢群體中，健康問題仍然嚴峻，不平等的狀態會加劇健康的問題。",
   },
   {
     id: 4,
     title: "SDGs 4 優質教育",
-    title_img: "/images/worldwide/title04.svg",
+    title_img: "title04.svg",
     content: "教育是推動其他發展目標的關鍵動力，全球高等中學畢業率成長偏緩，疫情也影響了計算和閱讀的成效。深入教育資源端來看，很多國家仍然處於教育資源短缺、教師培訓不足的困境，這也會特別影響到女孩、有特殊學習需求的孩子，邊緣化弱勢群體的學習機會。",
   },
   {
     id: 5,
     title: "SDGs 5 性別平等",
-    title_img: "/images/worldwide/title05.svg",
+    title_img: "title05.svg",
     content: "性別平等的發展仍然大大落後進度，對女性身體有害的風俗雖然有改善，但仍然追趕不上人口增加的速度，暴力侵犯女性的狀況依然存在，甚至有一半國家的法律沒有禁止歧視女性。女性無酬家務勞動，比男性高2.5倍，在公共事務參與的比例上仍然發展緩慢，女性要在管理職位上實現平等還要等上176年。",
   },
   {
     id: 6,
     title: "SDGs 6 淨水與衛生",
-    title_img: "/images/worldwide/title06.svg",
+    title_img: "title06.svg",
     content: "水資源和衛生發展堪憂，以目前進展來看，2030年仍會有20億人口無法獲得潔淨、安全的飲水、30億人沒有安全管理的衛生設施。在氣候變遷之下，會影響水資源的穩定情況，2015年到2021年水資源壓力小幅上升，各國應該要針對跨界水域，合作進行水資源的治理。",
   },
   {
     id: 7,
     title: "SDGs 7 可負擔的永續能源",
-    title_img: "/images/worldwide/title07.svg",
+    title_img: "title07.svg",
     content: "全球能源密集度和再生能源有所進展，但受到Covid-19和俄烏戰爭的影響，造成取得電力的管道受阻，也阻斷了對發展中國家潔淨能源的投入，報2030年會有18億人續用污染燃料進行烹飪。各國應提升能源效率，加速再生能源的投資，尤其是能源在供暖和運輸的進展更需行動。",
   },
   {
     id: 8,
     title: "SDGs 8 就業與經濟成長",
-    title_img: "/images/worldwide/title08.svg",
+    title_img: "title08.svg",
     content: "疫情之後、貿易緊張、地緣政治衝突，加上發展中國家面臨債務提高，種種因素威脅了全球經濟的發展。雖然023年全球失業率創下5%歷史新低，但實質上婦女與青年面臨高失業率，而對於勞工權利的重視，甚至有明顯的下降，2023年超過20億非正規工作的工人缺乏社會保障。",
   },
   {
     id: 9,
     title: "SDGs 9 永續工業與基礎建設",
-    title_img: "/images/worldwide/title09.svg",
+    title_img: "title09.svg",
     content: "2022年開始，疫情和地緣政治緊張，以及其他全球不穩定的因素，製造業成長放緩，小企業的投資流動也受阻，但擁有中高與科技技術的產業卻展現了韌性。面對產業的轉型，全球產業的二氧化碳碳排減排強度仍不足，解決行動寬頻網路覆蓋率剩餘的5%差距，也是一項挑戰。",
   },
   {
     id: 10,
     title: "SDGs 10 消彌不平等",
-    title_img: "/images/worldwide/title10.svg",
+    title_img: "title10.svg",
     content: "一半以上國家內的貧窮人口收入有增長，但國家間的貧富差距卻擴大，而在聯合國大會中發展中國家佔超過7成，但卻沒有足夠的經濟決策代表權，而資源的投資分配是解決不平等的重要解方。2023年更是國際難民死亡人數更創歷史新高，顯見戰爭、衝突、人權迫害是國際需更加重視的議題。",
   },
   {
     id: 11,
     title: "SDGs 11 永續城鄉",
-    title_img: "/images/worldwide/title11.svg",
+    title_img: "title11.svg",
     content: "全球超過一半的人口居住在城市，但城市面臨了複雜多重的問題，包含貧民窟、公共交通不不足，有4成的城市居民是無法有便捷的運輸系統，貧國與富國之間的城市居民，享有公共空間的比例也存在落差。沒有經過良好規劃的城市擴張，更會造成地方與人口的失衡，讓生活條件下降，例如空氣品質需要再趕上進度。",
   },
   {
     id: 12,
     title: "SDGs 12 責任消費與生產",
-    title_img: "/images/worldwide/title12.svg",
+    title_img: "title12.svg",
     content: "2022年全球食物浪費達10.5億公噸，每年產生的溫室氣體排放，占全球總排放量的8%至10%。全球電子廢棄物的快速增長仍未得到有效處理，僅有22%得到可持續的回收與管理。儘管高收入國家的回收率超過40%，但大部分電子廢物仍未適當回收，或被出口到基礎設施不足、管理不善甚至完全缺乏管理的低收入國家。",
   },
   {
     id: 13,
     title: "SDGs 13 氣候行動",
-    title_img: "/images/worldwide/title13.svg",
+    title_img: "title13.svg",
     content: "2022年，全球溫室氣體排放量創下新高，達到574億噸二氧化碳當量。聯合國環境規劃署2023年報告指出，其中約三分之二來自化石燃料燃燒與工業生產過程的二氧化碳排放。當前，全球實現1.5°C目標的機率僅14%，凸顯必須立即採取更快、更大規模的減排行動，以遏制氣候變遷的嚴峻影響。",
   },
   {
     id: 14,
     title: "SDGs 14 永續海洋與保育",
-    title_img: "/images/worldwide/title14.svg",
+    title_img: "title14.svg",
     content: "海洋正面臨嚴峻挑戰，氣候變遷、過度捕撈及汙染導致漁業資源持續減少，全球漁業資源永續性從1974年的90.0%，到2021年下降至62.3%。全球性漁業資源枯竭、海水升溫、海洋污染、優養化加劇等問題，不只破壞了海洋棲息地，更威脅沿海社區及海洋生態系統的健康，間接影響全球超過30億人口的生計。",
   },
   {
     id: 15,
     title: "SDGs 15 陸域生態",
-    title_img: "/images/worldwide/title15.svg",
+    title_img: "title15.svg",
     content: "儘管森林永續管理有顯著進展，但農業開墾仍造成全球森林面積持續減少。同時，陸域生物多樣性面臨挑戰，瀕危物種紅色名錄指數（Red List Index）在1993年至2024年間惡化12%，非法野生動植物貿易自2017年起持續上升，並在COVID-19疫情期間達到高峰。",
   },
   {
     id: 16,
     title: "SDGs 16 制度的正義與和平",
-    title_img: "/images/worldwide/title16.svg",
+    title_img: "title16.svg",
     content: "追求和平與正義的社會是全球公民的共同願景。然而，武裝衝突加劇，導致全球被迫流離失所者達1.2億人，平民傷亡人數激增72%，創下2015年以來最大增幅。貪腐問題持續蔓延，每5人就有1人在過去一年內被要求行賄或曾向公職人員行賄。此外，全球近三分之一的受刑人仍未經公正審判。",
   },
   {
     id: 17,
     title: "SDGs 17 永續發展夥伴關係",
-    title_img: "/images/worldwide/title17.svg",
+    title_img: "title17.svg",
     content: "在實現永續發展目標方面，發展中國家每年面臨高達4兆美元的投資缺口，其中能源轉型所需資金就超過一半。海外直接投資（FDI）金額減少，國際匯款及政府開發援助（ODA）增長有限。聯合國秘書長呼籲各國每年支持至少5000億美元刺激SDGs，以加速全球永續發展的進程。",
   }
 ]
@@ -126,7 +126,7 @@ export const data_sdgs_twcakes = [
       "自評表現在前段班的我們，除了檢視尚須加緊腳步的地方，更應抽絲剝繭SDGs與台灣人之間的關係，當各界投入各項目標時，應理解行動並非僅是解決單一項目的問題，而是會產生多個項目之間的連動效應。",
       "此區塊運用斯德哥爾摩應變及發展中心提出的「SDGs結婚蛋糕模型」，拆解17個發展項目進不同的層次中──從【環境】基底開始，理解人與自然共存是一切的基礎，再來到【社會】中間層，建構人與人之間更堅實的互動與理解，創造了和平與包容，才能累積【經濟】高層的發展，進而有穩定的建設與安心的生活，最後會回饋到人們生活的根本環境，形成人本的良善循環，最後在頂端層的【夥伴關係】，體現協力合作、利他精神的真諦。",
       "在層層奠基又環環相扣的模型中，SDGs項目不是一個個分離的評估框架，而是與每一個人切身相關，要找回失落的進度，關乎每一個我們的行動與選擇。"],
-    img: "/images/taiwan/cakes.webp",
+    img: "cakes.webp",
   },
   {
     id: 2,
@@ -137,7 +137,7 @@ export const data_sdgs_twcakes = [
       "在陸域生態方面，台灣森林覆蓋率維持近6成，政府持續推動永續森林管理，守護森林資源已有不少成果，但地層下陷與土地退化問題依舊未解。身為四面環海的島國，台灣應加強海洋資源的保護，減少廢棄物、維護海岸棲地，是遏止海洋污染及促進生物多樣性的關鍵。",
       "從過去、現在到未來，唯有落實環境保護，才能確保以「人」為主的生活，台灣也方能在永續浪潮中站穩腳步。"
     ],
-    img: "/images/taiwan/cake1.webp",
+    img: "cake1.webp",
     label: [6, 13, 14, 15]
   },
   {
@@ -149,7 +149,7 @@ export const data_sdgs_twcakes = [
       "近年，政府也運用一些社會政策── 社安網、地方創生等等重大社會的基礎工程，試圖補足社會風險的漏洞、並嘗試引導資源的再分配，這些政策也再再揭示，需要社會中多元的角色一起行動，關注以「人」為主的社會互動。",
       "2025年WEF全球風險報告下了一個註解：「在分裂世界中尋求共識」，近兩年排名全球面對的10大風險中，社會面向就佔了超過一半，拼接社會裂痕正是當前任務，讓社會的各個螺絲釘能銜接環境的地基，並和諧轉動經濟的發展。"
     ],
-    img: "/images/taiwan/cake2.webp",
+    img: "cake2.webp",
     label: [1, 2, 3, 4, 5, 7, 11, 16],
   },
   {
@@ -161,7 +161,7 @@ export const data_sdgs_twcakes = [
       "勞動市場的體質健全，減少職場偏見與薪資落差，才能促成產業良善升級，同樣的，交通環境的便利安全，能提高勞動環境與生產效率，也能有效降低物流成本；彼此之間，形成互相促進的正向循環。",
       "以「人」出發的推動產業升級及改善交通基礎建設，無論從哪個方向出發，最終都能回饋到我們的日常生活，即減少台灣每年百萬噸的垃圾產生及二氧化碳排放，形成環環相扣的良性循環，真正實現「提升生活」，從人本到人本。",
     ],
-    img: "/images/taiwan/cake3.webp",
+    img: "cake3.webp",
     label: [8, 9, 10, 12]
   },
   {
@@ -173,7 +173,7 @@ export const data_sdgs_twcakes = [
       "永續，不應止步於國內系統的修補，更應成為連結世界的橋梁。無論是面對氣候災害頻繁的新興地區、制度尚待健全的夥伴國家，或是尋求技術合作的產業夥伴，台灣在資訊透明、公民參與、地方創生與循環經濟等面向所累積的實踐經驗，皆有機會轉化為區域共享、國際合作的具體貢獻。",
       "SDG 17 夥伴關係，象徵連結所有層次的關鍵角色。真正的轉變，往往始於彼此看見彼此，並願意一起推進更長遠的未來。",
     ],
-    img: "/images/taiwan/cake4.webp",
+    img: "cake4.webp",
     label: [17]
   }
 ]
@@ -218,15 +218,10 @@ export const data_articles = [
 ]
 
 
-export const data_enterprises = () => {
-  const imgFolder = useRuntimeConfig().public.imgFolder;
-  const data =
-    [
-      { id: 1, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: `${imgFolder}/images/enterprise/article1.jpg`, brand_img: `${imgFolder}/images/enterprise/brand1.png`, labels: [2, 3, 11] },
-      { id: 2, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: `${imgFolder}/images/enterprise/article1.jpg`, brand_img: `${imgFolder}/images/enterprise/brand1.png`, labels: [2, 3, 11] },
-      { id: 3, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: `${imgFolder}/images/enterprise/article1.jpg`, brand_img: `${imgFolder}/images/enterprise/brand1.png`, labels: [2, 3, 11] },
-      // { id: 4, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: `${imgFolder}/images/enterprise/article1.jpg`, brand_img: `${imgFolder}/images/enterprise/brand1.png`, labels: [2, 3, 11] },
-      // { id: 5, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: `${imgFolder}/images/enterprise/article1.jpg`, brand_img: `${imgFolder}/images/enterprise/brand1.png`, labels: [2, 3, 11] },
-    ];
-  return data;
-} 
+export const data_enterprises = [
+  { id: 1, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: 'article1.jpg', brand_img: 'brand1.png', labels: [2, 3, 11] },
+  { id: 2, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: 'article1.jpg', brand_img: 'brand1.png', labels: [2, 3, 11] },
+  { id: 3, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: 'article1.jpg', brand_img: 'brand1.png', labels: [2, 3, 11] },
+  // { id: 4, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: 'article1.jpg', brand_img: 'brand1.png', labels: [2, 3, 11] },
+  // { id: 5, title: "拯救危「雞」 從 I 選擇開始！", brand: "家樂福", content: "蘭智學苑以服務心智障礙、合併多重障礙之身心障礙朋友為宗旨，由蘭陽地區幾位心智障礙者的家長們，因緣際會中相遇，決定要一起努", img: 'article1.jpg', brand_img: 'brand1.png', labels: [2, 3, 11] },
+]; 

@@ -11,6 +11,9 @@
   .bc-sdg-#{$i} {
     border-color: list.nth($fc-sdgs, $i);
   }
+  .bgc-sdg-#{$i} {
+    background-color: list.nth($fc-sdgs, $i);
+  }
 }
 
 .fc-aspect-1 {
@@ -36,10 +39,10 @@
   will-change: scroll-position;
 }
 
-.taiwan {
-  overflow: initial;
-  overflow-y: auto;
-}
+// .taiwan {
+//   overflow: initial;
+//   overflow-y: auto;
+// }
 
 /* container */
 .gsap-scroll-hero {
@@ -47,16 +50,10 @@
 }
 
 .goal17-container {
-  height: 100%;
+  height: 6120px;
 }
 
 /* inline */
-// .tw-inline {
-//   @include media-min($tab-min) {
-//     position: relative;
-//     height: calc(100vh - 105px) !important;
-//   }
-// }
 
 /* inline container */
 .gsap-scroll-goal {
@@ -69,7 +66,13 @@
   }
 }
 
-.gsap-scroll-tw {
+/* inline part */
+.hero-part {
+  width: 100%;
+  height: 100vh;
+}
+
+.cake-part {
   display: flex;
   flex-direction: column;
   gap: $sp2;
@@ -80,20 +83,9 @@
 
   @include media-min($tab-max) {
     flex-direction: row;
-    height: calc(100vh - 105px);
+    min-height: calc(100vh - 105px);
   }
 }
-
-/* inline part */
-[class^="hero-part"] {
-  width: 100%;
-  height: 100vh;
-}
-
-// .cake-part {
-//   position: absolute;
-//   top: 0;
-// }
 
 /* inline txt & image */
 .ww-inline-text {
@@ -133,27 +125,17 @@
 .cake-inline-text {
   position: relative;
   height: 100%;
-  overflow: hidden;
 
-  // &:not(:first-of-type) {
-  //   @include media-min($tab-max) {
-  //     pointer-events: none;
-  //   }
-  // }
+  // overflow: hidden;
 }
 
 /* inline txt & image container */
-
-.tw-it-container {
+.gsap-scroll-tw {
   position: relative;
   will-change: transform;
 }
 
 /* inline txt & image part */
-.goal17-text-parts {
-  height: 360px;
-}
-
 .goal17-text-part {
   position: absolute;
   top: 0;
@@ -172,16 +154,6 @@
     height: 360px;
     padding-top: $sp3;
     gap: $sp3;
-  }
-}
-
-.cake-text-part {
-  @include media-min($tab-max) {
-    display: flex;
-    flex-direction: column;
-    gap: $sp3;
-    width: 100%;
-    height: calc(100vh - 105px);
   }
 }
 
@@ -253,17 +225,9 @@
   }
 }
 
-.img-cakes:nth-of-type(1) {
-  width: 100%;
-  aspect-ratio: 586 / 626;
-}
-
-.img-cakes:not(:nth-of-type(1)) {
-  width: 100%;
-  aspect-ratio: 840 / 780;
-}
-
 .img-cake {
+  position: sticky;
+  top: 0;
   width: 100%;
 }
 

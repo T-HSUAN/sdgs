@@ -20,27 +20,24 @@ export default defineNuxtConfig({
   css: [
     'assets/style/components/loader.scss',
     'assets/style/all.scss',
-    // 'bootstrap/scss/bootstrap.scss'
   ],
   vite: {
     envDir: "env",
   },
 
-  runtimeConfig: {
-    public: {
-      imgFolder: env.VITE_IMG_FOLDER,
-    },
-  },
+  // runtimeConfig: {
+  //   public: {
+  //     Folder: process.env.VITE_FOLDER,
+  //     ImgUrl: process.env.VITE_IMG_URL,
+  //   },
+  // },
+
   modules: [
     ["@nuxtjs/stylelint-module", { lintonstart: false }],
     // ['@tresjs/nuxt', { devtools: true }],
     "nuxt-aos",
     "vue3-carousel-nuxt",
-    // "@bootstrap-vue-next/nuxt"
   ],
-  // build:{
-  // transpile: ['@tresjs/cientos'],
-  // },
   compatibilityDate: '2024-11-01',
   devtools: {
     enabled: true,

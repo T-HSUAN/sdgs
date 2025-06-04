@@ -13,7 +13,7 @@
           </div>
           <div class="inline-text wwg-inline-text">
             <div :class="`goal17-text-part g-text-part-${item.id}`" v-for="(item, index) in data" :key="index">
-              <img class="heading img-drawer-heading" :src="item.title_img" alt="heading" />
+              <img class="heading img-drawer-heading" :src="`${imgUrl}/worldwide/${item.title_img}`" alt="heading" />
               <p>{{ item.content }}</p>
             </div>
           </div>
@@ -42,11 +42,11 @@ import { data_sdgs_worldwide } from "assets/text/data.js";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const show_goal17 = useShowGoal17();
+const imgUrl = import.meta.env.VITE_FOLDER + '/images';
 const data = data_sdgs_worldwide;
 const index = useGoalIdx();
 
 const changePage = (idx) => {
-  console.log("changePage", idx);
   // Change the active text part based on the index
   document.querySelector(".wwg-page.active").classList.remove("active");
   document.querySelector(`.wwg-page-${idx + 1}`)?.classList.add("active");
@@ -92,7 +92,6 @@ watch(show_goal17, async (newVal) => {
       gsap_change_global17(lottie, scroller, trigger, 360);
       lottie.setFrame(15);
     });
-
   }
-});
+}, { once: true });
 </script>

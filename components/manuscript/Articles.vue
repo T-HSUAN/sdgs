@@ -12,7 +12,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(data, index) in data" :key="index">
           <div class="inline card card--row-reverse">
-            <div class="inline-image"><img class="w-full" :src="data.img" /></div>
+            <div class="inline-image"><img class="w-full" :src="`${data.img}`" /></div>
             <div class="inline-text p-sp2 p-lg-0">
               <h3>{{ data.title }}</h3>
               <p>{{ data.content }}</p>

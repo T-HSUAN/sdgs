@@ -13,14 +13,14 @@
         <div class="swiper-slide" v-for="(data, index) in data" :key="index">
           <div class="inline card">
             <div class="inline-image pos-relative">
-              <img class="w-full" :src="data.img" />
-              <img class="logo-brand" :src="data.brand_img" alt="brand logo">
+              <img class="w-full" :src="`${pgwImgUrl}/enterprise/${data.img}`" />
+              <img class="logo-brand" :src="`${pgwImgUrl}/enterprise/${data.brand_img}`" alt="brand logo">
             </div>
             <div class="inline-text p-sp2">
               <h3>{{ data.title }}</h3>
               <p>{{ data.content }}</p>
               <div class="labels d-flex spaceBetween-1">
-                <img class="img-label" :src="`${imgFolder}/images/sdgs/label${no}.jpg`"
+                <img class="img-label" :src="`${pgwImgUrl}/enterprise/sdgs/label${no}.jpg`"
                   v-for="(no, index) in data.labels" :key="index" alt="sdgs label" />
               </div>
             </div>
@@ -50,8 +50,9 @@ import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import { data_enterprises } from 'assets/text/data.js';
-const data = data_enterprises();
-const imgFolder = import.meta.env.VITE_FOLDER;
+
+const pgwImgUrl = import.meta.env.VITE_FOLDER + '/images';
+const data = data_enterprises;
 
 nextTick(() => {
   const slideCount = document.querySelectorAll('.swiper-slide').length;

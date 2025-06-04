@@ -141,7 +141,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .bg-main {
   position: relative !important;
-  width: clamp($tab-min, 90%, $desk-max) !important;
+  width: clamp(768px, 90%, 1920px) !important;
   height: clamp(432px, 100vh, 1080px) !important;
   margin: 0 auto !important;
 }

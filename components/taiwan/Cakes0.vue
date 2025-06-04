@@ -10,8 +10,8 @@
     <div class="inline desktop-inline" v-if="isDesktop">
       <div class="container gsap-scroll-cakes pos-relative d-flex flex-column flex-row-lg overflow-hidden">
         <div class="inline-image d-flex align-items-center">
-          <img :src="imgFolder + data[index].img" :class="`img-cakes img-cakes-${n}`" v-for="(n, index) in 5"
-            :key="index">
+          <img :src="`${pgwImgUrl}/taiwan/${data[index].img}`" :class="`img-cakes img-cakes-${n}`"
+            v-for="(n, index) in 5" :key="index">
         </div>
         <div class="inline-text">
           <div class="container cake-parts-desktop">
@@ -27,15 +27,15 @@
       <div class="container cake-parts-mobile d-flex flex-column gap-3">
         <div class="cake-part" v-for="(item, index) in data" :key="index">
           <div class="inline-image">
-            <img :src="imgFolder + data[index].img" :class="`img-cake img-cake-${item.id}`">
+            <img :src="`${pgwImgUrl}/taiwan/${data[index].img}`" :class="`img-cake img-cake-${item.id}`">
           </div>
           <div class="inline-text">
             <h3>{{ item.title }}</h3>
             <p v-for="p in item.content" :key="p">{{ p }}</p>
             <div class="sdgs-labels w-full">
               <div :class="`inline sdgs-label bc-sdg-${no}`" v-for="(no, index) in item.label" :key="index">
-                <img :src="`${imgFolder}/images/sdgs/label${no}.jpg`" :alt="`sdgs ${no}`" />
-                <div class="inline-text text-flex--v-center gap-1">
+                <img :src="`${pgwImgUrl}/sdgs/label${no}.jpg`" :alt="`sdgs ${no}`" />
+                <div class="inline-text d-i-flex--v-center gap-1">
                   <h4>SDGS {{ no }}</h4>
                   <p>這裡會放入一段內文</p>
                   <span :class="`icon-plus c-sdg-${no} bc-sdg-${no}`">+</span>
@@ -55,8 +55,8 @@ const isDesktop = ref(null);
 const get_width = () => {
   isDesktop.value = window.innerWidth > 1023.9;
 };
+const pgwImgUrl = import.meta.env.VITE_FOLDER + '/images';
 const data = data_sdgs_twcakes;
-const imgFolder = import.meta.env.VITE_FOLDER;
 const cake_idx = useCakeImg();
 
 onMounted(() => {
@@ -86,3 +86,24 @@ watch(cake_idx, (newVal) => {
   document.querySelector(`.img-cakes-${data[cake_idx.value].id}`).classList.toggle("hidden");
 });
 </script>
+<style>
+/* .img-cakes:nth-of-type(1) {
+  width: 100%;
+  aspect-ratio: 586 / 626;
+}
+
+.img-cakes:not(:nth-of-type(1)) {
+  width: 100%;
+  aspect-ratio: 840 / 780;
+}
+
+.cake-text-part {
+  @include media-min($tab-max) {
+    display: flex;
+    flex-direction: column;
+    gap: $sp3;
+    width: 100%;
+    height: calc(100vh - 105px);
+  }
+} */
+</style>

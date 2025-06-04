@@ -58,7 +58,7 @@
               <ul class="enterprise-list">
                 <li v-for="(data, index) in data_sdgs_ent" :key="index">
                   <NuxtLink class="link enterprise-item" :to="`#enterprise-${data.id}`">
-                    <img :src="data.brand_img">
+                    <img :src="`${pgwImgUrl}/enterprise/${data.brand_img}`">
                   </NuxtLink>
                 </li>
               </ul>
@@ -73,10 +73,12 @@
 import Swiper from 'swiper';
 import 'swiper/css';
 import { data_sdgs_worldwide, data_sdgs_aspect, data_articles, data_enterprises } from 'assets/text/data.js';
+
+const pgwImgUrl = import.meta.env.VITE_FOLDER + '/images';
 const data_sdgs_asp = data_sdgs_aspect;
 const data_sdgs_ww = data_sdgs_worldwide;
 const data_sdgs_atl = data_articles;
-const data_sdgs_ent = data_enterprises();
+const data_sdgs_ent = data_enterprises;
 
 const m_active = ref(false);
 const d_active = ref(false);

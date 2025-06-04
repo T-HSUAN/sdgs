@@ -28,7 +28,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { DotLottie } from "@lottiefiles/dotlottie-web";
 gsap.registerPlugin(ScrollTrigger);
 
-const imgFolder = import.meta.env.VITE_FOLDER;
+const imgUrl = import.meta.env.VITE_FOLDER + '/images';
 const show_goal17 = useShowGoal17();
 
 onMounted(async () => {
@@ -41,7 +41,7 @@ onMounted(async () => {
     once: true,
     onEnter: () => {
       lottie.load({
-        src: `${imgFolder}/images/worldwide/goals.json`,
+        src: `${imgUrl}/worldwide/goals.json`,
         autoplay: true,
         loop: false,
         speed: 3

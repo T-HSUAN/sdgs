@@ -120,10 +120,9 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
       end: () => end * 16,
       scrub: true,
       snap: 1 / 16,
-      markers: true,
       onUpdate: (self) => {
-        const progress = self.progress;
-        console.log("scroll", self.progress);
+        let progress = self.progress;
+        (progress < 0.06) && (progress = 0);
         const frame = 480 * progress + 15;
         const goalIdx = useGoalIdx();
         const zones = [
@@ -153,6 +152,7 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
           ) {
             goalIdx.value = z.idx;
             lottie.setFrame(frame);
+
             document
               .querySelector(".wwg-page.active")
               .classList.remove("active");
@@ -188,7 +188,6 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
     { autoAlpha: 1, duration: 1 },
     "<"
   );
-  console.log("gsap_change_global17 initialized");
 };
 
 //滾動文字內容使左圖蛋糕層變化
@@ -196,45 +195,35 @@ export const gsap_change_cakes = (cakes) => {
   let mm = gsap.matchMedia();
   mm.add("(min-width: 1024px)", () => {
     cakes.forEach((cake, i) => {
-      const container = cake.querySelector(".cake-inline-text");
-      const text = cake.querySelector(".cake-inline-text .tw-it-container");
-      const scroll_height = text.scrollHeight;
-      const client_height = container.clientHeight;
-      const scroll_distance = scroll_height - client_height;
-      console.log(text);
+      const text = cake.querySelector(".cake-inline-text .gsap-scroll-tw");
+      const container_height = window.innerHeight - 105;
+      const scroll_height = (i = 4 && text.scrollHeight < container_height) ? container_height : text.scrollHeight;
 
       // 建立 timeline 控制這一段的淡入與文字滾動
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cake,
-          start: "top top",
-          end: `+=${scroll_distance + window.innerHeight}`,
+          start: "top+=-74px top+=105px",
+          end: `+=${scroll_height}`,
           scrub: true,
-          pin: true, // 第一個蛋糕層固定
-          pinSpacing: true,
+          pin: true,
+          pinSpacing: false,
           anticipatePin: 1,
-          markers: true,
-          // onEnter: () => cake.classList.add("is-active"),
-          // onLeave: () => cake.classList.remove("is-active"),
-          // onEnterBack: () => cake.classList.add("is-active"),
-          // onLeaveBack: () => cake.classList.remove("is-active"),
+
         },
       });
 
-      // 如果不是第一個，這一段要淡入
       if (i > 0) {
-        tl.fromTo(cake, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 });
+        tl.fromTo(cake, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 });
       }
 
-      // 文字滾動
       tl.to(text, {
-        y: () => -scroll_distance,
+        y: () => -scroll_height,
         ease: "none",
         duration: 1,
-      });
+      }, "<");
 
-      // // 淡出這個 cake
-      // tl.to(cake, { autoAlpha: 0, duration: 0.5 }, 0.99);
+      tl.to(cake, { autoAlpha: 0, duration: 0.1 }, 0.99);
     });
   });
 };
