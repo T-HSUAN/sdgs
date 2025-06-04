@@ -122,7 +122,7 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
       snap: 1 / 16,
       onUpdate: (self) => {
         let progress = self.progress;
-        (progress < 0.06) && (progress = 0);
+        progress < 0.06 && (progress = 0);
         const frame = 480 * progress + 15;
         const goalIdx = useGoalIdx();
         const zones = [
@@ -191,13 +191,16 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
 };
 
 //滾動文字內容使左圖蛋糕層變化
-export const gsap_change_cakes = (cakes) => {
+export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
   let mm = gsap.matchMedia();
   mm.add("(min-width: 1024px)", () => {
     cakes.forEach((cake, i) => {
-      const text = cake.querySelector(".cake-inline-text .gsap-scroll-tw");
+      const textarea = cake.querySelector(textarea_name);
+      const img = cake.querySelector(img_name);
       const container_height = window.innerHeight - 105;
-      const scroll_height = (i = 4 && text.scrollHeight < container_height) ? container_height : text.scrollHeight;
+      const scroll_height = (i = 4 && textarea.scrollHeight < container_height)
+        ? container_height
+        : textarea.scrollHeight;
 
       // 建立 timeline 控制這一段的淡入與文字滾動
       const tl = gsap.timeline({
@@ -209,7 +212,6 @@ export const gsap_change_cakes = (cakes) => {
           pin: true,
           pinSpacing: false,
           anticipatePin: 1,
-
         },
       });
 
@@ -217,13 +219,19 @@ export const gsap_change_cakes = (cakes) => {
         tl.fromTo(cake, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 });
       }
 
-      tl.to(text, {
-        y: () => -scroll_height,
-        ease: "none",
-        duration: 1,
-      }, "<");
+      tl.to(
+        textarea,
+        {
+          y: () => -scroll_height,
+          ease: "none",
+          duration: 1,
+        },
+        "<"
+      );
 
-      tl.to(cake, { autoAlpha: 0, duration: 0.1 }, 0.99);
+      tl.to(img, { autoAlpha: 0, duration: 0.05 }, 0.6);
+
+      tl.to(cake, { autoAlpha: 0, duration: 0.01 }, 0.99);
     });
   });
 };

@@ -12,24 +12,41 @@
             <canvas class="img-goal17"></canvas>
           </div>
           <div class="inline-text wwg-inline-text">
-            <div :class="`goal17-text-part g-text-part-${item.id}`" v-for="(item, index) in data" :key="index">
-              <img class="heading img-drawer-heading" :src="`${imgUrl}/worldwide/${item.title_img}`" alt="heading" />
+            <div
+              :class="`goal17-text-part g-text-part-${item.id}`"
+              v-for="(item, index) in data"
+              :key="index"
+            >
+              <img
+                class="heading img-drawer-heading"
+                :src="`${imgUrl}/worldwide/${item.title_img}`"
+                alt="heading"
+              />
               <p>{{ item.content }}</p>
             </div>
           </div>
         </div>
       </div>
       <nav class="pagination wwg-pagination">
-        <button class="btn btn-white btn-close wwg-close" @click="show_goal17 = false">
+        <button
+          class="btn btn-white btn-close wwg-close"
+          @click="show_goal17 = false"
+        >
           ╳
         </button>
-        <div :class="`btn btn-gray wwg-page wwg-page-${page}`" v-for="(page, index) in 17" :key="page"
-          :title="`第 ${page} 項`" @click="changePage(index)">
+        <div
+          :class="`btn btn-gray wwg-page wwg-page-${page}`"
+          v-for="(page, index) in 17"
+          :key="page"
+          :title="`第 ${page} 項`"
+          @click="changePage(index)"
+        >
           <p>{{ page }}</p>
           <span>|</span>
         </div>
       </nav>
     </div>
+    <Loading v-if="loading" />
   </section>
 </template>
 <script setup>
@@ -39,12 +56,12 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { DotLottie } from "@lottiefiles/dotlottie-web";
 import { data_sdgs_worldwide } from "assets/text/data.js";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
+const loading = ref(true);
 const show_goal17 = useShowGoal17();
-const imgUrl = import.meta.env.VITE_FOLDER + '/images';
+const imgUrl = import.meta.env.VITE_FOLDER + "/images";
 const data = data_sdgs_worldwide;
 const index = useGoalIdx();
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const changePage = (idx) => {
   // Change the active text part based on the index
@@ -65,7 +82,6 @@ const changePage = (idx) => {
     onUpdate: () => ScrollTrigger.update(), // 動畫中持續更新
     onComplete: () => ScrollTrigger.refresh(), // 最後重新整理位置
   });
-
 };
 
 onMounted(async () => {
@@ -74,24 +90,31 @@ onMounted(async () => {
   document.querySelector(".wwg-page-1").classList.add("active");
 });
 
-watch(show_goal17, async (newVal) => {
-  if (newVal) {
-    await nextTick();
+watch(
+  show_goal17,
+  async (newVal) => {
+    if (newVal) {
+      await nextTick();
 
-    const lottie = new DotLottie({
-      canvas: document.querySelector(".img-goal17"),
-      src: "images/worldwide/goal17.json",
-      segment: [15, 495],
-      autoplay: false,
-      loop: false,
-    });
+      setTimeout(() => {
+        loading.value = false;
+      }, 300);
+      const lottie = new DotLottie({
+        canvas: document.querySelector(".img-goal17"),
+        src: "images/worldwide/goal17.json",
+        segment: [15, 495],
+        autoplay: false,
+        loop: false,
+      });
 
-    const scroller = document.getElementById("worldwide-goal");
-    const trigger = document.querySelector(".gsap-scroll-goal");
-    lottie.addEventListener("load", () => {
-      gsap_change_global17(lottie, scroller, trigger, 360);
-      lottie.setFrame(15);
-    });
-  }
-}, { once: true });
+      const scroller = document.getElementById("worldwide-goal");
+      const trigger = document.querySelector(".gsap-scroll-goal");
+      lottie.addEventListener("load", () => {
+        gsap_change_global17(lottie, scroller, trigger, 360);
+        lottie.setFrame(15);
+      });
+    }
+  },
+  { once: true }
+);
 </script>

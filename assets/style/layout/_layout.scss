@@ -2,6 +2,9 @@
 @use "../helpers/mixin" as *;
 
 /* section */
+.loader-default {
+  inset: 0;
+}
 .hero {
   padding-inline: 4%;
 }
@@ -76,8 +79,7 @@
 
   .inline-image {
     width: 100%;
-
-    // pointer-events: none;
+    pointer-events: none;
   }
 }
 

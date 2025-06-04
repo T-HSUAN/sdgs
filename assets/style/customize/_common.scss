@@ -185,8 +185,8 @@
     margin-top: -250px;
   }
 
-  @include media-min($tab-max) {
-    margin-top: 0;
+  @include media-min($desk-min) {
+    margin-top: -200px;
   }
 }
 
@@ -239,6 +239,26 @@
 .img-label {
   width: 48px;
   border-radius: 5px;
+}
+
+/* icon */
+.icon-loading {
+  position: absolute;
+  inset: 0;
+  width: 32px;
+  margin: auto;
+
+  @include media-scope(425px, 767.9px) {
+    width: 40px;
+  }
+
+  @include media-scope($tab-min, 1023.9px) {
+    width: 46px;
+  }
+
+  @include media-min($tab-max) {
+    width: 52px;
+  }
 }
 
 .icon-plus {

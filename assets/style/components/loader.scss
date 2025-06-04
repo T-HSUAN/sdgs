@@ -1,9 +1,9 @@
-#loader {
+.loader {
   position: fixed;
   width: 100%;
   height: 100vh;
   background: black;
-  z-index: 9998;
+  z-index: 9997;
 }
 
 .hero-header {
@@ -39,7 +39,7 @@
   position: fixed;
   bottom: 0;
   animation: rotate 5s linear infinite;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 @keyframes rotate {
