@@ -12,35 +12,19 @@
             <canvas class="img-goal17"></canvas>
           </div>
           <div class="inline-text wwg-inline-text">
-            <div
-              :class="`goal17-text-part g-text-part-${item.id}`"
-              v-for="(item, index) in data"
-              :key="index"
-            >
-              <img
-                class="heading img-drawer-heading"
-                :src="`${imgUrl}/worldwide/${item.title_img}`"
-                alt="heading"
-              />
+            <div :class="`goal17-text-part g-text-part-${item.id}`" v-for="(item, index) in data" :key="index">
+              <img class="heading img-drawer-heading" :src="`${imgUrl}/worldwide/${item.title_img}`" alt="heading" />
               <p>{{ item.content }}</p>
             </div>
           </div>
         </div>
       </div>
       <nav class="pagination wwg-pagination">
-        <button
-          class="btn btn-white btn-close wwg-close"
-          @click="show_goal17 = false"
-        >
+        <button class="btn btn-white btn-close wwg-close" @click="show_goal17 = false">
           ╳
         </button>
-        <div
-          :class="`btn btn-gray wwg-page wwg-page-${page}`"
-          v-for="(page, index) in 17"
-          :key="page"
-          :title="`第 ${page} 項`"
-          @click="changePage(index)"
-        >
+        <div :class="`btn btn-gray wwg-page wwg-page-${page}`" v-for="(page, index) in 17" :key="page"
+          :title="`第 ${page} 項`" @click="changePage(index)">
           <p>{{ page }}</p>
           <span>|</span>
         </div>
@@ -116,5 +100,19 @@ watch(
     }
   },
   { once: true }
+);
+
+watch(
+  index,
+  (newVal) => {
+    if (newVal) {
+      document
+        .querySelector(".wwg-page.active")
+        .classList.remove("active");
+      document
+        .querySelector(`.wwg-page-${index.value + 1}`)
+        .classList.add("active");
+    }
+  }
 );
 </script>

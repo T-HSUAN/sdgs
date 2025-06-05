@@ -4,9 +4,7 @@
       <p class="no">01</p>
       <h2 class="heading">
         <span class="heading-ch">全球SDGs進度表：誰在落後清單上？</span><br />
-        <span class="heading-en" lang="en"
-          >Global SD GS schedule: Who is on the lagging list?</span
-        >
+        <span class="heading-en" lang="en">Global SD GS schedule: Who is on the lagging list?</span>
       </h2>
     </header>
     <div class="inline">

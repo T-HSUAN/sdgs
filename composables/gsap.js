@@ -109,41 +109,43 @@ export const gsap_split_heading = () => {
 };
 
 export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
+  const goalIdx = useGoalIdx();
+  const zones = [
+    { idx: 0, min: 0.0, max: 0.061 },
+    { idx: 1, min: 0.061, max: 0.063 },
+    { idx: 2, min: 0.124, max: 0.126 },
+    { idx: 3, min: 0.186, max: 0.188 },
+    { idx: 4, min: 0.249, max: 0.251 },
+    { idx: 5, min: 0.311, max: 0.313 },
+    { idx: 6, min: 0.374, max: 0.376 },
+    { idx: 7, min: 0.436, max: 0.438 },
+    { idx: 8, min: 0.499, max: 0.501 },
+    { idx: 9, min: 0.561, max: 0.563 },
+    { idx: 10, min: 0.624, max: 0.626 },
+    { idx: 11, min: 0.686, max: 0.688 },
+    { idx: 12, min: 0.749, max: 0.751 },
+    { idx: 13, min: 0.811, max: 0.813 },
+    { idx: 14, min: 0.874, max: 0.876 },
+    { idx: 15, min: 0.936, max: 0.938 },
+    { idx: 16, min: 0.99, max: 1.0 },
+  ];
   const tl = gsap.timeline({
     scrollTrigger: {
       scroller: scroller,
       trigger: trigger,
       pin: true,
+      pinType: 'fixed',
       pinSpacing: false,
       anticipatePin: 1,
       start: "top top",
-      end: () => end * 16,
+      end: () => `+=${end * 16}`,
       scrub: true,
       snap: 1 / 16,
+      defaults: { duration: 1, ease: "none" },
       onUpdate: (self) => {
         let progress = self.progress;
         progress < 0.06 && (progress = 0);
         const frame = 480 * progress + 15;
-        const goalIdx = useGoalIdx();
-        const zones = [
-          { idx: 0, min: 0.0, max: 0.061 },
-          { idx: 1, min: 0.061, max: 0.063 },
-          { idx: 2, min: 0.124, max: 0.126 },
-          { idx: 3, min: 0.186, max: 0.188 },
-          { idx: 4, min: 0.249, max: 0.251 },
-          { idx: 5, min: 0.311, max: 0.313 },
-          { idx: 6, min: 0.374, max: 0.376 },
-          { idx: 7, min: 0.436, max: 0.438 },
-          { idx: 8, min: 0.499, max: 0.501 },
-          { idx: 9, min: 0.561, max: 0.563 },
-          { idx: 10, min: 0.624, max: 0.626 },
-          { idx: 11, min: 0.686, max: 0.688 },
-          { idx: 12, min: 0.749, max: 0.751 },
-          { idx: 13, min: 0.811, max: 0.813 },
-          { idx: 14, min: 0.874, max: 0.876 },
-          { idx: 15, min: 0.936, max: 0.938 },
-          { idx: 16, min: 0.99, max: 1.0 },
-        ];
         for (const z of zones) {
           if (
             progress >= z.min &&
@@ -152,42 +154,30 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
           ) {
             goalIdx.value = z.idx;
             lottie.setFrame(frame);
-
-            document
-              .querySelector(".wwg-page.active")
-              .classList.remove("active");
-            document
-              .querySelector(`.wwg-page-${goalIdx.value + 1}`)
-              .classList.add("active");
             break;
           }
         }
-
-        // console.log("progress", progress);
-        // console.log("goalIdx", goalIdx.value);
-        // console.log("frame", lottie.currentFrame);
       },
 
       onLeaveBack: () => {
         useGoalIdx().value = 0;
-        lottie.setFrame(20);
+        lottie.setFrame(15);
       },
     },
   });
   const parts = document.querySelectorAll(".goal17-text-part");
-  tl.fromTo(".g-text-part-1", { autoAlpha: 1 }, { autoAlpha: 0, duration: 1 });
-  Array.from(parts)
-    .slice(1, 16)
-    .forEach((part) => {
-      tl.fromTo(part, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1 }, "<");
-      tl.to(part, { autoAlpha: 0, duration: 0.5 });
-    });
-  tl.fromTo(
-    ".g-text-part-17",
-    { autoAlpha: 0 },
-    { autoAlpha: 1, duration: 1 },
-    "<"
-  );
+
+  parts.forEach((part, i) => {
+    if (i === 0) {
+      tl.fromTo(part, { autoAlpha: 1 }, { autoAlpha: 0 });
+    } else if (i < parts.length - 1) {
+      tl.fromTo(part, { autoAlpha: 0 }, { autoAlpha: 1 }, "<")
+        .to(part, { autoAlpha: 0, duration: 0.5 });
+    } else {
+      // 最後一個保持顯示
+      tl.fromTo(part, { autoAlpha: 0 }, { autoAlpha: 1 }, "<");
+    }
+  });
 };
 
 //滾動文字內容使左圖蛋糕層變化
@@ -198,7 +188,7 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
       const textarea = cake.querySelector(textarea_name);
       const img = cake.querySelector(img_name);
       const container_height = window.innerHeight - 105;
-      const scroll_height = (i = 4 && textarea.scrollHeight < container_height)
+      const scroll_height = (i == 4 && textarea.scrollHeight < container_height)
         ? container_height
         : textarea.scrollHeight;
 
@@ -215,10 +205,7 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
         },
       });
 
-      if (i > 0) {
-        tl.fromTo(cake, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 });
-      }
-
+      if (i > 0) { tl.fromTo(cake, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }); }
       tl.to(
         textarea,
         {
@@ -230,8 +217,6 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
       );
 
       tl.to(img, { autoAlpha: 0, duration: 0.05 }, 0.6);
-
-      tl.to(cake, { autoAlpha: 0, duration: 0.01 }, 0.99);
     });
   });
 };

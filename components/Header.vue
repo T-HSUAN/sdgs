@@ -1,7 +1,7 @@
 <template>
   <header id="header" role="banner">
     <div class="header-container">
-      <img class="logo-header" src="/images/logo1.svg" alt="main logo" />
+      <img class="logo-header" src="public/images/logo1.svg" alt="main logo" />
       <nav class="navbar">
         <ul class="main-menu">
           <li>
@@ -32,8 +32,7 @@
                 <ul class="cake-list" v-for="(data, index) in data_sdgs_asp" :key="index">
                   <li :class="`cake-name fc-aspect-${data.id}`">{{ data.aspect }}</li>
                   <li v-for="(label, index) in data.labels" :key="index">
-                    <NuxtLink class="link cake-item" :to="`#worldwide-goal-${label
-                      }`">{{ data_sdgs_ww[label - 1].title }}</NuxtLink>
+                    <NuxtLink class="link cake-item" to="/cake13">{{ data_sdgs_ww[label - 1].title }}</NuxtLink>
                   </li>
                 </ul>
               </div>

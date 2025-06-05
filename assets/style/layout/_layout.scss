@@ -5,6 +5,7 @@
 .loader-default {
   inset: 0;
 }
+
 .hero {
   padding-inline: 4%;
 }
@@ -50,6 +51,26 @@
   }
 }
 
+.inpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 56px;
+  gap: $sp4;
+
+  @include media-scope($tab-min, 1023.9px) {
+    margin-top: 95px;
+    gap: $sp13;
+  }
+
+  @include media-min($tab-max) {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 105px;
+    gap: 15vw;
+  }
+}
+
 /* container */
 .container {
   width: 100%;
@@ -80,6 +101,39 @@
   .inline-image {
     width: 100%;
     pointer-events: none;
+  }
+}
+
+.inpage-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 880px;
+  margin-bottom: $sp10;
+  gap: $sp3;
+
+  @include media-min($tab-max) {
+    width: 64.7%;
+    margin-block: $sp13;
+    gap: $sp2;
+  }
+
+  .inline-image {
+    display: flex;
+    flex-direction: column;
+    gap: $sp2;
+    pointer-events: initial;
+  }
+
+  .note {
+    font-size: $p4;
+    text-align: left;
+    color: $fc-note;
+
+    @include media-min($tab-max) {
+      text-align: right;
+    }
   }
 }
 

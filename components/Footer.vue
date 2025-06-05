@@ -2,9 +2,9 @@
   <footer>
     <div class="contributor-container">
       <div class="logos">
-        <img src="/images/logo2.svg">
-        <img src="/images/logo3.svg">
-        <img src="/images/logo4.svg">
+        <img src="public/images/logo2.svg">
+        <img src="public/images/logo3.svg">
+        <img src="public/images/logo4.svg">
       </div>
 
       <dl class="contributor">

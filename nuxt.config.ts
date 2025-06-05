@@ -4,6 +4,7 @@ const env = loadEnv(import.meta.env.MODE, "env");
 console.log("mode:", env.VITE_ENV);
 console.log("env:", env.VITE_TITLE);
 console.log("url:", env.VITE_BASE_URL);
+console.log("folder:", env.VITE_FOLDER);
 console.log("NODE_ENV:", process.env.NODE_ENV);
 
 export default defineNuxtConfig({

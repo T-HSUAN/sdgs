@@ -10,25 +10,15 @@
     <div class="inline d-flex flex-column gap-10 gap-sm-15 bgc-primary">
       <div class="cake-part" v-for="(item, index) in data" :key="index">
         <div class="inline-image pos-relative">
-          <img
-            :src="`${pgwImgUrl}/taiwan/${data[index].img}`"
-            :class="`img-cake img-cake-${item.id}`"
-          />
+          <img :src="`${pgwImgUrl}/taiwan/${data[index].img}`" :class="`img-cake img-cake-${item.id}`" />
         </div>
         <div class="inline-text cake-inline-text">
           <div class="container gsap-scroll-tw">
             <h3>{{ item.title }}</h3>
             <p v-for="p in item.content" :key="p">{{ p }}</p>
             <div class="sdgs-labels w-full">
-              <div
-                :class="`inline sdgs-label bc-sdg-${no}`"
-                v-for="(no, index) in item.label"
-                :key="index"
-              >
-                <img
-                  :src="`${pgwImgUrl}/sdgs/label${no}.jpg`"
-                  :alt="`sdgs ${no}`"
-                />
+              <div :class="`inline sdgs-label h-auto bc-sdg-${no}`" v-for="(no, index) in item.label" :key="index">
+                <img :src="`${pgwImgUrl}/sdgs/label${no}.jpg`" :alt="`sdgs ${no}`" />
                 <div class="inline-text d-iflex-row-center gap-1">
                   <h4>SDGS {{ no }}</h4>
                   <p>這裡會放入一段內文</p>
