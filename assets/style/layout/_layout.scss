@@ -56,18 +56,15 @@
   flex-direction: column;
   align-items: center;
   margin-top: 56px;
-  gap: $sp4;
 
   @include media-scope($tab-min, 1023.9px) {
     margin-top: 95px;
-    gap: $sp13;
   }
 
   @include media-min($tab-max) {
     flex-direction: row;
     align-items: flex-start;
     margin-top: 105px;
-    gap: 15vw;
   }
 }
 
@@ -107,15 +104,15 @@
 .inpage-inline {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-self: center;
   width: 90%;
-  max-width: 880px;
-  margin-bottom: $sp10;
+  margin: $sp10 auto;
   gap: $sp3;
 
   @include media-min($tab-max) {
-    width: 64.7%;
-    margin-block: $sp13;
+    width: 45.8%;
+    max-width: 880px;
+    margin: $sp13 auto;
     gap: $sp2;
   }
 
@@ -124,6 +121,10 @@
     flex-direction: column;
     gap: $sp2;
     pointer-events: initial;
+
+    @include media-min($tab-max) {
+      width: clamp(300px, 25%, 480px);
+    }
   }
 
   .note {

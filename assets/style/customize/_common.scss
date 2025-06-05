@@ -8,9 +8,11 @@
   .fc-sdg-#{$i} {
     color: list.nth($fc-sdgs, $i);
   }
+
   .bc-sdg-#{$i} {
     border-color: list.nth($fc-sdgs, $i);
   }
+
   .bgc-sdg-#{$i} {
     background-color: list.nth($fc-sdgs, $i);
   }
@@ -193,6 +195,14 @@
   @include media-min($desk-min) {
     margin-top: -200px;
   }
+}
+
+.img-inpage-heading {
+  width: 100%;
+}
+
+.img-sdg13 {
+  width: 100%;
 }
 
 .img-drawer-heading {
