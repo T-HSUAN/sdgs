@@ -2,91 +2,29 @@
 @use "../helpers/mixin" as *;
 
 /* header */
-.hero-header {
-  h1#title {
-    span.title-ch {
-      font-size: $h1;
-      font-weight: 300;
-    }
+h1#title {
+  span.title-ch {
+    font-size: $h1;
+    font-weight: 300;
+  }
 
-    span.title-en {
-      font-size: $p3;
-      font-weight: 400;
-      letter-spacing: normal;
-    }
+  span.title-en {
+    font-size: $p3;
+    font-weight: 400;
+    letter-spacing: normal;
   }
 }
 
-.topic-header {
-  padding-bottom: $sp2;
-
-  @include media-min($tab-min) {
-    padding-bottom: $sp3;
+h2.heading {
+  span.heading-ch {
+    display: inline-block;
+    font-size: $h2;
   }
 
-  @include media-min($tab-max) {
-    padding-bottom: $sp4;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    margin-top: $sp2;
-    background: $bc-primary;
-
-    @include media-min($tab-min) {
-      margin-top: $sp3;
-    }
-
-    @include media-min($tab-max) {
-      margin-top: $sp4;
-    }
-  }
-
-  .no {
-    font-size: $p4;
-  }
-
-  h2.heading {
-    span.heading-ch {
-      display: inline-block;
-      font-size: $h2;
-    }
-
-    span.heading-en {
-      display: inline-block;
-      font-size: clamp(16px, 1.6vw, 18px);
-      color: c-secondary;
-    }
-  }
-}
-
-.inpage-header {
-  display: inline-block;
-}
-
-/* guidance */
-.guidance-scroll {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-
-  .icon-line {
-    &--anim {
-      position: relative;
-      display: inline-block;
-      width: 1px;
-      height: 0;
-      margin-top: $sp1;
-      background: white;
-      text-shadow: 0 0 20px white;
-      animation: scroll-down 2s ease-in infinite;
-    }
+  span.heading-en {
+    display: inline-block;
+    font-size: clamp(16px, 1.6vw, 18px);
+    color: c-secondary;
   }
 }
 

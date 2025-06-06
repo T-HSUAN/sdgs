@@ -48,11 +48,16 @@ $sdg-gradient: "";
     }
   }
 
-  .logo {
+  .logo-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .logo-header {
     width: 36px;
 
     @include media-min($tab-min) {
-      width: 56px;
+      width: 50px;
     }
   }
 

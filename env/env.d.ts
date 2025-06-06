@@ -1,5 +1,6 @@
 interface ImportMetaEnv {
   VITE_ENV: string;
+  VITE_TITLE: string;
   VITE_DOMAIN: string;
   VITE_BASE_URL: string;
   VITE_FOLDER: string;

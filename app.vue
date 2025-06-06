@@ -1,5 +1,4 @@
 <template>
-  <div class="loader loader-welcome"></div>
   <Header />
   <main>
     <nuxtPage />
@@ -26,14 +25,16 @@ onMounted(() => {
           duration: 1,
           scrollTo: {
             y: target,
-            offsetY: 105, // 偏移量，確保滾動到正確位置
+            offsetY: 105,
             autoKill: false, // 確保滾動不會被其他事件打斷
           },
           ease: "power2.inOut",
-          onUpdate: () => ScrollTrigger.update(), // 動畫中持續更新
-          onComplete: () => ScrollTrigger.refresh(), // 最後重新整理位置
+          onUpdate: () => ScrollTrigger.update(),
+          onComplete: () => ScrollTrigger.refresh(),
         });
       }
+
+      history.replaceState(null, "", location.pathname);
     });
   });
 
@@ -41,4 +42,5 @@ onMounted(() => {
     ScrollTrigger.refresh();
   });
 });
+
 </script>

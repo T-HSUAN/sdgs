@@ -3,23 +3,11 @@
     <div class="inpage-header">
       <h2 class="heading sr-only">SDG 13: 氣候行動</h2>
       <picture>
-        <source
-          srcset="public/images/sdgs/title13-d.png"
-          media="(min-width: 1024px)"
-          type="image/png"
-        />
+        <source srcset="public/images/sdgs/title13-d.png" media="(min-width: 1024px)" type="image/png" />
 
-        <source
-          srcset="public/images/sdgs/title13-t.png"
-          media="(min-width: 768px)"
-          type="image/png"
-        />
+        <source srcset="public/images/sdgs/title13-t.png" media="(min-width: 768px)" type="image/png" />
         <source srcset="public/images/sdgs/title13-m.png" type="image/png" />
-        <img
-          class="heading img-inpage-heading"
-          src="public/images/sdgs/title13-d.png"
-          alt="sdg13 title"
-        />
+        <img class="heading img-inpage-heading" src="public/images/sdgs/title13-d.png" alt="sdg13 title" />
       </picture>
     </div>
     <div class="inline inpage-inline">
@@ -35,44 +23,16 @@
       </div>
       <div class="inline-image">
         <picture>
-          <source
-            srcset="public/images/sdgs/target13-1-d.png"
-            media="(min-width: 1024px)"
-            type="image/png"
-          />
-          <source
-            srcset="public/images/sdgs/target13-2-d.png"
-            media="(min-width: 1024px)"
-            type="image/png"
-          />
-          <source
-            srcset="public/images/sdgs/target13-1-t.png"
-            media="(min-width: 768px)"
-            type="image/png"
-          />
-          <source
-            srcset="public/images/sdgs/target13-2-t.png"
-            media="(min-width: 768px)"
-            type="image/png"
-          />
-          <source
-            srcset="public/images/sdgs/target13-1-m.png"
-            type="image/png"
-          />
-          <source
-            srcset="public/images/sdgs/target13-2-m.png"
-            type="image/png"
-          />
-          <img
-            class="img-sdg13"
-            src="public/images/sdgs/target13-1-d.png"
-            alt="sdg13 target1"
-          />
-          <img
-            class="img-sdg13"
-            src="/public/images/sdgs/target13-2-d.png"
-            alt="sdg13 target2"
-          />
+          <source srcset="public/images/sdgs/target13-1-d.png" media="(min-width: 1024px)" type="image/png" />
+          <source srcset="public/images/sdgs/target13-1-t.png" media="(min-width: 768px)" type="image/png" />
+          <source srcset="public/images/sdgs/target13-1-m.png" type="image/png" />
+          <img class="img-sdg13" src="public/images/sdgs/target13-1-d.png" alt="sdg13 target1" />
+        </picture>
+        <picture>
+          <source srcset="public/images/sdgs/target13-2-d.png" media="(min-width: 1024px)" type="image/png" />
+          <source srcset="public/images/sdgs/target13-2-t.png" media="(min-width: 768px)" type="image/png" />
+          <source srcset="public/images/sdgs/target13-2-m.png" type="image/png" />
+          <img class="img-sdg13" src="public/images/sdgs/target13-2-d.png" alt="sdg13 target2" />
         </picture>
       </div>
       <p class="note">

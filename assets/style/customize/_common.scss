@@ -129,8 +129,33 @@
 .cake-inline-text {
   position: relative;
   height: 100%;
+}
 
-  // overflow: hidden;
+.contrib-inline-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: $sp5;
+  gap: $sp4;
+
+  @include media-min($tab-min) {
+    flex-direction: row;
+    justify-content: center;
+    margin-block: $sp7;
+  }
+}
+
+.contrib-inline-text {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center start;
+  gap: $sp2 $sp5;
+  width: fit-content;
+  margin: $sp3 auto;
+
+  @include media-min($tab-min) {
+    margin: $sp4 auto;
+  }
 }
 
 /* inline txt & image container */
@@ -197,14 +222,6 @@
   }
 }
 
-.img-inpage-heading {
-  width: 100%;
-}
-
-.img-sdg13 {
-  width: 100%;
-}
-
 .img-drawer-heading {
   width: 258px;
 
@@ -254,6 +271,39 @@
 .img-label {
   width: 48px;
   border-radius: 5px;
+}
+
+.img-inpage-heading {
+  position: sticky;
+  top: 105px;
+  display: block;
+  width: 100%;
+}
+
+.img-sdg13 {
+  width: 100%;
+}
+
+/* guidance */
+.guidance-scroll {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
+  .icon-line {
+    &--anim {
+      position: relative;
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      margin-top: $sp1;
+      background: white;
+      text-shadow: 0 0 20px white;
+      animation: scroll-down 2s ease-in infinite;
+    }
+  }
 }
 
 /* icon */

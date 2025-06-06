@@ -55,7 +55,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
   margin-top: 56px;
+  overflow: visible;
 
   @include media-scope($tab-min, 1023.9px) {
     margin-top: 95px;
@@ -71,6 +74,50 @@
 /* container */
 .container {
   width: 100%;
+}
+
+/* header */
+.topic-header {
+  padding-bottom: $sp2;
+
+  @include media-min($tab-min) {
+    padding-bottom: $sp3;
+  }
+
+  @include media-min($tab-max) {
+    padding-bottom: $sp4;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    margin-top: $sp2;
+    background: $bc-primary;
+
+    @include media-min($tab-min) {
+      margin-top: $sp3;
+    }
+
+    @include media-min($tab-max) {
+      margin-top: $sp4;
+    }
+  }
+
+  .no {
+    font-size: $p4;
+  }
+}
+
+.inpage-header {
+  width: 100%;
+
+  @include media-min($tab-max) {
+    width: clamp(300px, 25%, 480px);
+    height: 100%;
+  }
 }
 
 /* inline */
@@ -106,13 +153,17 @@
   flex-direction: column;
   justify-self: center;
   width: 90%;
-  margin: $sp10 auto;
+  margin: 10% auto;
   gap: $sp3;
+  overflow: visible;
+
+  @include media-scope($tab-min, 1023.9px) {
+    margin: 9.7% auto;
+  }
 
   @include media-min($tab-max) {
-    width: 45.8%;
-    max-width: 880px;
-    margin: $sp13 auto;
+    width: clamp(520px, 45.8%, 880px);
+    margin: 5.2% auto;
     gap: $sp2;
   }
 
@@ -121,10 +172,6 @@
     flex-direction: column;
     gap: $sp2;
     pointer-events: initial;
-
-    @include media-min($tab-max) {
-      width: clamp(300px, 25%, 480px);
-    }
   }
 
   .note {

@@ -1,26 +1,5 @@
 <template>
   <footer>
-    <div class="contributor-container">
-      <div class="logos">
-        <img src="public/images/logo2.svg">
-        <img src="public/images/logo3.svg">
-        <img src="public/images/logo4.svg">
-      </div>
-
-      <dl class="contributor">
-        <dt>製作人</dt>
-        <dd>OOO、OOO</dd>
-        <dt>視覺設計</dt>
-        <dd>OOO</dd>
-        <dt>網頁製作</dt>
-        <dd>OOO</dd>
-        <dt>議題行銷</dt>
-        <dd>OOO</dd>
-        <dt>監製</dt>
-        <dd>OOO</dd>
-      </dl>
-      <p class="date">2025.04.21</p>
-    </div>
     <div class="info-container">
       <nav class="nav-footer">
         <a href="https://event.udn.com/AD/" class="link" target="_blank">刊登廣告</a>
@@ -36,7 +15,7 @@
         <a href="https://co.udn.com/" class="link" target="_blank">關於我們</a>
         <a href="https://udn.com/page/topic/496" class="link" target="_blank">網站總覽</a>
       </nav>
-      <p class="text-s m-sp2">聯合線上公司 著作權所有 © udn.com. All Rights Reserved.</p>
+      <p class="text-xs m-sp2">聯合線上公司 著作權所有 © udn.com. All Rights Reserved.</p>
     </div>
   </footer>
 </template>

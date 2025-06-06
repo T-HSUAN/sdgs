@@ -37,7 +37,6 @@ export default defineNuxtConfig({
     ["@nuxtjs/stylelint-module", { lintonstart: false }],
     // ['@tresjs/nuxt', { devtools: true }],
     "nuxt-aos",
-    "vue3-carousel-nuxt",
   ],
   compatibilityDate: '2024-11-01',
   devtools: {

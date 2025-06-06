@@ -144,21 +144,20 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
       defaults: { duration: 1, ease: "none" },
       onUpdate: (self) => {
         let progress = self.progress;
-        progress < 0.06 && (progress = 0);
+        // progress < 0.06 && (progress = 0);
         const frame = 480 * progress + 15;
-        for (const z of zones) {
-          if (
-            progress >= z.min &&
-            progress <= z.max &&
-            goalIdx.value !== z.idx
-          ) {
-            goalIdx.value = z.idx;
-            lottie.setFrame(frame);
-            break;
-          }
-        }
+        // for (const z of zones) {
+        //   if (
+        //     progress >= z.min &&
+        //     progress <= z.max &&
+        //     goalIdx.value !== z.idx
+        //   ) {
+        //     goalIdx.value = z.idx;
+        lottie.setFrame(frame);
+        //     break;
+        //   }
+        // }
       },
-
       onLeaveBack: () => {
         useGoalIdx().value = 0;
         lottie.setFrame(15);
@@ -166,18 +165,16 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
     },
   });
   const parts = document.querySelectorAll(".goal17-text-part");
-
-  parts.forEach((part, i) => {
-    if (i === 0) {
-      tl.fromTo(part, { autoAlpha: 1 }, { autoAlpha: 0 });
-    } else if (i < parts.length - 1) {
-      tl.fromTo(part, { autoAlpha: 0 }, { autoAlpha: 1 }, "<")
-        .to(part, { autoAlpha: 0, duration: 0.5 });
-    } else {
-      // 最後一個保持顯示
-      tl.fromTo(part, { autoAlpha: 0 }, { autoAlpha: 1 }, "<");
-    }
-  });
+  // parts.forEach((part, i) => {
+  //   if (i === 0) {
+  //     tl.fromTo(part, { visibility: 'visible' }, { visibility: 'hidden' });
+  //   } else if (i < parts.length - 1) {
+  //     tl.fromTo(part, { visibility: 'hidden' }, { visibility: 'visible' }, "<")
+  //       .to(part, { visibility: 'hidden', duration: 0.5 });
+  //   } else {
+  //     tl.fromTo(part, { visibility: 'hidden' }, { visibility: 'visible' }, "<");
+  //   }
+  // });
 };
 
 //滾動文字內容使左圖蛋糕層變化
@@ -188,15 +185,14 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
       const textarea = cake.querySelector(textarea_name);
       const img = cake.querySelector(img_name);
       const container_height = window.innerHeight - 105;
-      const scroll_height = (i == 4 && textarea.scrollHeight < container_height)
-        ? container_height
-        : textarea.scrollHeight;
+      const scroll_height = (i == 4) ? 0 : textarea.scrollHeight;
+      /* const scroll_height = (i == 4 && textarea.scrollHeight < container_height) ? container_height : textarea.scrollHeight;*/
 
       // 建立 timeline 控制這一段的淡入與文字滾動
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cake,
-          start: "top+=-74px top+=105px",
+          start: "top+=-179px top+=105px",
           end: `+=${scroll_height}`,
           scrub: true,
           pin: true,
@@ -205,94 +201,17 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
         },
       });
 
-      if (i > 0) { tl.fromTo(cake, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }); }
+      if (i > 0) tl.fromTo(img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, ">")
+
       tl.to(
         textarea,
         {
           y: () => -scroll_height,
           ease: "none",
           duration: 1,
-        },
-        "<"
-      );
-
-      tl.to(img, { autoAlpha: 0, duration: 0.05 }, 0.6);
-    });
-  });
-};
-/*
-export const gsap_change_cakes = (trigger, content, start, end) => {
-  let mm = gsap.matchMedia();
-  mm.add("(min-width: 1024px)", () => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: trigger,
-        start: `${start} top`,
-        end: () => `+=${end * 4} bottom`,
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-        snap: 1 / 4,
-        onUpdate: (self) => {
-          const zones = [
-            { idx: 0, min: 0.0, max: 0.22 },
-            { idx: 1, min: 0.23, max: 0.33 },
-            { idx: 2, min: 0.45, max: 0.55 },
-            { idx: 3, min: 0.7, max: 0.8 },
-            { idx: 4, min: 0.95, max: 1.0 },
-          ];
-
-          const img_idx = useCakeImg();
-          const progress = self.progress;
-
-          for (const z of zones) {
-            if (
-              progress >= z.min &&
-              progress <= z.max &&
-              img_idx.value !== z.idx
-            ) {
-              img_idx.value = z.idx;
-              break;
-            }
-          }
-        },
-      },
-    });
-    for (let i = 1; i <= 4; i++) {
-      tl.to(content, {
-        y: -end * i,
-        duration: 1,
-      });
-    }
-  });
-};
-export const gsap_change_cakes = (lottie, trigger, content, start, end) => {
-  let mm = gsap.matchMedia();
-
-  lottie.addEventListener("load", () => {
-    mm.add("(min-width: 1024px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: trigger,
-          start: `${start} top`,
-          end: () => `+=${end * 4} bottom`,
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-          snap: 1 / 4,
-          onUpdate: self => {
-            const frame = lottie.totalFrames * 19 / 40 * self.progress;
-            lottie.setFrame(frame);
-          }
         }
-      });
-      for (let i = 1; i <= 4; i++) {
-        tl.to(content, {
-          y: -end * i,
-          duration: 1
-        });
-      }
+      );
+      if (i < 4) tl.to(img, { autoAlpha: 0, duration: 0.1 });
     });
-  })
-}
-*/
+  });
+};
