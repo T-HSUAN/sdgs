@@ -60,7 +60,7 @@
   margin-top: 56px;
   overflow: visible;
 
-  @include media-scope($tab-min, 1023.9px) {
+  @include media-scope($tab-min, 1023px) {
     margin-top: 95px;
   }
 
@@ -157,7 +157,7 @@
   gap: $sp3;
   overflow: visible;
 
-  @include media-scope($tab-min, 1023.9px) {
+  @include media-scope($tab-min, 1023px) {
     margin: 9.7% auto;
   }
 

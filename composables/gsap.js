@@ -129,6 +129,7 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
     { idx: 15, min: 0.936, max: 0.938 },
     { idx: 16, min: 0.99, max: 1.0 },
   ];
+  let lastFrame = null;
   const tl = gsap.timeline({
     scrollTrigger: {
       scroller: scroller,
@@ -138,25 +139,32 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
       pinSpacing: false,
       anticipatePin: 1,
       start: "top top",
-      end: () => `+=${end * 16}`,
+      end: () => `+=${end * 15}`,
       scrub: true,
       snap: 1 / 16,
+      markers: true,
       defaults: { duration: 1, ease: "none" },
       onUpdate: (self) => {
         let progress = self.progress;
-        // progress < 0.06 && (progress = 0);
-        const frame = 480 * progress + 15;
-        // for (const z of zones) {
-        //   if (
-        //     progress >= z.min &&
-        //     progress <= z.max &&
-        //     goalIdx.value !== z.idx
-        //   ) {
-        //     goalIdx.value = z.idx;
-        lottie.setFrame(frame);
-        //     break;
+        //   progress < 0.06 && (progress = 0);
+        //   // const frame = 480 * progress + 15;
+        //   const frame = Math.round(480 * progress + 15);
+        //   for (const z of zones) {
+        //     if (
+        //       progress >= z.min &&
+        //       progress <= z.max &&
+        //       goalIdx.value !== z.idx
+        //     ) {
+        //       goalIdx.value = z.idx;
+        // lottie.setFrame(frame);
+        //       break;
+        //     }
         //   }
-        // }
+
+        //   if (frame !== lastFrame) {
+        //     lastFrame = frame;
+        //     lottie.setFrame(frame);
+        //   }
       },
       onLeaveBack: () => {
         useGoalIdx().value = 0;
@@ -165,16 +173,12 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
     },
   });
   const parts = document.querySelectorAll(".goal17-text-part");
-  // parts.forEach((part, i) => {
-  //   if (i === 0) {
-  //     tl.fromTo(part, { visibility: 'visible' }, { visibility: 'hidden' });
-  //   } else if (i < parts.length - 1) {
-  //     tl.fromTo(part, { visibility: 'hidden' }, { visibility: 'visible' }, "<")
-  //       .to(part, { visibility: 'hidden', duration: 0.5 });
-  //   } else {
-  //     tl.fromTo(part, { visibility: 'hidden' }, { visibility: 'visible' }, "<");
-  //   }
-  // });
+  parts.forEach((part, i) => {
+    if (i < parts.length - 1) {
+      tl.to(part, { visibility: 'hidden' });
+      tl.fromTo(parts[i + 1], { visibility: 'hidden' }, { visibility: 'visible' }, "<");
+    }
+  });
 };
 
 //滾動文字內容使左圖蛋糕層變化

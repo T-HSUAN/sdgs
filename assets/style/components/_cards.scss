@@ -11,7 +11,7 @@
   border-radius: 5px;
   overflow: hidden;
 
-  @include media-scope($mob-max, 1023.9px) {
+  @include media-scope($mob-max, 1023px) {
     gap: $sp3;
   }
 
@@ -65,7 +65,7 @@
     margin-block: auto;
     font-size: clamp(14px, 1.6vw, 18px);
 
-    @include media-max(767.9px) {
+    @include media-max(767px) {
       width: clamp(90px, 23.5vw, 150px);
     }
   }

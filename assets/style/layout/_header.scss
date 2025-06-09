@@ -39,7 +39,7 @@ $sdg-gradient: "";
     padding: 5px 4.15% 0;
     overflow: hidden;
 
-    @include media-scope($tab-min, 1023.9px) {
+    @include media-scope($tab-min, 1023px) {
       height: 95px;
     }
 
@@ -94,7 +94,7 @@ $sdg-gradient: "";
     padding: 3% 6%;
     background: $bgc-primary;
 
-    @include media-scope($tab-min, 1023.9px) {
+    @include media-scope($tab-min, 1023px) {
       top: 95px;
       height: calc(100vh - 95px);
     }

@@ -35,10 +35,6 @@
   height: calc(100vh - list.nth($header-heights, 3));
 }
 
-.mw-1920 {
-  max-width: $desk-max;
-}
-
 .mh-full {
   max-height: 100vh;
 }

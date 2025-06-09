@@ -17,7 +17,7 @@
         <picture>
           <source class="bg-main-visual" srcset="public/images/bg-SDGs.webp" media="(min-width: $tab-max)"
             type="image/webp" />
-          <source class="bg-main-visual" srcset="public/images/bg-SDGs-vert.svg" media="(max-width: 1023.9px)"
+          <source class="bg-main-visual" srcset="public/images/bg-SDGs-vert.svg" media="(max-width: 1023px)"
             type="image/svg+xml" />
           <img class="bg-main-visual" src="public/images/bg-SDGs.webp" alt="main-visual" />
         </picture>
@@ -30,10 +30,10 @@
       </div>
     </div>
   </section>
-  <!-- <WorldwideGoals />
+  <WorldwideGoals />
   <TaiwanCakes />
   <ManuscriptArticles />
-  <Enterprise /> -->
+  <Enterprise />
   <section class="contributor text-center">
     <div class="inline">
       <div class="inline-image contrib-inline-image">
@@ -69,11 +69,11 @@ nextTick(() => {
   // if (window.scrollY > 0) {
   //   window.scrollTo(0, 0);
   // }
-  //   setTimeout(() => {
-  //     toggleLoading();
-  //     gsap_loading();
-  //   }, 1);
-  //   gsap_scroll_hero();
-  //   gsap_split_heading();
+  setTimeout(() => {
+    toggleLoading();
+    gsap_loading();
+  }, 1);
+  gsap_scroll_hero();
+  gsap_split_heading();
 });
 </script>

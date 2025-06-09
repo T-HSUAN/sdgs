@@ -284,6 +284,18 @@
   width: 100%;
 }
 
+.img-sdg.d {
+  @include media-max(1023px) {
+    display: none;
+  }
+}
+
+.img-sdg.tm {
+  @include media-min($tab-max) {
+    display: none;
+  }
+}
+
 /* guidance */
 .guidance-scroll {
   position: absolute;
@@ -313,11 +325,11 @@
   width: 32px;
   margin: auto;
 
-  @include media-scope(425px, 767.9px) {
+  @include media-scope(425px, 767px) {
     width: 40px;
   }
 
-  @include media-scope($tab-min, 1023.9px) {
+  @include media-scope($tab-min, 1023px) {
     width: 46px;
   }
 
@@ -359,7 +371,7 @@
   justify-content: center;
   width: 100%;
 
-  @include media-max(539.9px) {
+  @include media-max(539px) {
     display: none;
   }
 
