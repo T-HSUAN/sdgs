@@ -37,36 +37,24 @@
 /* section */
 .worldwide-goal {
   height: calc(100vh - 105px);
-  overflow-y: scroll;
-  will-change: scroll-position;
 }
-
-// .taiwan {
-//   overflow: initial;
-//   overflow-y: auto;
-// }
 
 /* container */
 .gsap-scroll-hero {
   height: 400vh;
 }
 
-.goal17-container {
-  height: calc(100vh - 105px + 5760px);
-}
-
 /* inline */
 
 /* inline container */
-.gsap-scroll-goal {
+.wwg-container {
   display: flex;
   flex-direction: column;
   height: 100%;
 
   @include media-min($tab-min) {
+    position: relative;
     display: block;
-    height: calc(100vh - 105px);
-    pointer-events: none;
   }
 }
 
@@ -99,15 +87,14 @@
   }
 }
 
-.wwg-inline-text {
-  position: relative;
-  width: 100% !important;
-  height: max(300px, 30vh) !important;
+.wwg-item {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 
   @include media-min($tab-max) {
-    width: 30% !important;
-    max-width: 630px;
-    height: 360px !important;
+    width: max(360px, 30%) !important;
   }
 }
 
@@ -168,26 +155,22 @@
 }
 
 /* inline txt & image part */
-.goal17-text-part {
-  position: absolute;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  height: 300px;
-  gap: $sp2;
+// .goal17-text-part {
+//   display: flex;
+//   flex-direction: column;
+//   height: 300px;
+//   gap: $sp2;
 
-  @include media-min($tab-min) {
-    padding-top: $sp2;
-  }
+//   @include media-min($tab-min) {
+//     padding-top: $sp2;
+//   }
 
-  @include media-min($tab-max) {
-    position: absolute;
-    top: 0;
-    height: 360px;
-    padding-top: $sp3;
-    gap: $sp3;
-  }
-}
+//   @include media-min($tab-max) {
+// width: min(360px, 30%) !important;
+//     padding-top: $sp3;
+//     gap: $sp3;
+//   }
+// }
 
 /* img */
 .bg-main-visual {
@@ -230,7 +213,7 @@
   }
 }
 
-.img-goal17 {
+.lottie-goal17 {
   position: absolute;
   top: $sp5;
   right: -$sp15;

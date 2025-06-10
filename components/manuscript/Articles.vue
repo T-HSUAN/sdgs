@@ -41,14 +41,14 @@
 </template>
 <script setup>
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
+import "swiper/css";
+import { Navigation, Mousewheel } from "swiper/modules";
 import { data_articles } from 'assets/text/data.js';
 const data = data_articles;
 
 nextTick(() => {
   new Swiper('.swiper-articles', {
-    modules: [Navigation],
+    modules: [Navigation, Mousewheel],
     slidesPerView: 1,
     spaceBetween: 8,
     mousewheel: true,

@@ -49,7 +49,7 @@
 </template>
 <script setup>
 import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
+import { Navigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import { data_enterprises } from "assets/text/data.js";
 
@@ -61,7 +61,8 @@ nextTick(() => {
   if (slideCount <= 3 && window.innerWidth >= 1440) {
   }
   new Swiper(".swiper-enterprise", {
-    modules: [Navigation],
+    modules: [Navigation, Mousewheel],
+    loop: true,
     slidesPerView: 1,
     centeredSlides: true,
     spaceBetween: 8,
