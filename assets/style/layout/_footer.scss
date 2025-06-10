@@ -8,11 +8,11 @@ footer {
   align-items: center;
   justify-content: center;
   gap: $sp4;
-  padding-block: $sp3;
   z-index: 98;
 
   .info-container {
     width: 100%;
+    padding-block: $sp3;
     text-align: center;
     border-top: 1px solid $bc-primary;
   }
