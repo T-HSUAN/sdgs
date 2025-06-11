@@ -77,33 +77,20 @@ export const gsap_scroll_hero = () => {
 
 export const gsap_split_heading = () => {
   gsap.utils.toArray(".heading-ch").forEach((heading) => {
-    const split = new SplitText(heading, { type: "chars" });
-
-    // 初始狀態設置
-    gsap.set(split.chars, { y: -50, opacity: 0, filter: "blur(10px)" });
-
-    // 建立 timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heading.parentElement,
-        start: "top 80%",
-        toggleActions: "play none none reset",
+    new SplitText(heading, {
+      type: "chars",
+      autoSplit: true,
+      onSplit(self) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: heading.parentElement,
+            start: "top 80%",
+            toggleActions: "play none none reset"
+          },
+        });
+        tl.fromTo(self.chars, { y: -50, opacity: 0, filter: "blur(10px)" }, { y: 5, opacity: 0.8, filter: "blur(3px)", duration: 0.1, stagger: 0.03, ease: "power2.out" }
+        ).to(self.chars, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.1, stagger: 0.05, ease: "power2.out" });
       },
-    });
-    tl.to(split.chars, {
-      y: 5,
-      opacity: 0.8,
-      filter: "blur(3px)",
-      duration: 0.1,
-      stagger: 0.03,
-      ease: "power2.out",
-    }).to(split.chars, {
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 0.1,
-      stagger: 0.05,
-      ease: "power2.out",
     });
   });
 };
@@ -135,7 +122,7 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
       scroller: scroller,
       trigger: trigger,
       pin: true,
-      pinType: 'fixed',
+      pinType: "fixed",
       pinSpacing: false,
       anticipatePin: 1,
       start: "top top",
@@ -175,8 +162,13 @@ export const gsap_change_global17 = (lottie, scroller, trigger, end) => {
   const parts = document.querySelectorAll(".goal17-text-part");
   parts.forEach((part, i) => {
     if (i < parts.length - 1) {
-      tl.to(part, { visibility: 'hidden' });
-      tl.fromTo(parts[i + 1], { visibility: 'hidden' }, { visibility: 'visible' }, "<");
+      tl.to(part, { visibility: "hidden" });
+      tl.fromTo(
+        parts[i + 1],
+        { visibility: "hidden" },
+        { visibility: "visible" },
+        "<"
+      );
     }
   });
 };
@@ -189,7 +181,7 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
       const textarea = cake.querySelector(textarea_name);
       const img = cake.querySelector(img_name);
       const container_height = window.innerHeight - 105;
-      const scroll_height = (i == 4) ? 0 : textarea.scrollHeight;
+      const scroll_height = i == 4 ? 0 : textarea.scrollHeight;
       /* const scroll_height = (i == 4 && textarea.scrollHeight < container_height) ? container_height : textarea.scrollHeight;*/
 
       // 建立 timeline 控制這一段的淡入與文字滾動
@@ -205,16 +197,14 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
         },
       });
 
-      if (i > 0) tl.fromTo(img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, ">")
+      if (i > 0)
+        tl.fromTo(img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, ">");
 
-      tl.to(
-        textarea,
-        {
-          y: () => -scroll_height,
-          ease: "none",
-          duration: 1,
-        }
-      );
+      tl.to(textarea, {
+        y: () => -scroll_height,
+        ease: "none",
+        duration: 1,
+      });
       if (i < 4) tl.to(img, { autoAlpha: 0, duration: 0.1 });
     });
   });

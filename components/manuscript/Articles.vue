@@ -10,7 +10,7 @@
     <!-- Slider main container -->
     <div class="swiper swiper-manuscript">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(data, index) in data" :key="index">
+        <div class="swiper-slide h-auto" v-for="(data, index) in data" :key="index">
           <div class="inline slide-card slide-card--row-reverse">
             <div class="inline-image"><img class="w-full" :src="`${pgwImgUrl}/article/${data.img}`" /></div>
             <div class="inline-text p-sp2 p-lg-0">

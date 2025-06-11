@@ -1,5 +1,5 @@
 <template>
-  <section class="topic taiwan" id="taiwan">
+  <section class="topic" id="taiwan">
     <header class="topic-header">
       <p class="no">02</p>
       <h2 class="heading">
@@ -17,13 +17,25 @@
             <h3>{{ item.title }}</h3>
             <p v-for="p in item.content" :key="p">{{ p }}</p>
             <div class="cake-list">
-              <NuxtLink :class="`link sdgs-card cake-item h-auto bc-sdg-${no}`" :to="'/cake' + no"
-                v-for="(no, index) in item.label" :key="index">
+              <NuxtLink :class="[
+                'link',
+                'sdgs-card',
+                'cake-item',
+                'h-auto',
+                'bc-sdg-' + no,
+                { ['bgc-sdg-' + no]: hover_index === index },
+                { ['bgc-sdg-' + no]: isDesktop && hover_index === index },
+              ]" :to="'/cake' + no" v-for="(no, index) in item.label" :key="index" @mouseenter="hover_index = index"
+                @mouseleave="hover_index = null">
                 <img :src="`${pgwImgUrl}/sdgs/label${no}.jpg`" :alt="`sdgs ${no}`" />
                 <div class="inline-text d-iflex-row-center gap-1">
                   <h4>SDGS {{ no }}</h4>
                   <p>這裡會放入一段內文</p>
-                  <span :class="`icon-plus fc-sdg-${no}`">+</span>
+                  <span :class="[
+                    'icon-plus',
+                    'fc-sdg-' + no,
+                    { ['fc-primary']: hover_index === index },
+                  ]">+</span>
                 </div>
               </NuxtLink>
             </div>
@@ -43,30 +55,11 @@ const get_width = () => {
 const pgwImgUrl = import.meta.env.VITE_FOLDER + "/images";
 const data = data_sdgs_twcakes;
 const labels_id = data.flatMap((item) => item.label || []);
+const hover_index = ref(null);
 
 onMounted(async () => {
   get_width();
   window.addEventListener("resize", get_width);
-
-  const labels = document.querySelectorAll(".cake-item");
-
-  for (let i = 0; i < labels.length; i++) {
-    labels[i].addEventListener("mouseenter", (e) => {
-      const label = e.currentTarget;
-      const id = labels_id[i];
-      const icon = e.currentTarget.querySelector(".icon-plus");
-      label.classList.add(`bgc-sdg-${id}`);
-      icon.classList.add("fc-primary");
-    });
-
-    labels[i].addEventListener("mouseleave", (e) => {
-      const label = e.currentTarget;
-      const id = labels_id[i];
-      const icon = e.currentTarget.querySelector(".icon-plus");
-      label.classList.remove(`bgc-sdg-${id}`);
-      icon.classList.remove("fc-primary");
-    });
-  }
 
   await nextTick(() => {
     const cakes = document.querySelectorAll(".cake-part");

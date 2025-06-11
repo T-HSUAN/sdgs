@@ -21,21 +21,22 @@
             <NuxtLink class="link" to="/#enterprise">永續好企業</NuxtLink>
           </li> -->
         </ul>
-        <span :class="['hamburger', { 'menu-active': m_active }]" @click="menuClick"></span>
+        <span :class="['hamburger', { 'menu-active': m_active }]" title="closed" @click="changeState"></span>
         <div :class="['dropdown-menu', { 'dropdown-active': d_active }]">
           <ul class="ddm-list">
             <li>
-              <NuxtLink class="link topic-title" to="#worldwide">全球SDGs進度表：誰在落後清單上？</NuxtLink>
+              <NuxtLink class="link topic-title" to="/#worldwide" @click="changeState">全球SDGs進度表：誰在落後清單上？
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink class="link topic-title" to="#taiwan">台灣蛋糕層</NuxtLink>
+              <NuxtLink class="link topic-title" to="/#taiwan" @click="changeState">台灣蛋糕層</NuxtLink>
               <div class="cake-lists-container">
                 <ul class="cake-list" v-for="(data, index) in data_sdgs_asp" :key="index">
                   <li :class="`cake-name fc-aspect-${data.id}`">
                     {{ data.aspect }}
                   </li>
                   <li v-for="(no, index) in data.labels" :key="index">
-                    <NuxtLink class="link cake-item" :to="'/cake' + no">{{
+                    <NuxtLink class="link cake-item" :to="'/cake' + no" @click="changeState">{{
                       data_sdgs_ww[no - 1].title
                     }}</NuxtLink>
                   </li>
@@ -43,11 +44,11 @@
               </div>
             </li>
             <li>
-              <NuxtLink class="link topic-title" to="#manuscript">文稿篇</NuxtLink>
+              <NuxtLink class="link topic-title" to="/#manuscript" @click="changeState">文稿篇</NuxtLink>
               <div class="article-list swiper-header">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide" v-for="(data, idx) in data_sdgs_atl" :key="idx">
-                    <NuxtLink class="link article-item" :to="`#article-${data.id}`">
+                    <NuxtLink class="link article-item" :to="`#article-${data.id}`" @click="changeState">
                       <div class="menu-card">
                         <img :src="`${pgwImgUrl}/article/${data.img}`" />
                         <p>{{ data.title }}</p>
@@ -58,10 +59,10 @@
               </div>
             </li>
             <!-- <li>
-              <NuxtLink class="link topic-title" to="#enterprise">永續好企業</NuxtLink>
+              <NuxtLink class="link topic-title" to="/#enterprise" @click="changeState">永續好企業</NuxtLink>
               <ul class="enterprise-list">
                 <li v-for="(data, index) in data_sdgs_ent" :key="index">
-                  <NuxtLink class="link enterprise-item" :to="`#enterprise-${data.id}`">
+                  <NuxtLink class="link enterprise-item" :to="`#enterprise-${data.id}`" @click="changeState">
                     <img :src="`${pgwImgUrl}/enterprise/${data.brand_img}`" />
                   </NuxtLink>
                 </li>
@@ -96,7 +97,7 @@ const m_active = ref(false);
 const d_active = ref(false);
 const lightbox = useShowGoal17();
 const device_d = ref(false);
-const menuClick = () => {
+const changeState = () => {
   m_active.value = !m_active.value;
   d_active.value = !d_active.value;
   lightbox.value && (lightbox.value = false);
@@ -109,13 +110,6 @@ const checkWidth = () => {
 onMounted(async () => {
   checkWidth();
 
-  const links = document.querySelectorAll(".link");
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      m_active.value && (m_active.value = false);
-      d_active.value && (d_active.value = false);
-    });
-  });
   await nextTick(() => {
     new Swiper(".swiper-header", {
       modules: [Mousewheel],
