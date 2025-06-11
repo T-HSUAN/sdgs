@@ -27,7 +27,7 @@
       </div>
     </div>
   </section>
-  <WorldwideGoal17 v-show="show_goal17" />
+  <WorldwideGoal17 v-model="show_goal17" />
 </template>
 <script setup>
 import { gsap } from "gsap";

@@ -21,8 +21,8 @@
   opacity: 1 !important;
 }
 
-.is-active {
-  pointer-events: auto;
+.open {
+  transform: translateY(0) !important;
 }
 
 .hidden {

@@ -1,33 +1,13 @@
 @use "../helpers/variable" as *;
 @use "../helpers/mixin" as *;
 
-$sdg-gradient: "";
-
-@each $fcolor in $fc-sdgs {
-  $sdg-gradient: if(
-    $sdg-gradient == "",
-    $fcolor,
-    "#{$sdg-gradient}, #{$fcolor}"
-  );
-}
-
 #header {
   position: fixed;
   top: 0;
   left: 0;
   background: $bgc-primary-60;
   border-bottom: 1px solid $bc-primary;
-  z-index: 9999;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(to right, #{$sdg-gradient});
-  }
+  z-index: 9998;
 
   .header-container {
     display: flex;
@@ -87,22 +67,26 @@ $sdg-gradient: "";
     position: absolute;
     top: 56px;
     left: 0;
-    display: none;
+    transform: translateY(calc(-100% - 56px));
     width: 100%;
     max-width: 1920px;
     height: calc(100vh - 56px);
     padding: 3% 6%;
-    background: $bgc-primary;
+    background: $bgc-primary-60;
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    overflow: hidden auto;
 
     @include media-scope($tab-min, 1023px) {
       top: 95px;
+      transform: translateY(calc(-100% - 95px));
       height: calc(100vh - 95px);
     }
 
     @include media-min($tab-max) {
       top: 105px;
-      left: 50%;
-      transform: translateX(-50%);
+      transform: translateY(calc(-100% - 105px));
       height: calc(100vh - 105px);
     }
 
@@ -250,6 +234,7 @@ $sdg-gradient: "";
 
   /* state */
   .dropdown-active {
-    display: block;
+    transform: translateY(0);
+    opacity: 1;
   }
 }

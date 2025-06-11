@@ -1,0 +1,40 @@
+<svg width="80" height="94" viewBox="0 0 80 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 手指/手掌 -->
+  <path d="M31 44C31 42.343 29.657 41 28 41C26.343 41 25 42.343 25 44V54C25 62.284 31.716 69 40 69C48.284 69 55 62.284 55 54V47C55 45.343 53.657 44 52 44C50.343 44 49 45.343 49 47V45C49 43.343 47.657 42 46 42C44.343 42 43 43.343 43 45V43C43 41.343 41.657 40 40 40C38.343 40 37 41.343 37 43V28C37 26.343 35.657 25 34 25C32.343 25 31 26.343 31 28V53V44V44Z" stroke="white" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- 左箭頭 -->
+  <g>
+    <path id="left-line" d="M15 47H1" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="d" values="M15 47H1;M13 47H3;M15 47H1" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path id="left-arrow" d="M4 44L1 47L4 50" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animateTransform attributeName="transform" type="translate" values="0 0; -2 0; 0 0" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- 右箭頭 -->
+  <g>
+    <path id="right-line" d="M65 47H79" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="d" values="M65 47H79;M67 47H77;M65 47H79" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path id="right-arrow" d="M76 50L79 47L76 44" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 2 0; 0 0" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- 上箭頭 -->
+  <g>
+    <path id="top-line" d="M40 15V1" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="d" values="M40 15V1;M40 13V3;M40 15V1" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path id="top-arrow" d="M43 4L40 1L37 4" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- 下箭頭 -->
+  <g>
+    <path id="bottom-line" d="M40 79V93" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="d" values="M40 79V93;M40 81V91;M40 79V93" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path id="bottom-arrow" d="M37 90L40 93L43 90" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 2; 0 0" keyTimes="0;0.5;1" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>

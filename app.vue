@@ -1,4 +1,5 @@
 <template>
+  <ScrollProgress />
   <Header />
   <main>
     <nuxtPage />
@@ -14,6 +15,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 onMounted(() => {
+  //點擊錨點時，使用 gsap 平滑滾動到目標元素
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault(); // 阻止預設錨點行為
@@ -38,6 +40,7 @@ onMounted(() => {
     });
   });
 
+  // 更新 ScrollTrigger
   window.addEventListener("resize", () => {
     ScrollTrigger.refresh();
   });

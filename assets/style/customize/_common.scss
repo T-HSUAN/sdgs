@@ -34,6 +34,26 @@
   color: list.nth($fc-sdgs, 16);
 }
 
+/* scroll progress */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  overflow: hidden;
+  z-index: 9999;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 5px;
+    background: linear-gradient(to right, #{$sdg-gradient});
+  }
+}
+
 /* section */
 .worldwide-goal {
   height: calc(100vh - 105px);
@@ -95,6 +115,7 @@
 
   @include media-min($tab-max) {
     width: max(360px, 30%) !important;
+    padding-top: $sp2;
   }
 }
 
@@ -188,20 +209,22 @@
 }
 
 .img-goals {
-  width: 1282px;
-  height: 804px;
-  margin-top: -360px;
+  width: 1040px;
+  margin-top: -104px;
+  margin-left: -104px;
 
   @include media-min($mob-max) {
-    margin-top: -320px;
+    margin-top: -40px;
   }
 
   @include media-min($tab-min) {
+    width: 1608px;
     margin-top: -250px;
+    margin-left: -190px;
   }
 
-  @include media-min($desk-min) {
-    margin-top: -200px;
+  @include media-min($tab-max) {
+    margin-top: -300px;
   }
 }
 

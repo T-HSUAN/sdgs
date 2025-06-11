@@ -1,7 +1,7 @@
 @use "../helpers/variable" as *;
 @use "../helpers/mixin" as *;
 
-.card {
+.slide-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +71,7 @@
   }
 }
 
-.sdgs-label {
+.sdgs-card {
   position: relative;
   display: flex;
   margin-block: $sp2;

@@ -1,5 +1,5 @@
 <template>
-  <!-- <div class="loader loader-welcome"></div> -->
+  <div class="loader loader-welcome"></div>
   <section class="hero" id="hero">
     <div class="container gsap-scroll-hero">
       <div class="hero-part hero-part-1 pos-absolute d-flex flex-row align-items-center">
@@ -70,7 +70,7 @@ nextTick(() => {
   //   window.scrollTo(0, 0);
   // }
   setTimeout(() => {
-    // toggleLoading();
+    toggleLoading();
     gsap_loading();
   }, 1);
   gsap_scroll_hero();

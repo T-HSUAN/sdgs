@@ -80,6 +80,10 @@ $fc-secondary: #5d5d5d;
 $fc-prompt: #e7e7e7;
 $fc-note: #6d6d6d;
 $fc-third: black;
+$bc-primary: #454545;
+$bc-secondary: #4f4f4f;
+
+/* sdgs colors */
 $fc-sdgs: (
   #e5243b,
   #dda63a,
@@ -99,8 +103,15 @@ $fc-sdgs: (
   #00689d,
   #19486a
 );
-$bc-primary: #454545;
-$bc-secondary: #4f4f4f;
+$sdg-gradient: "";
+
+@each $fcolor in $fc-sdgs {
+  $sdg-gradient: if(
+    $sdg-gradient == "",
+    $fcolor,
+    "#{$sdg-gradient}, #{$fcolor}"
+  );
+}
 
 /* flex */
 $flexs: (

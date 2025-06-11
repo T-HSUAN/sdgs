@@ -27,10 +27,9 @@
 }
 
 @mixin media-scope($size, $size2) {
-    @media (min-width: $size) and (max-width: $size2) {
-      @content;
-    }
-
+  @media (min-width: $size) and (max-width: $size2) {
+    @content;
+  }
 }
 
 /* breakpoint */

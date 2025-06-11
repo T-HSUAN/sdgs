@@ -17,9 +17,9 @@
           <li>
             <NuxtLink class="link" to="/#manuscript">文稿3篇</NuxtLink>
           </li>
-          <li>
+          <!-- <li>
             <NuxtLink class="link" to="/#enterprise">永續好企業</NuxtLink>
-          </li>
+          </li> -->
         </ul>
         <span :class="['hamburger', { 'menu-active': m_active }]" @click="menuClick"></span>
         <div :class="['dropdown-menu', { 'dropdown-active': d_active }]">
@@ -34,9 +34,9 @@
                   <li :class="`cake-name fc-aspect-${data.id}`">
                     {{ data.aspect }}
                   </li>
-                  <li v-for="(label, index) in data.labels" :key="index">
-                    <NuxtLink class="link cake-item" :to="`/cake${label}`">{{
-                      data_sdgs_ww[label - 1].title
+                  <li v-for="(no, index) in data.labels" :key="index">
+                    <NuxtLink class="link cake-item" :to="'/cake' + no">{{
+                      data_sdgs_ww[no - 1].title
                     }}</NuxtLink>
                   </li>
                 </ul>
@@ -48,8 +48,8 @@
                 <div class="swiper-wrapper">
                   <div class="swiper-slide" v-for="(data, idx) in data_sdgs_atl" :key="idx">
                     <NuxtLink class="link article-item" :to="`#article-${data.id}`">
-                      <div class="menu-card card--row">
-                        <img :src="data.img" />
+                      <div class="menu-card">
+                        <img :src="`${pgwImgUrl}/article/${data.img}`" />
                         <p>{{ data.title }}</p>
                       </div>
                     </NuxtLink>
@@ -57,7 +57,7 @@
                 </div>
               </div>
             </li>
-            <li>
+            <!-- <li>
               <NuxtLink class="link topic-title" to="#enterprise">永續好企業</NuxtLink>
               <ul class="enterprise-list">
                 <li v-for="(data, index) in data_sdgs_ent" :key="index">
@@ -66,7 +66,7 @@
                   </NuxtLink>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
       </nav>
