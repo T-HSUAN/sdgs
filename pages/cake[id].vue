@@ -17,8 +17,8 @@
       </div>
       <div class="inline-image">
         <img class="img-sdg d" :src="`${pgwImgUrl}/sdgs/target${id}-${no}-d.png`" :alt="`sdg${id} target`"
-          v-for="(no, index) in data[id - 1].img_count.d" :key="index" />
-        <picture v-for="(no, index) in data[id - 1].img_count.tm" :key="index">
+          v-for="(no, index) in data[id - 1].img_count.d" :key="index" data-aos="zoom-in" />
+        <picture v-for="(no, index) in data[id - 1].img_count.tm" :key="index" data-aos="zoom-in">
           <source :srcset="`${pgwImgUrl}/sdgs/target${id}-${no}-t.png`"
             media="(min-width: 768px) and (max-width: 1023px)" type="image/png" />
           <source :srcset="`${pgwImgUrl}/sdgs/target${id}-${no}-m.png`" media="(max-width: 767px)" type="image/png" />
@@ -31,6 +31,7 @@
 </template>
 <script setup>
 import { data_sdgs_twcake } from "assets/text/data-cakes.js";
+
 const route = useRoute();
 const id = +route.params.id;
 const data = data_sdgs_twcake;

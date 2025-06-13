@@ -12,7 +12,7 @@
       <div class="inline-image wwg-inline-image">
         <div class="lottie-goal17"></div>
       </div>
-      <div class="inline-text wwg-items pos-relative">
+      <div class="inline-text wwg-items pos-relative ">
         <div class="wwg-item active">
           <img class="heading img-drawer-heading" :src="`${imgUrl}/worldwide/${data[0].title_img}`" alt="heading" />
           <p>{{ data[0].content }}</p>
@@ -280,13 +280,6 @@ const handleDrawerWheel = (e) => {
 
 // Drawer switching with navigation
 nextTick(() => {
-  // Check if mobile touch is supported
-  if (isMobileTouch()) {
-    show_tip.value = true;
-    setTimeout(() => {
-      show_tip.value = false;
-    }, 2500);
-  }
   // Initialize content and items
   content.value = document.querySelectorAll(".wwg-items .wwg-item");
   items.value = document.querySelectorAll(".wwg-pagination .wwg-page");
@@ -324,14 +317,22 @@ watch(show_drawer, (newValue) => {
   if (newValue) {
     document.body.style.overflow = "hidden";// Prevent background scroll
 
+    // Check if mobile touch is supported
+    if (isMobileTouch()) {
+      show_tip.value = true;
+      setTimeout(() => {
+        show_tip.value = false;
+      }, 2200);
+    }
+
     // Initialize Lottie animation
     const initLottie = () => {
       lottie.value = Lottie.loadAnimation({
         container: document.querySelector(".lottie-goal17"),
         renderer: "svg",
+        path: `${imgUrl}/worldwide/goal17.json`,
         loop: false,
         autoplay: false,
-        path: `${imgUrl}/images/worldwide/goal17.json`,
       });
 
       // Go to first frame when loaded
@@ -340,9 +341,7 @@ watch(show_drawer, (newValue) => {
       });
     };
     // Initialize Lottie animation when drawer opens
-    if (!lottie.value) {
-      initLottie();
-    }
+    if (!lottie.value) { initLottie(); }
   } else {
     // Close drawer - reset state
     resetDrawerState();

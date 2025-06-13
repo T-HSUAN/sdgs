@@ -23,7 +23,7 @@
         </button>
       </div>
       <div class="inline-image">
-        <canvas class="img-goals"></canvas>
+        <div class="lottie-goals"></div>
       </div>
     </div>
   </section>
@@ -32,32 +32,34 @@
 <script setup>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { DotLottie } from "@lottiefiles/dotlottie-web";
-gsap.registerPlugin(ScrollTrigger);
+import Lottie from "lottie-web";
+
+
 
 const imgUrl = import.meta.env.VITE_FOLDER + "/images";
 const show_goal17 = useShowGoal17();
 
 onMounted(async () => {
   await nextTick();
-  const lottie = new DotLottie({
-    canvas: document.querySelector(".img-goals"),
-  });
 
+  gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.create({
     trigger: "#worldwide",
     start: "top 20%",
     end: "bottom",
     once: true,
     onEnter: () => {
-      setTimeout(() => {
-        lottie.load({
-          src: `${imgUrl}/worldwide/goals.json`,
-          autoplay: true,
-          loop: false,
-          speed: 3,
-        });
-      }, 500);
+      const lottie = Lottie.loadAnimation({
+        container: document.querySelector(".lottie-goals"),
+        renderer: "svg",
+        path: `${imgUrl}/worldwide/goals.json`,
+        autoplay: false,
+        loop: false,
+      });
+      lottie.addEventListener("DOMLoaded", () => {
+        lottie.setSpeed(3);
+        lottie.play();
+      });
     },
   });
 });

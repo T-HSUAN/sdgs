@@ -41,7 +41,7 @@
   left: 0;
   height: 5px;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 9997;
 
   &::before {
     content: "";
@@ -110,27 +110,31 @@
 .wwg-item {
   position: absolute;
   left: 0;
+  right: 0;
+  width: min(600px, 100%);
+  margin: auto;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 
   @include media-min($tab-max) {
     width: max(360px, 30%) !important;
+    margin: 0;
     padding-top: $sp2;
   }
 }
 
 .wwg-inline-image {
-  position: relative;
-  height: 60vh;
+  height: max(68dvw, 40dvh);
+  max-height: 450px;
+  overflow: hidden;
 
   @include media-min($tab-max) {
     position: absolute;
-    top: $sp5;
-    right: 0;
-  }
-
-  @include media-min(1440px) {
     top: 0;
+    right: 0;
+    height: 100dvh;
+    max-height: 100%;
+    overflow: visible;
   }
 }
 
@@ -145,6 +149,7 @@
   align-items: center;
   margin-block: $sp5;
   gap: $sp4;
+  pointer-events: all !important;
 
   @include media-min($tab-min) {
     flex-direction: row;
@@ -173,6 +178,10 @@
   flex-direction: column;
   gap: $sp3;
   will-change: transform;
+
+  @include media-min($tab-max) {
+    padding-block: $sp10;
+  }
 }
 
 /* inline txt & image part */
@@ -208,8 +217,9 @@
   }
 }
 
-.img-goals {
+.lottie-goals {
   width: 1040px;
+  aspect-ratio: 1280 / 803;
   margin-top: -104px;
   margin-left: -104px;
 
@@ -238,35 +248,37 @@
 
 .lottie-goal17 {
   position: absolute;
-  top: $sp5;
-  right: -$sp15;
+  top: 0;
+  right: 0;
   display: block;
-  height: 40vh;
-
-  @include media-min(425px) {
-    top: $sp3;
-    height: 50vh;
-  }
+  width: min(1282px, 100%);
 
   @include media-min($mob-max) {
-    top: 0;
-    height: 60vh;
+    top: -5dvw;
   }
 
   @include media-min($tab-min) {
-    height: 70vh;
+    top: 0;
+    max-height: 450px;
   }
 
   @include media-min($tab-max) {
-    height: 80vh;
+    right: -$sp15;
+    max-height: 100%;
     margin-left: auto;
+  }
+
+  @include media-min(1440px) {
+    right: 0;
   }
 }
 
 .img-cake {
-  position: sticky;
-  top: 0;
   width: 100%;
+
+  @include media-min($tab-max) {
+    padding-top: $sp10;
+  }
 }
 
 .logo-brand {
@@ -359,9 +371,15 @@
 
 /* btn */
 .wwg-close {
-  margin-right: $sp1;
+  @include media-max(539px) {
+    margin-bottom: $sp2;
+  }
 
-  @include media-min($mob-max) {
+  @include media-scope(540px, 639px) {
+    margin-right: $sp1;
+  }
+
+  @include media-scope($mob-max, 1023px) {
     margin-right: $sp2;
   }
 

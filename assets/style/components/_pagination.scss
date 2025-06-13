@@ -10,6 +10,7 @@
   justify-content: center;
   width: 100%;
   padding-inline: 4%;
+  background: $bgc-primary;
 
   @include media-min($tab-min) {
     padding-inline: 10.33%;
@@ -17,5 +18,9 @@
 
   @include media-min($tab-max) {
     padding-inline: 16.66%;
+  }
+
+  span {
+    font-size: 28px;
   }
 }

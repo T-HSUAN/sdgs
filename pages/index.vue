@@ -22,7 +22,7 @@
           <img class="bg-main-visual" src="public/images/bg-SDGs.webp" alt="main-visual" />
         </picture>
       </div>
-      <div class="hero-part hero-part-2 blur pos-absolute">
+      <div class="hero-part hero-part-2 pos-absolute bgc-primary-60 blur">
         <div :class="`inline hp2-inline-${index + 1} pos-absolute d-flex-row-center`"
           v-for="(paragraph, index) in data_hero_p2" :key="paragraph">
           <p class="text-l w-80 w-sm-60 w-lg-40">{{ paragraph }}</p>
@@ -37,9 +37,12 @@
   <section class="contributor text-center">
     <div class="inline">
       <div class="inline-image contrib-inline-image">
-        <img src="public/images/logo2.svg">
-        <img src="public/images/logo3.svg">
-        <img src="public/images/logo4.svg">
+        <a class="link" href="https://udn.com/news/index"><img src="public/images/logo2.svg"
+            alt="contributor logo : 聯合新聞網"></a>
+        <a class="link" href="https://udn.com/upf/newmedia/ubrandstudio/"><img src="public/images/logo3.svg"
+            alt="contributor logo : 融媒體倡議部"></a>
+        <a class="link" href="https://ubrand.udn.com/ubrand/index"><img src="public/images/logo4.svg"
+            alt="contributor logo : 倡議家"></a>
       </div>
       <div class="inline-text ">
         <dl class="contrib-inline-text">
@@ -62,6 +65,12 @@
 
 <script setup>
 import { data_hero_part2 } from "assets/text/data.js";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+/* 攔截錨點點擊 + 手動滾動 + 更新 ScrollTrigger:攔截預設的錨點行為，並使用 gsap.to() 實現平滑滾動與動畫同步 */
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const data_hero_p2 = data_hero_part2;
 

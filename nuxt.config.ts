@@ -35,8 +35,8 @@ export default defineNuxtConfig({
 
   modules: [
     ["@nuxtjs/stylelint-module", { lintonstart: false }],
-    // ['@tresjs/nuxt', { devtools: true }],
     "nuxt-aos",
+    // ['@tresjs/nuxt', { devtools: true }],
   ],
   compatibilityDate: '2024-11-01',
   devtools: {

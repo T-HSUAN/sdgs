@@ -12,7 +12,9 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide h-auto" v-for="(data, index) in data" :key="index">
           <div class="inline slide-card slide-card--row-reverse">
-            <div class="inline-image"><img class="w-full" :src="`${pgwImgUrl}/article/${data.img}`" /></div>
+            <div class="inline-image">
+              <img class="w-full" :src="`${pgwImgUrl}/article/${data.img}`" />
+            </div>
             <div class="inline-text p-sp2 p-lg-0">
               <h3>{{ data.title }}</h3>
               <p>{{ data.content }}</p>
@@ -55,7 +57,9 @@ nextTick(() => {
     modules: [Navigation, Mousewheel],
     slidesPerView: 1,
     spaceBetween: 8,
-    mousewheel: true,
+    mousewheel: {
+      releaseOnEdges: true,
+    },
     navigation: {
       nextEl: '.swiper-next--a',
       prevEl: '.swiper-prev--a',
@@ -74,10 +78,12 @@ nextTick(() => {
         spaceBetween: 24,
       },
       1024: {
-        initialSlide: 1,
         slidesPerView: 1,
         spaceBetween: 100,
         centeredSlides: true,
+        mousewheel: {
+          releaseOnEdges: false,
+        },
       }
     },
     watchSlidesProgress: true,

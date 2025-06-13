@@ -7,7 +7,7 @@
   left: 0;
   background: $bgc-primary-60;
   border-bottom: 1px solid $bc-primary;
-  z-index: 9998;
+  z-index: 9996;
 
   .header-container {
     display: flex;
@@ -233,6 +233,12 @@
   }
 
   /* state */
+
+  .router-link-active {
+    background: $bgc-secondary-10;
+    border-radius: 5px;
+  }
+
   .dropdown-active {
     transform: translateY(0);
     opacity: 1;

@@ -15,28 +15,30 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 onMounted(() => {
-  //點擊錨點時，使用 gsap 平滑滾動到目標元素
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault(); // 阻止預設錨點行為
-      const targetId = this.getAttribute("href");
-      const target = document.querySelector(targetId);
+  const route = useRoute();
+  const router = useRouter();
 
-      if (target) {
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: {
-            y: target,
-            offsetY: 105,
-            autoKill: false, // 確保滾動不會被其他事件打斷
-          },
-          ease: "power2.inOut",
-          onUpdate: () => ScrollTrigger.update(),
-          onComplete: () => ScrollTrigger.refresh(),
-        });
+  route.hash && history.replaceState(null, "", location.pathname + location.search);
+
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // 阻止預設錨點行為
+
+      let anchor = e.currentTarget.getAttribute('href');
+
+      if (route.path !== "/") {
+        router.push("/");
       }
 
-      history.replaceState(null, "", location.pathname);
+      gsap.to(window, {
+        scrollTo: { y: anchor, offsetY: 105, autoKill: false },
+        duration: 1,
+        delay: 0.1,
+        ease: "power2.inOut",
+        onUpdate: () => ScrollTrigger.update(),
+        onComplete: () => ScrollTrigger.refresh(),
+      });
     });
   });
 

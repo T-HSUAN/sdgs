@@ -2,34 +2,34 @@
   <header id="header" role="banner">
     <div class="header-container">
       <a class="logo-link" href="https://vip.udn.com/vip/index" title="聯合報"><img class="logo-header"
-          src="public/images/logo1.svg" alt="main logo" /></a>
+          src="public/images/logo1.svg" alt="main logo : 聯合報" /></a>
       <nav class="navbar">
         <ul class="main-menu">
           <li>
-            <NuxtLink class="link" to="/#hero">SDGs十周年</NuxtLink>
+            <NuxtLink class="link" to="#hero">SDGs十周年</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="link" to="/#worldwide">聯合國進程</NuxtLink>
+            <NuxtLink class="link" to="#worldwide">聯合國進程</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="link" to="/#taiwan">台灣蛋糕層 +</NuxtLink>
+            <NuxtLink class="link" to="#taiwan">台灣蛋糕層 +</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="link" to="/#manuscript">文稿3篇</NuxtLink>
+            <NuxtLink class="link" to="#manuscript">文稿3篇</NuxtLink>
           </li>
           <!-- <li>
-            <NuxtLink class="link" to="/#enterprise">永續好企業</NuxtLink>
+            <NuxtLink class="link" to="#enterprise">永續好企業</NuxtLink>
           </li> -->
         </ul>
         <span :class="['hamburger', { 'menu-active': m_active }]" title="closed" @click="changeState"></span>
         <div :class="['dropdown-menu', { 'dropdown-active': d_active }]">
           <ul class="ddm-list">
             <li>
-              <NuxtLink class="link topic-title" to="/#worldwide" @click="changeState">全球SDGs進度表：誰在落後清單上？
+              <NuxtLink class="link topic-title" to="#worldwide" @click="changeState">全球SDGs進度表：誰在落後清單上？
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink class="link topic-title" to="/#taiwan" @click="changeState">台灣蛋糕層</NuxtLink>
+              <NuxtLink class="link topic-title" to="#taiwan" @click="changeState">台灣蛋糕層</NuxtLink>
               <div class="cake-lists-container">
                 <ul class="cake-list" v-for="(data, index) in data_sdgs_asp" :key="index">
                   <li :class="`cake-name fc-aspect-${data.id}`">
@@ -44,7 +44,7 @@
               </div>
             </li>
             <li>
-              <NuxtLink class="link topic-title" to="/#manuscript" @click="changeState">文稿篇</NuxtLink>
+              <NuxtLink class="link topic-title" to="#manuscript" @click="changeState">文稿篇</NuxtLink>
               <div class="article-list swiper-header">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide" v-for="(data, idx) in data_sdgs_atl" :key="idx">
@@ -59,7 +59,7 @@
               </div>
             </li>
             <!-- <li>
-              <NuxtLink class="link topic-title" to="/#enterprise" @click="changeState">永續好企業</NuxtLink>
+              <NuxtLink class="link topic-title" to="#enterprise" @click="changeState">永續好企業</NuxtLink>
               <ul class="enterprise-list">
                 <li v-for="(data, index) in data_sdgs_ent" :key="index">
                   <NuxtLink class="link enterprise-item" :to="`#enterprise-${data.id}`" @click="changeState">
@@ -78,7 +78,8 @@
 import { useRoute } from "vue-router";
 import Swiper from "swiper";
 import { Mousewheel } from "swiper/modules";
-
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   data_sdgs_worldwide,
   data_sdgs_aspect,
@@ -86,6 +87,7 @@ import {
   data_enterprises,
 } from "assets/text/data.js";
 
+gsap.registerPlugin(ScrollTrigger);
 const route = useRoute();
 const pgwImgUrl = import.meta.env.VITE_FOLDER + "/images";
 const data_sdgs_asp = data_sdgs_aspect;
@@ -97,7 +99,7 @@ const m_active = ref(false);
 const d_active = ref(false);
 const lightbox = useShowGoal17();
 const device_d = ref(false);
-const changeState = () => {
+const changeState = (e) => {
   m_active.value = !m_active.value;
   d_active.value = !d_active.value;
   lightbox.value && (lightbox.value = false);

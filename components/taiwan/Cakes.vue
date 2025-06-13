@@ -7,7 +7,7 @@
         <span class="heading-en" lang="en">Taiwan Cake Layer</span>
       </h2>
     </header>
-    <div class="inline d-flex flex-column gap-10 gap-sm-15 bgc-primary">
+    <div class="inline d-flex flex-column gap-10 gap-sm-15 gap-lg-0 bgc-primary">
       <div class="cake-part" v-for="(item, index) in data" :key="index">
         <div class="inline-image pos-relative">
           <img :src="`${pgwImgUrl}/taiwan/${data[index].img}`" :class="`img-cake img-cake-${item.id}`" />
