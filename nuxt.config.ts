@@ -21,6 +21,7 @@ export default defineNuxtConfig({
   css: [
     'assets/style/components/loader.scss',
     'assets/style/all.scss',
+    'swiper/css'
   ],
   vite: {
     envDir: "env",

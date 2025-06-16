@@ -2,7 +2,7 @@
   <header id="header" role="banner">
     <div class="header-container">
       <a class="logo-link" href="https://vip.udn.com/vip/index" title="聯合報"><img class="logo-header"
-          src="public/images/logo1.svg" alt="main logo : 聯合報" /></a>
+          :src="`${imgUrl}/logo1.svg`" alt="main logo : 聯合報" /></a>
       <nav class="navbar">
         <ul class="main-menu">
           <li>
@@ -75,7 +75,6 @@
   </header>
 </template>
 <script setup>
-import { useRoute } from "vue-router";
 import Swiper from "swiper";
 import { Mousewheel } from "swiper/modules";
 import { gsap } from "gsap";
@@ -88,7 +87,7 @@ import {
 } from "assets/text/data.js";
 
 gsap.registerPlugin(ScrollTrigger);
-const route = useRoute();
+const imgUrl = import.meta.env.VITE_FOLDER + "/images";
 const pgwImgUrl = import.meta.env.VITE_FOLDER + "/images";
 const data_sdgs_asp = data_sdgs_aspect;
 const data_sdgs_ww = data_sdgs_worldwide;

@@ -102,11 +102,9 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
     cakes.forEach((cake, i) => {
       const textarea = cake.querySelector(textarea_name);
       const img = cake.querySelector(img_name);
-      const start_y = i == 0 ? -179.19 : 'top'; // 第五個蛋糕不需要往上移動
-      const scroll_height = i === 0 ? (textarea.scrollHeight + 179.19) : i === 4 ? 0 : textarea.scrollHeight;
+      const start_y = i == 0 ? -32 : 'top'; // 第五個蛋糕不需要往上移動
+      const scroll_height = i === 0 ? (textarea.scrollHeight + 32) : i === 4 ? 0 : textarea.scrollHeight;
 
-
-      // 建立 timeline 控制這一段的淡入與文字滾動
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cake,
@@ -115,7 +113,7 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
           scrub: true,
           pin: true,
           pinSpacing: false,
-          anticipatePin: 1
+          anticipatePin: 1,
         },
       });
 
@@ -126,7 +124,7 @@ export const gsap_change_cakes = (cakes, textarea_name, img_name) => {
         ease: "none",
         duration: 1,
       });
-      if (i < 4) tl.to(img, { autoAlpha: 0, duration: 0.1 });
+      if (i < 4) tl.to(img, { autoAlpha: 0, duration: 0.05 });
 
     });
   });

@@ -73,6 +73,7 @@
 .sdgs-card {
   position: relative;
   display: flex;
+  align-items: center;
   margin-block: $sp2;
   padding: $sp1;
   gap: $sp2;
@@ -81,6 +82,12 @@
   cursor: pointer;
 
   img {
+    width: 60px;
+    aspect-ratio: 1/1;
     border-radius: 5px;
+
+    @include media-min($tab-min) {
+      width: 80px;
+    }
   }
 }

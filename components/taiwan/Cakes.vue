@@ -27,15 +27,18 @@
                 { ['bgc-sdg-' + no]: isDesktop && hover_index === index },
               ]" :to="'/cake' + no" v-for="(no, index) in item.label" :key="index" @mouseenter="hover_index = index"
                 @mouseleave="hover_index = null">
-                <img :src="`${pgwImgUrl}/sdgs/label${no}.jpg`" :alt="`sdgs ${no}`" />
+                <img class="img-cake-label" :src="`${pgwImgUrl}/sdgs/label${no}.jpg`" :alt="`sdg ${no}`" />
                 <div class="inline-text d-iflex-row-center gap-1">
-                  <h4>SDGS {{ no }}</h4>
-                  <p>這裡會放入一段內文</p>
-                  <span :class="[
+                  <h4>SDG {{ no }}</h4>
+                  <p>{{ data_headings[no - 1] }}</p>
+                  <svg :class="[
                     'icon-plus',
                     'fc-sdg-' + no,
                     { ['fc-primary']: hover_index === index },
-                  ]">+</span>
+                  ]" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="2" />
+                    <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" />
+                  </svg>
                 </div>
               </NuxtLink>
             </div>
@@ -46,7 +49,7 @@
   </section>
 </template>
 <script setup>
-import { data_sdgs_twcakes } from "assets/text/data.js";
+import { data_sdgs_twcakes, data_sdgs_headings } from "assets/text/data.js";
 
 const isDesktop = ref(null);
 const get_width = () => {
@@ -54,7 +57,7 @@ const get_width = () => {
 };
 const pgwImgUrl = import.meta.env.VITE_FOLDER + "/images";
 const data = data_sdgs_twcakes;
-const labels_id = data.flatMap((item) => item.label || []);
+const data_headings = data_sdgs_headings;
 const hover_index = ref(null);
 
 onMounted(async () => {

@@ -65,7 +65,7 @@
     /* gap */
     @for $n from 0 through 15 {
       .gap#{$infix}-#{$n} {
-        gap: #{8px * $n};
+        gap: #{8px * $n} !important;
       }
     }
 

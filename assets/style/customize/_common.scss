@@ -66,6 +66,11 @@
 
 /* inline */
 
+.btn-inline {
+  overflow: visible;
+  z-index: 1;
+}
+
 /* inline container */
 .wwg-container {
   display: flex;
@@ -184,24 +189,6 @@
   }
 }
 
-/* inline txt & image part */
-// .goal17-text-part {
-//   display: flex;
-//   flex-direction: column;
-//   height: 300px;
-//   gap: $sp2;
-
-//   @include media-min($tab-min) {
-//     padding-top: $sp2;
-//   }
-
-//   @include media-min($tab-max) {
-// width: min(360px, 30%) !important;
-//     padding-top: $sp3;
-//     gap: $sp3;
-//   }
-// }
-
 /* img */
 .bg-main-visual {
   position: absolute;
@@ -277,6 +264,8 @@
   width: 100%;
 
   @include media-min($tab-max) {
+    position: relative;
+    right: $sp8;
     padding-top: $sp10;
   }
 }
@@ -362,11 +351,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  padding: $sp1;
+  font-size: 24px;
   border: 1px solid;
   border-radius: 50%;
+
+  @include media-min($tab-min) {
+    width: 35px;
+    height: 35px;
+    font-size: 28px;
+  }
+
+  @include media-min($tab-max) {
+    width: 40px;
+    height: 40px;
+    font-size: 32px;
+  }
 }
 
 /* btn */
@@ -402,4 +404,11 @@
   &:hover {
     transform: scale(1.5);
   }
+}
+
+.inpage-return {
+  position: sticky;
+  top: 90%;
+  margin-bottom: $sp2;
+  background: $bgc-primary;
 }

@@ -1,7 +1,7 @@
 export const data_sdgs_twcake = [
   {
     id: 1,
-    title: "SDGs 1 消除貧窮",
+    title: "SDG 1 消除貧窮",
     title_img_d: "title1-d.png",
     title_img_t: "title1-t.png",
     title_img_m: "title1-m.png",
@@ -14,7 +14,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 2,
-    title: "SDGs 2 終結飢餓",
+    title: "SDG 2 終結飢餓",
     title_img_d: "title2-d.png",
     title_img_t: "title2-t.png",
     title_img_m: "title2-m.png",
@@ -28,7 +28,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 3,
-    title: "SDGs 3 健康與福祉",
+    title: "SDG 3 健康與福祉",
     title_img_d: "title3-d.png",
     title_img_t: "title3-t.png",
     title_img_m: "title3-m.png",
@@ -42,7 +42,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 4,
-    title: "SDGs 4 優質教育",
+    title: "SDG 4 優質教育",
     title_img_d: "title4-d.png",
     title_img_t: "title4-t.png",
     title_img_m: "title4-m.png",
@@ -57,7 +57,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 5,
-    title: "SDGs 5 性別平等",
+    title: "SDG 5 性別平等",
     title_img_d: "title5-d.png",
     title_img_t: "title5-t.png",
     title_img_m: "title5-m.png",
@@ -70,7 +70,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 6,
-    title: "SDGs 6 淨水與衛生",
+    title: "SDG 6 淨水與衛生",
     title_img_d: "title6-d.png",
     title_img_t: "title6-t.png",
     title_img_m: "title6-m.png",
@@ -84,7 +84,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 7,
-    title: "SDGs 7 可負擔的永續能源",
+    title: "SDG 7 可負擔的永續能源",
     title_img_d: "title7-d.png",
     title_img_t: "title7-t.png",
     title_img_m: "title7-m.png",
@@ -98,7 +98,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 8,
-    title: "SDGs 8 就業與經濟成長",
+    title: "SDG 8 就業與經濟成長",
     title_img_d: "title8-d.png",
     title_img_t: "title8-t.png",
     title_img_m: "title8-m.png",
@@ -112,7 +112,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 9,
-    title: "SDGs 9 永續工業與基礎建設",
+    title: "SDG 9 永續工業與基礎建設",
     title_img_d: "title9-d.png",
     title_img_t: "title9-t.png",
     title_img_m: "title9-m.png",
@@ -126,7 +126,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 10,
-    title: "SDGs 10 消彌不平等",
+    title: "SDG 10 消彌不平等",
     title_img_d: "title10-d.png",
     title_img_t: "title10-t.png",
     title_img_m: "title10-m.png",
@@ -140,7 +140,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 11,
-    title: "SDGs 11 永續城鄉",
+    title: "SDG 11 永續城鄉",
     title_img_d: "title11-d.png",
     title_img_t: "title11-t.png",
     title_img_m: "title11-m.png",
@@ -154,7 +154,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 12,
-    title: "SDGs 12 責任消費與生產",
+    title: "SDG 12 責任消費與生產",
     title_img_d: "title12-d.png",
     title_img_t: "title12-t.png",
     title_img_m: "title12-m.png",
@@ -168,7 +168,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 13,
-    title: "SDGs 13 氣候行動",
+    title: "SDG 13 氣候行動",
     title_img_d: "title13-d.png",
     title_img_t: "title13-t.png",
     title_img_m: "title13-m.png",
@@ -182,7 +182,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 14,
-    title: "SDGs 14 永續海洋與保育",
+    title: "SDG 14 永續海洋與保育",
     title_img_d: "title14-d.png",
     title_img_t: "title14-t.png",
     title_img_m: "title14-m.png",
@@ -196,7 +196,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 15,
-    title: "SDGs 15 陸域生態",
+    title: "SDG 15 陸域生態",
     title_img_d: "title15-d.png",
     title_img_t: "title15-t.png",
     title_img_m: "title15-m.png",
@@ -210,7 +210,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 16,
-    title: "SDGs 16 制度的正義與和平",
+    title: "SDG 16 制度的正義與和平",
     title_img_d: "title16-d.png",
     title_img_t: "title16-t.png",
     title_img_m: "title16-m.png",
@@ -223,7 +223,7 @@ export const data_sdgs_twcake = [
   },
   {
     id: 17,
-    title: "SDGs 17 永續發展夥伴關係",
+    title: "SDG 17 永續發展夥伴關係",
     title_img_d: "title17-d.png",
     title_img_t: "title17-t.png",
     title_img_m: "title17-m.png",

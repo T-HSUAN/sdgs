@@ -51,6 +51,14 @@
   border-radius: 50%;
 }
 
+.btn-return {
+  display: inline-flex;
+  align-items: center;
+  padding: $sp1 $sp4;
+  gap: $sp1;
+  border-radius: 25px;
+}
+
 // phone menu switch
 .hamburger {
   position: relative;
