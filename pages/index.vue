@@ -32,19 +32,19 @@
   </section>
   <WorldwideGoals />
   <TaiwanCakes />
-  <ManuscriptArticles />
+  <Articles />
   <!-- <Enterprise /> -->
-  <section class="contributor text-center">
+  <section class="contributor text-center" role="complementary">
     <div class="inline">
       <div class="inline-image contrib-inline-image">
-        <a class="link" href="https://udn.com/news/index"><img src="public/images/logo2.svg"
+        <a class="link" href="https://udn.com/news/index" target="_blank"><img src="public/images/logo2.svg"
             alt="contributor logo : 聯合新聞網"></a>
-        <a class="link" href="https://udn.com/upf/newmedia/ubrandstudio/"><img src="public/images/logo3.svg"
-            alt="contributor logo : 融媒體倡議部"></a>
-        <a class="link" href="https://ubrand.udn.com/ubrand/index"><img src="public/images/logo4.svg"
+        <a class="link" href="https://udn.com/upf/newmedia/ubrandstudio/" target="_blank"><img
+            src="public/images/logo3.svg" alt="contributor logo : 融媒體倡議部"></a>
+        <a class="link" href="https://ubrand.udn.com/ubrand/index" target="_blank"><img src="public/images/logo4.svg"
             alt="contributor logo : 倡議家"></a>
       </div>
-      <div class="inline-text ">
+      <div class="inline-text">
         <dl class="contrib-inline-text">
           <dt>製作人</dt>
           <dd>OOO、OOO</dd>
@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-import { data_hero_part2 } from "assets/text/data.js";
+import { data_hero_part2 } from "assets/text/index.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";

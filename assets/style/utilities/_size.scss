@@ -11,6 +11,14 @@
 .size-fit {
   width: 100%;
   height: calc(100vh - list.nth($header-heights, 1));
+
+  @include media-min($tab-max) {
+    height: calc(100vh - list.nth($header-heights, 2));
+  }
+
+  @include media-min($desk-min) {
+    height: calc(100vh - list.nth($header-heights, 3));
+  }
 }
 
 .size-md-fit {
@@ -35,8 +43,12 @@
   height: calc(100vh - list.nth($header-heights, 3));
 }
 
-.mh-full {
+.mxh-full {
   max-height: 100vh;
+}
+
+.mnh-full {
+  min-height: 100vh;
 }
 
 @each $breakpoint in map.keys($grid-breakpoints) {

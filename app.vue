@@ -1,6 +1,7 @@
 <template>
   <ScrollProgress />
-  <Header />
+  <HeaderNavMenu v-model:d_active="dropDownActive" />
+  <HeaderDropdown v-model:d_active="dropDownActive" />
   <main>
     <nuxtPage />
   </main>
@@ -10,6 +11,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+const dropDownActive = ref(false);
 
 /* 攔截錨點點擊 + 手動滾動 + 更新 ScrollTrigger:攔截預設的錨點行為，並使用 gsap.to() 實現平滑滾動與動畫同步 */
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);

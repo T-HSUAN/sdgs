@@ -16,13 +16,8 @@
   overflow: hidden;
 }
 
-.active {
+.item-active {
   color: $fc-primary;
-  opacity: 1;
-}
-
-.open {
-  transform: translateY(0);
   opacity: 1;
 }
 

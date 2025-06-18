@@ -1,6 +1,6 @@
 <template>
-  <section class="inpage">
-    <div class="inpage-header">
+  <section class="inpage flex-row-lg align-items-stretch">
+    <div class="inpage-header inpage-cake-header">
       <h2 class="heading sr-only">{{ data[id - 1].title }}</h2>
       <picture>
         <source :srcset="`${pgwImgUrl}/sdgs/title${id}-d.png`" media="(min-width: 1024px)" type="image/png" />
@@ -11,7 +11,7 @@
       </picture>
     </div>
     <div class="inline inpage-inline">
-      <div class="inline-text">
+      <div class="inline-text" data-aos="zoom-in">
         <h3>{{ data[id - 1].heading }}</h3>
         <p v-for="(p, index) in data[id - 1].content" :key="index">{{ p }}</p>
       </div>
@@ -41,7 +41,7 @@
   </section>
 </template>
 <script setup>
-import { data_sdgs_twcake } from "assets/text/data-cakes.js";
+import { data_sdgs_twcake } from "assets/text/cakes.js";
 
 const route = useRoute();
 const id = +route.params.id;

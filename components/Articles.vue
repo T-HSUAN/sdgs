@@ -3,7 +3,7 @@
     <header class="topic-header">
       <p class="no">03</p>
       <h2 class="heading">
-        <span class="heading-ch">文稿區標題</span><br />
+        <span class="heading-ch">文稿區</span><br />
         <span class="heading-en" lang="en">Manuscript Articles</span>
       </h2>
     </header>
@@ -11,16 +11,18 @@
     <div class="swiper swiper-manuscript">
       <div class="swiper-wrapper">
         <div class="swiper-slide h-auto" v-for="(data, index) in data" :key="index">
-          <div class="inline slide-card slide-card--row-reverse">
-            <div class="inline-image">
-              <img class="w-full" :src="`${pgwImgUrl}/article/${data.img}`" />
+          <NuxtLink :to="'/article' + data.aspect">
+            <div class="inline slide-card slide-card--row-reverse">
+              <div class="inline-image">
+                <img class="w-full" :src="`${pgwImgUrl}/article/${data.img}`" />
+              </div>
+              <div class="inline-text p-sp2 p-lg-0">
+                <h3>{{ data.title }}</h3>
+                <p>{{ data.abstract }}</p>
+                <button class="btn btn-white btn-more mt-auto ml-auto">了解更多</button>
+              </div>
             </div>
-            <div class="inline-text p-sp2 p-lg-0">
-              <h3>{{ data.title }}</h3>
-              <p>{{ data.content }}</p>
-              <button class="btn btn-white btn-more mt-auto ml-auto">了解更多</button>
-            </div>
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -47,9 +49,9 @@
 import Swiper from 'swiper';
 import "swiper/css";
 import { Navigation, Mousewheel } from "swiper/modules";
-import { data_articles } from 'assets/text/data.js';
+import { data_articles } from 'assets/text/index.js';
 
-const pgwImgUrl = import.meta.env.VITE_FOLDER + "/images";
+const pgwImgUrl = import.meta.env.VITE_IMG_URL;
 const data = data_articles;
 
 nextTick(() => {

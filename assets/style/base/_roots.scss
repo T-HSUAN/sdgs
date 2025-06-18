@@ -58,16 +58,23 @@ a {
   color: $fc-primary;
 }
 
-p,
-dd,
-li {
-  font-size: clamp(16px, 1.5vw, 18px);
+p {
+  font-size: clamp(16px, 1.5vw, 20px);
+
+  @media (width >= 768px) {
+    font-size: clamp(18px, 1.5vw, 24px);
+  }
 }
 
 dt,
 ul,
 ol {
   font-size: clamp(20px, 2vw, 24px);
+}
+
+dd,
+li {
+  font-size: clamp(16px, 1.5vw, 20px);
 }
 
 li {

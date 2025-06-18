@@ -9,8 +9,8 @@
     </header>
     <div class="inline d-flex flex-column gap-10 gap-sm-15 gap-lg-0 bgc-primary">
       <div class="cake-part" v-for="(item, index) in data" :key="index">
-        <div class="inline-image pos-relative">
-          <img :src="`${pgwImgUrl}/taiwan/${data[index].img}`" :class="`img-cake img-cake-${item.id}`" />
+        <div class="inline-image pos-relative text-center">
+          <img :src="`${imgUrl}/taiwan/${data[index].img}`" :class="`img-cake img-cake-${item.id}`" />
         </div>
         <div class="inline-text cake-inline-text">
           <div class="container gsap-scroll-tw">
@@ -49,13 +49,14 @@
   </section>
 </template>
 <script setup>
-import { data_sdgs_twcakes, data_sdgs_headings } from "assets/text/data.js";
+import { data_sdgs_twcakes, data_sdgs_headings } from "assets/text/index.js";
 
 const isDesktop = ref(null);
 const get_width = () => {
   isDesktop.value = window.innerWidth > 1023.9;
 };
-const pgwImgUrl = import.meta.env.VITE_FOLDER + "/images";
+const pgwImgUrl = import.meta.env.VITE_IMG_URL;
+const imgUrl = import.meta.env.VITE_FOLDER + "/images";
 const data = data_sdgs_twcakes;
 const data_headings = data_sdgs_headings;
 const hover_index = ref(null);

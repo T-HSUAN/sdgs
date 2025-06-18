@@ -1,5 +1,5 @@
 <template>
-  <div :class="['topic-drawer', { 'open': show_drawer }]" id="worldwide-goal">
+  <div :class="['topic-drawer', { 'draw-opening': show_drawer }]" id="worldwide-goal">
     <!-- Close button -->
     <header class="topic-header sr-only">
       <h3 class="heading">
@@ -13,7 +13,7 @@
         <div class="lottie-goal17"></div>
       </div>
       <div class="inline-text wwg-items pos-relative ">
-        <div class="wwg-item active">
+        <div class="wwg-item item-active">
           <img class="heading img-drawer-heading" :src="`${imgUrl}/worldwide/${data[0].title_img}`" alt="heading" />
           <p>{{ data[0].content }}</p>
         </div>
@@ -32,7 +32,7 @@
           <line x1="29" y1="9" x2="9" y2="29" />
         </svg>
       </button>
-      <button class="wwg-page btn btn-gray active" @click="goToItem(0)">
+      <button class="wwg-page btn btn-gray item-active" @click="goToItem(0)">
         <p>1</p>
         <span>|</span>
       </button>
@@ -47,7 +47,7 @@
 </template>
 <script setup>
 import Lottie from "lottie-web";
-import { data_sdgs_worldwide } from "assets/text/data.js";
+import { data_sdgs_worldwide } from "assets/text/index.js";
 
 const show_drawer = useShowGoal17();
 const show_tip = ref(false);
@@ -87,9 +87,9 @@ const resetDrawerState = () => {
   in_trans = false;
 
   // Reset to first drawer
-  content.value[current_idx.value].classList.remove("active");
+  content.value[current_idx.value].classList.remove("item-active");
   current_idx.value = 0;
-  content.value[current_idx.value].classList.add("active");
+  content.value[current_idx.value].classList.add("item-active");
 
   // Update navigation items
   updateNav();
@@ -106,7 +106,7 @@ const setLottieFrame = (itemIdx) => {
 // const to update navigation items
 const updateNav = () => {
   items.value.forEach((item, index) => {
-    item.classList.toggle("active", index === current_idx.value);
+    item.classList.toggle("item-active", index === current_idx.value);
   });
 
   // Set Lottie animation with current drawer
@@ -135,9 +135,9 @@ const changeItem = (direction) => {
   in_trans = true;
 
   // Switch drawers with fast transition
-  content.value[current_idx.value].classList.remove("active");
+  content.value[current_idx.value].classList.remove("item-active");
   current_idx.value = new_Idx;
-  content.value[current_idx.value].classList.add("active");
+  content.value[current_idx.value].classList.add("item-active");
 
   // Update navigation
   updateNav();
@@ -162,9 +162,9 @@ const goToItem = (target_idx) => {
   in_trans = true;
 
   // Switch to specific drawer
-  content.value[current_idx.value].classList.remove("active");
+  content.value[current_idx.value].classList.remove("item-active");
   current_idx.value = target_idx;
-  content.value[target_idx].classList.add("active");
+  content.value[target_idx].classList.add("item-active");
 
   // Update navigation
   updateNav();
@@ -285,7 +285,7 @@ nextTick(() => {
   items.value = document.querySelectorAll(".wwg-pagination .wwg-page");
 
   // Initialize: show first drawer
-  content.value[0].classList.add("active");
+  content.value[0].classList.add("item-active");
 
   // Close drawer with Escape key
   document.addEventListener("keydown", (e) => {
@@ -300,17 +300,19 @@ nextTick(() => {
   document.addEventListener("touchmove", handleTouchMove, { passive: false });
   document.addEventListener("touchend", handleTouchEnd, { passive: false });
 
-  // Close drawer on any scroll when drawer is open (simpler approach)
-  // window.addEventListener("scroll", () => {
-  //   const scrollTimeout = ref(null);
-  //   if (show_drawer.value) {
-  //     // Debounce scroll events to avoid excessive calls
-  //     clearTimeout(scrollTimeout.value);
-  //     scrollTimeout.value = setTimeout(() => {
-  //       closeDrawer();
-  //     }, 100);
-  //   }
-  // });
+  /*
+  //Close drawer on any scroll when drawer is open(simpler approach)
+  window.addEventListener("scroll", () => {
+    const scrollTimeout = ref(null);
+    if (show_drawer.value) {
+      // Debounce scroll events to avoid excessive calls
+      clearTimeout(scrollTimeout.value);
+      scrollTimeout.value = setTimeout(() => {
+        closeDrawer();
+      }, 100);
+    }
+  });
+*/
 });
 
 watch(show_drawer, (newValue) => {

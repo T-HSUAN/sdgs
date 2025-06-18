@@ -51,9 +51,9 @@
 import Swiper from "swiper";
 import { Navigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
-import { data_enterprises } from "assets/text/data.js";
+import { data_enterprises } from "assets/text/index.js";
 
-const pgwImgUrl = import.meta.env.VITE_FOLDER + "/images";
+const pgwImgUrl = import.meta.env.VITE_IMG_URL;
 const data = data_enterprises;
 
 nextTick(() => {

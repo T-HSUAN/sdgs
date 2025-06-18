@@ -22,6 +22,7 @@
     @include media-min($tab-max) {
       flex-direction: row;
       border: none;
+      border-radius: 0;
     }
   }
 
@@ -29,6 +30,7 @@
     @include media-min($tab-max) {
       flex-direction: row-reverse;
       border: none;
+      border-radius: 0;
     }
   }
 
