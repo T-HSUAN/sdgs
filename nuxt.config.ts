@@ -19,8 +19,8 @@ export default defineNuxtConfig({
     baseURL: env.VITE_FOLDER,
   },
   css: [
-    'assets/style/components/loader.scss',
-    'assets/style/all.scss',
+    'assets/styles/components/loader.scss',
+    'assets/styles/all.scss',
     'swiper/css'
   ],
   vite: {

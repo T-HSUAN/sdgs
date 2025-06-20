@@ -1,6 +1,5 @@
 @use "../helpers/variable" as *;
 @use "../helpers/mixin" as *;
-@use "sass:map";
 @use "sass:list";
 
 /* color */
@@ -71,9 +70,25 @@
   }
 }
 
+.article-heading-typewriter {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  white-space: nowrap; /* Keeps the content on a single line */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid transparent; /* The typwriter cursor */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(30, end) forwards, blink-caret 0.75s step-end 10;
+
+  @include media-min($tab-min) {
+    flex-direction: row;
+  }
+}
+
 .article-labels {
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: $sp3;
 }
 
@@ -213,6 +228,7 @@
   will-change: transform;
 
   @include media-min($tab-max) {
+    left: 20px;
     padding-block: $sp10;
   }
 }
@@ -336,37 +352,6 @@
   width: clamp(220px, 60%, 626px);
 }
 
-.img-article-label {
-  width: 40px;
-  border-radius: 5px;
-
-  @include media-min($tab-min) {
-    width: 80px;
-  }
-}
-
-/* guidance */
-.guidance-scroll {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-
-  .icon-line {
-    &--anim {
-      position: relative;
-      display: inline-block;
-      width: 1px;
-      height: 0;
-      margin-top: $sp1;
-      background: white;
-      text-shadow: 0 0 20px white;
-      animation: scroll-down 2s ease-in infinite;
-    }
-  }
-}
-
 /* icon */
 .icon-loading {
   position: absolute;
@@ -413,6 +398,32 @@
   }
 }
 
+.img-article-label {
+  width: 40px;
+  border-radius: 5px;
+
+  @include media-min($tab-min) {
+    width: 80px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.img-paragraph-label {
+  width: 40px;
+  border-radius: 5px;
+
+  @include media-min($tab-min) {
+    width: 60px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
 /* btn */
 .wwg-close {
   @include media-max(539px) {
@@ -453,4 +464,28 @@
   top: 90%;
   margin-bottom: $sp2;
   background: $bgc-primary;
+}
+
+/* guidance */
+.guidance-scroll {
+  height: 80px;
+  margin-inline: auto;
+  text-align: center;
+
+  @include media-min(425px) {
+    height: 120px;
+  }
+
+  .icon-line {
+    &--anim {
+      position: relative;
+      display: inline-block;
+      width: 1px;
+      height: 0;
+      margin-top: $sp1;
+      background: white;
+      text-shadow: 0 0 20px white;
+      animation: scroll-down 2s ease-in infinite;
+    }
+  }
 }

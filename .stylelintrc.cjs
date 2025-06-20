@@ -12,6 +12,7 @@ module.exports = {
       rules: {
         'scss/no-global-function-names': null, // 關閉此規則
         'keyframes-name-pattern': "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$", // 連字符號命名
+        'scss/dollar-variable-pattern': null,
         // 'alpha-value-notation': ["percentage", { "exceptProperties": ["opacity"] }], // 透明度值使用百分比
         // 'custom-property-pattern': ["^([a-z][a-z0-9]*)(-[a-z0-9]+)*$", { "message": "Expected custom property name to be kebab-case" }],
       }
@@ -75,6 +76,7 @@ module.exports = {
       'background-repeat',
       'background-size',
       'background-color',
+      'background-image',
       'background-clip',
       'border',
       'border-style',
@@ -110,5 +112,5 @@ module.exports = {
       'z-index'
     ],
   },
-  ignoreFiles: ["**/*.css", "**/*.js", "**/*.ts", "**/*.tsx", "**/*.jsx", "**/*.json", "**/*.html", "**/*.md", "**/*.yml", "**/*.yaml"]
+  ignoreFiles: ["**/_type.scss", "**/*.css", "**/*.js", "**/*.ts", "**/*.tsx", "**/*.jsx", "**/*.json", "**/*.html", "**/*.md", "**/*.yml", "**/*.yaml"]
 }

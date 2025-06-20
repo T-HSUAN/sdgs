@@ -10,7 +10,11 @@
     <!-- Slider main container -->
     <div class="swiper swiper-manuscript">
       <div class="swiper-wrapper">
-        <div class="swiper-slide h-auto" v-for="(data, index) in data" :key="index">
+        <div
+          class="swiper-slide h-auto"
+          v-for="(data, index) in data"
+          :key="index"
+        >
           <NuxtLink :to="'/article' + data.aspect">
             <div class="inline slide-card slide-card--row-reverse">
               <div class="inline-image">
@@ -19,7 +23,9 @@
               <div class="inline-text p-sp2 p-lg-0">
                 <h3>{{ data.title }}</h3>
                 <p>{{ data.abstract }}</p>
-                <button class="btn btn-white btn-more mt-auto ml-auto">了解更多</button>
+                <button class="btn btn-white btn-more mt-auto ml-auto">
+                  了解更多
+                </button>
               </div>
             </div>
           </NuxtLink>
@@ -27,18 +33,42 @@
       </div>
     </div>
     <div class="swiper-controls">
-      <button type="button" aria-label="Navigate to previous slide" title="Navigate to previous slide"
-        class="swiper-prev swiper-prev--a" @click="prev">
-        <svg class="swiper-icon" viewBox="0 0 24 24" role="img" aria-label="Arrow pointing to the left">
+      <button
+        type="button"
+        aria-label="Navigate to previous slide"
+        title="Navigate to previous slide"
+        class="swiper-prev swiper-prev--a"
+        @click="prev"
+      >
+        <svg
+          class="swiper-icon"
+          viewBox="0 0 24 24"
+          role="img"
+          aria-label="Arrow pointing to the left"
+        >
           <title>Arrow pointing to the left</title>
-          <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path>
+          <path
+            d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+          ></path>
         </svg>
       </button>
-      <button type="button" aria-label="Navigate to next slide" title="Navigate to next slide"
-        class="swiper-next swiper-next--a" @click="next">
-        <svg class="swiper-icon" viewBox="0 0 24 24" role="img" aria-label="Arrow pointing to the right">
+      <button
+        type="button"
+        aria-label="Navigate to next slide"
+        title="Navigate to next slide"
+        class="swiper-next swiper-next--a"
+        @click="next"
+      >
+        <svg
+          class="swiper-icon"
+          viewBox="0 0 24 24"
+          role="img"
+          aria-label="Arrow pointing to the right"
+        >
           <title>Arrow pointing to the right</title>
-          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
+          <path
+            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+          ></path>
         </svg>
       </button>
     </div>
@@ -46,16 +76,16 @@
   </section>
 </template>
 <script setup>
-import Swiper from 'swiper';
+import Swiper from "swiper";
 import "swiper/css";
 import { Navigation, Mousewheel } from "swiper/modules";
-import { data_articles } from 'assets/text/index.js';
+import { data_articles } from "assets/data/index.js";
 
 const pgwImgUrl = import.meta.env.VITE_IMG_URL;
 const data = data_articles;
 
 nextTick(() => {
-  new Swiper('.swiper-manuscript', {
+  new Swiper(".swiper-manuscript", {
     modules: [Navigation, Mousewheel],
     slidesPerView: 1,
     spaceBetween: 8,
@@ -63,8 +93,8 @@ nextTick(() => {
       releaseOnEdges: true,
     },
     navigation: {
-      nextEl: '.swiper-next--a',
-      prevEl: '.swiper-prev--a',
+      nextEl: ".swiper-next--a",
+      prevEl: ".swiper-prev--a",
     },
     breakpoints: {
       425: {
@@ -86,11 +116,10 @@ nextTick(() => {
         mousewheel: {
           releaseOnEdges: false,
         },
-      }
+      },
     },
     watchSlidesProgress: true,
     updateOnWindowResize: true,
   });
 });
-
 </script>

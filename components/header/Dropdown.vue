@@ -2,30 +2,50 @@
   <div :class="['dropdown-menu', { 'dropdown-active': d_active }]" role="menu">
     <ul class="ddm-list">
       <li>
-        <NuxtLink class="link topic-title" to="#worldwide" @click="changeState">全球SDGs進度表：誰在落後清單上？
+        <NuxtLink class="link topic-title" to="#worldwide" @click="changeState"
+          >全球SDGs進度表：誰在落後清單上？
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink class="link topic-title" to="#taiwan" @click="changeState">台灣蛋糕層</NuxtLink>
+        <NuxtLink class="link topic-title" to="#taiwan" @click="changeState"
+          >台灣蛋糕層</NuxtLink
+        >
         <div class="cake-lists-container">
-          <ul class="cake-list" v-for="(data, index) in data_sdgs_asp" :key="index">
+          <ul
+            class="cake-list"
+            v-for="(data, index) in data_sdgs_asp"
+            :key="index"
+          >
             <li :class="`cake-name fc-aspect-${data.id}`">
               {{ data.aspect }}
             </li>
-            <li v-for="(no, index) in data.label" :key="index">
-              <NuxtLink class="link cake-item" :to="'/cake' + no" @click="changeState">{{
-                data_sdgs_ww[no - 1].title
-              }}</NuxtLink>
+            <li v-for="(id, index) in data.label" :key="index">
+              <NuxtLink
+                class="link cake-item"
+                :to="'/cake' + id"
+                @click="changeState"
+                >{{ data_sdgs_ww[id - 1].title }}</NuxtLink
+              >
             </li>
           </ul>
         </div>
       </li>
       <li>
-        <NuxtLink class="link topic-title" to="#manuscript" @click="changeState">文稿篇</NuxtLink>
+        <NuxtLink class="link topic-title" to="#manuscript" @click="changeState"
+          >文稿篇</NuxtLink
+        >
         <div class="article-list swiper-header">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(data, idx) in data_sdgs_atl" :key="idx">
-              <NuxtLink class="link article-item" :to="`#article-${data.id}`" @click="changeState">
+            <div
+              class="swiper-slide"
+              v-for="(data, idx) in data_sdgs_atl"
+              :key="idx"
+            >
+              <NuxtLink
+                class="link article-item"
+                :to="`article${data.id}`"
+                @click="changeState"
+              >
                 <div class="menu-card">
                   <img :src="`${pgwImgUrl}/article/${data.img}`" />
                   <p>{{ data.title }}</p>
@@ -56,9 +76,9 @@ import {
   data_sdgs_aspect,
   data_articles,
   data_enterprises,
-} from "assets/text/index.js";
+} from "assets/data/index.js";
 
-const d_active = defineModel('d_active', { type: Boolean, default: false })
+const d_active = defineModel("d_active", { type: Boolean, default: false });
 const lightbox = useShowGoal17();
 const pgwImgUrl = import.meta.env.VITE_IMG_URL;
 const data_sdgs_asp = data_sdgs_aspect;

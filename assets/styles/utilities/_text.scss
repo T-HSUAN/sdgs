@@ -1,4 +1,6 @@
 @use "../helpers/variable" as *;
+@use "../helpers/mixin" as *;
+@use "sass:map";
 
 /* font size */
 .text-l {
@@ -18,12 +20,22 @@
 }
 
 /* text alignment */
-.text-left {
-  text-align: left;
+@each $breakpoint in map.keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    // ➤ 顯示 flex 的工具 class
+    .text-left#{$infix} {
+      text-align: left;
+    }
+    .text-center#{$infix} {
+      text-align: center;
+    }
+  }
 }
 
-.text-center {
-  text-align: center;
+.d-iflex {
+  display: inline-flex;
 }
 
 .d-iflex-row-center {

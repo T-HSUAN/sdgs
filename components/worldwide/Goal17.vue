@@ -1,5 +1,8 @@
 <template>
-  <div :class="['topic-drawer', { 'draw-opening': show_drawer }]" id="worldwide-goal">
+  <div
+    :class="['topic-drawer', { 'draw-opening': show_drawer }]"
+    id="worldwide-goal"
+  >
     <!-- Close button -->
     <header class="topic-header sr-only">
       <h3 class="heading">
@@ -12,13 +15,25 @@
       <div class="inline-image wwg-inline-image">
         <div class="lottie-goal17"></div>
       </div>
-      <div class="inline-text wwg-items pos-relative ">
+      <div class="inline-text wwg-items pos-relative">
         <div class="wwg-item item-active">
-          <img class="heading img-drawer-heading" :src="`${imgUrl}/worldwide/${data[0].title_img}`" alt="heading" />
+          <img
+            class="heading img-drawer-heading"
+            :src="`${imgUrl}/worldwide/${data[0].title_img}`"
+            alt="heading"
+          />
           <p>{{ data[0].content }}</p>
         </div>
-        <div class="wwg-item" v-for="(item, index) in data.slice(1)" :key="index">
-          <img class="heading img-drawer-heading" :src="`${imgUrl}/worldwide/${item.title_img}`" alt="heading" />
+        <div
+          class="wwg-item"
+          v-for="(item, index) in data.slice(1)"
+          :key="index"
+        >
+          <img
+            class="heading img-drawer-heading"
+            :src="`${imgUrl}/worldwide/${item.title_img}`"
+            alt="heading"
+          />
           <p>{{ item.content }}</p>
         </div>
       </div>
@@ -26,8 +41,18 @@
 
     <!-- Bottom Navigation -->
     <nav class="pagination wwg-pagination">
-      <button class="btn btn-white btn-close wwg-close" @click="show_drawer = false">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
+      <button
+        class="btn btn-white btn-close wwg-close"
+        @click="show_drawer = false"
+      >
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <line x1="9" y1="9" x2="29" y2="29" />
           <line x1="29" y1="9" x2="9" y2="29" />
         </svg>
@@ -36,7 +61,12 @@
         <p>1</p>
         <span>|</span>
       </button>
-      <button class="wwg-page btn btn-gray" v-for="(n, index) in 16" :key="index + 1" @click="goToItem(n)">
+      <button
+        class="wwg-page btn btn-gray"
+        v-for="(n, index) in 16"
+        :key="index + 1"
+        @click="goToItem(n)"
+      >
         <p>{{ n + 1 }}</p>
         <span>|</span>
       </button>
@@ -47,7 +77,7 @@
 </template>
 <script setup>
 import Lottie from "lottie-web";
-import { data_sdgs_worldwide } from "assets/text/index.js";
+import { data_sdgs_worldwide } from "assets/data/index.js";
 
 const show_drawer = useShowGoal17();
 const show_tip = ref(false);
@@ -70,7 +100,10 @@ let touch_endY = 0;
 
 // Lottie animation variables
 const lottie = ref(null);
-const frames = [15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345, 375, 405, 435, 465, 495];
+const frames = [
+  15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345, 375, 405, 435, 465,
+  495,
+];
 
 // Drawer control functions
 const closeDrawer = () => {
@@ -223,7 +256,7 @@ const handleSwipe = () => {
     Math.abs(deltaX) < maxCrossAxisDist
   ) {
     // Vertical swipe - also change drawers (better mobile UX)
-    const direction = deltaY > 0 ? -1 : 1;  // Swipe down = previous drawer, swipe up = next drawer
+    const direction = deltaY > 0 ? -1 : 1; // Swipe down = previous drawer, swipe up = next drawer
     changeItem_Swipe(direction);
   }
 };
@@ -296,7 +329,7 @@ nextTick(() => {
 
   // Add global event listeners for drawer interactions
   document.addEventListener("wheel", handleDrawerWheel, { passive: false });
-  document.addEventListener("touchstart", handleTouchStart, { passive: false, });
+  document.addEventListener("touchstart", handleTouchStart, { passive: false });
   document.addEventListener("touchmove", handleTouchMove, { passive: false });
   document.addEventListener("touchend", handleTouchEnd, { passive: false });
 
@@ -317,7 +350,7 @@ nextTick(() => {
 
 watch(show_drawer, (newValue) => {
   if (newValue) {
-    document.body.style.overflow = "hidden";// Prevent background scroll
+    document.body.style.overflow = "hidden"; // Prevent background scroll
 
     // Check if mobile touch is supported
     if (isMobileTouch()) {
@@ -343,7 +376,9 @@ watch(show_drawer, (newValue) => {
       });
     };
     // Initialize Lottie animation when drawer opens
-    if (!lottie.value) { initLottie(); }
+    if (!lottie.value) {
+      initLottie();
+    }
   } else {
     // Close drawer - reset state
     resetDrawerState();

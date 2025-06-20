@@ -7,37 +7,72 @@
         <span class="heading-en" lang="en">Taiwan Cake Layer</span>
       </h2>
     </header>
-    <div class="inline d-flex flex-column gap-10 gap-sm-15 gap-lg-0 bgc-primary">
+    <div
+      class="inline d-flex flex-column gap-10 gap-sm-15 gap-lg-0 bgc-primary"
+    >
       <div class="cake-part" v-for="(item, index) in data" :key="index">
         <div class="inline-image pos-relative text-center">
-          <img :src="`${imgUrl}/taiwan/${data[index].img}`" :class="`img-cake img-cake-${item.id}`" />
+          <img
+            :src="`${imgUrl}/taiwan/${data[index].img}`"
+            :class="`img-cake img-cake-${item.id}`"
+          />
         </div>
         <div class="inline-text cake-inline-text">
           <div class="container gsap-scroll-tw">
             <h3>{{ item.title }}</h3>
             <p v-for="p in item.content" :key="p">{{ p }}</p>
             <div class="cake-list">
-              <NuxtLink :class="[
-                'link',
-                'sdgs-card',
-                'cake-item',
-                'h-auto',
-                'bc-sdg-' + no,
-                { ['bgc-sdg-' + no]: hover_index === index },
-                { ['bgc-sdg-' + no]: isDesktop && hover_index === index },
-              ]" :to="'/cake' + no" v-for="(no, index) in item.label" :key="index" @mouseenter="hover_index = index"
-                @mouseleave="hover_index = null">
-                <img class="img-cake-label" :src="`${pgwImgUrl}/sdgs/label${no}.jpg`" :alt="`sdg ${no}`" />
+              <NuxtLink
+                :class="[
+                  'link',
+                  'sdgs-card',
+                  'cake-item',
+                  'h-auto',
+                  'bc-sdg-' + id,
+                  { ['bgc-sdg-' + id]: hover_index === index },
+                  { ['bgc-sdg-' + id]: isDesktop && hover_index === index },
+                ]"
+                :to="'/cake' + id"
+                v-for="(id, index) in item.label"
+                :key="index"
+                @mouseenter="hover_index = index"
+                @mouseleave="hover_index = null"
+              >
+                <img
+                  class="img-cake-label"
+                  :src="`${pgwImgUrl}/sdgs/label${id}.jpg`"
+                  :alt="`sdg ${id}`"
+                />
                 <div class="inline-text d-iflex-row-center gap-1">
-                  <h4>SDG {{ no }}</h4>
-                  <p>{{ data_headings[no - 1] }}</p>
-                  <svg :class="[
-                    'icon-plus',
-                    'fc-sdg-' + no,
-                    { ['fc-primary']: hover_index === index },
-                  ]" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="2" />
-                    <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" />
+                  <h4>SDG {{ id }}</h4>
+                  <p>{{ data_headings[id - 1] }}</p>
+                  <svg
+                    :class="[
+                      'icon-plus',
+                      'fc-sdg-' + id,
+                      { ['fc-primary']: hover_index === index },
+                    ]"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="12"
+                      y1="2"
+                      x2="12"
+                      y2="22"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <line
+                      x1="2"
+                      y1="12"
+                      x2="22"
+                      y2="12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
                   </svg>
                 </div>
               </NuxtLink>
@@ -49,7 +84,7 @@
   </section>
 </template>
 <script setup>
-import { data_sdgs_twcakes, data_sdgs_headings } from "assets/text/index.js";
+import { data_sdgs_twcakes, data_sdgs_headings } from "assets/data/index.js";
 
 const isDesktop = ref(null);
 const get_width = () => {
